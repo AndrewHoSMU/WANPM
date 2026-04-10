@@ -1,0 +1,304 @@
+Using device: cuda
+================================================================================
+Time-Dependent 2D Double-Peak Distribution
+================================================================================
+
+PHYSICAL PARAMETERS:
+  Diffusion coefficient: σ = 0.4
+  Time interval: [0, 1.0]
+
+INITIAL CONDITION:
+  Type: Single Gaussian
+  Mean: μ₀ = [0. 0.]
+  Std dev: σ₀ = 0.5
+  Strategy: Single blob at origin → evolves to double peaks
+
+NETWORK ARCHITECTURE:
+  Base dimension: 16
+  Hidden layers: [64, 64, 64]
+  Activation: Tanh
+
+TRAINING PARAMETERS:
+  Test functions: K = 200
+  Batch size: M = 2000
+  Epochs: 200000
+  Generator LR: 0.01 (with exponential decay γ=0.99999)
+  Test function LR: 0.05 (with exponential decay γ=0.99999)
+  Test updates: 5 every 1 epochs
+================================================================================
+
+Starting training...
+--------------------------------------------------------------------------------
+/users/andrewho/.conda/envs/torch_gpu/lib/python3.10/site-packages/torch/optim/lr_scheduler.py:224: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  warnings.warn(
+Epoch     0, Loss: 1.249458, LR_gen: 1.00e-02, LR_test: 5.00e-02
+t=0.500: mean=(-0.140,  0.020), std=(0.215, 0.181)
+Epoch  1000, Loss: 6.893635, LR_gen: 9.90e-03, LR_test: 4.95e-02
+Epoch  2000, Loss: 8.530866, LR_gen: 9.80e-03, LR_test: 4.90e-02
+Epoch  3000, Loss: nan, LR_gen: 9.70e-03, LR_test: 4.85e-02
+Epoch  4000, Loss: nan, LR_gen: 9.61e-03, LR_test: 4.80e-02
+Epoch  5000, Loss: nan, LR_gen: 9.51e-03, LR_test: 4.76e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch  6000, Loss: nan, LR_gen: 9.42e-03, LR_test: 4.71e-02
+Epoch  7000, Loss: nan, LR_gen: 9.32e-03, LR_test: 4.66e-02
+Epoch  8000, Loss: nan, LR_gen: 9.23e-03, LR_test: 4.62e-02
+Epoch  9000, Loss: nan, LR_gen: 9.14e-03, LR_test: 4.57e-02
+Epoch 10000, Loss: nan, LR_gen: 9.05e-03, LR_test: 4.52e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 11000, Loss: nan, LR_gen: 8.96e-03, LR_test: 4.48e-02
+Epoch 12000, Loss: nan, LR_gen: 8.87e-03, LR_test: 4.43e-02
+Epoch 13000, Loss: nan, LR_gen: 8.78e-03, LR_test: 4.39e-02
+Epoch 14000, Loss: nan, LR_gen: 8.69e-03, LR_test: 4.35e-02
+Epoch 15000, Loss: nan, LR_gen: 8.61e-03, LR_test: 4.30e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 16000, Loss: nan, LR_gen: 8.52e-03, LR_test: 4.26e-02
+Epoch 17000, Loss: nan, LR_gen: 8.44e-03, LR_test: 4.22e-02
+Epoch 18000, Loss: nan, LR_gen: 8.35e-03, LR_test: 4.18e-02
+Epoch 19000, Loss: nan, LR_gen: 8.27e-03, LR_test: 4.13e-02
+Epoch 20000, Loss: nan, LR_gen: 8.19e-03, LR_test: 4.09e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 21000, Loss: nan, LR_gen: 8.11e-03, LR_test: 4.05e-02
+Epoch 22000, Loss: nan, LR_gen: 8.03e-03, LR_test: 4.01e-02
+Epoch 23000, Loss: nan, LR_gen: 7.95e-03, LR_test: 3.97e-02
+Epoch 24000, Loss: nan, LR_gen: 7.87e-03, LR_test: 3.93e-02
+Epoch 25000, Loss: nan, LR_gen: 7.79e-03, LR_test: 3.89e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 26000, Loss: nan, LR_gen: 7.71e-03, LR_test: 3.86e-02
+Epoch 27000, Loss: nan, LR_gen: 7.63e-03, LR_test: 3.82e-02
+Epoch 28000, Loss: nan, LR_gen: 7.56e-03, LR_test: 3.78e-02
+Epoch 29000, Loss: nan, LR_gen: 7.48e-03, LR_test: 3.74e-02
+Epoch 30000, Loss: nan, LR_gen: 7.41e-03, LR_test: 3.70e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 31000, Loss: nan, LR_gen: 7.33e-03, LR_test: 3.67e-02
+Epoch 32000, Loss: nan, LR_gen: 7.26e-03, LR_test: 3.63e-02
+Epoch 33000, Loss: nan, LR_gen: 7.19e-03, LR_test: 3.59e-02
+Epoch 34000, Loss: nan, LR_gen: 7.12e-03, LR_test: 3.56e-02
+Epoch 35000, Loss: nan, LR_gen: 7.05e-03, LR_test: 3.52e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 36000, Loss: nan, LR_gen: 6.98e-03, LR_test: 3.49e-02
+Epoch 37000, Loss: nan, LR_gen: 6.91e-03, LR_test: 3.45e-02
+Epoch 38000, Loss: nan, LR_gen: 6.84e-03, LR_test: 3.42e-02
+Epoch 39000, Loss: nan, LR_gen: 6.77e-03, LR_test: 3.39e-02
+Epoch 40000, Loss: nan, LR_gen: 6.70e-03, LR_test: 3.35e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 41000, Loss: nan, LR_gen: 6.64e-03, LR_test: 3.32e-02
+Epoch 42000, Loss: nan, LR_gen: 6.57e-03, LR_test: 3.29e-02
+Epoch 43000, Loss: nan, LR_gen: 6.51e-03, LR_test: 3.25e-02
+Epoch 44000, Loss: nan, LR_gen: 6.44e-03, LR_test: 3.22e-02
+Epoch 45000, Loss: nan, LR_gen: 6.38e-03, LR_test: 3.19e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 46000, Loss: nan, LR_gen: 6.31e-03, LR_test: 3.16e-02
+Epoch 47000, Loss: nan, LR_gen: 6.25e-03, LR_test: 3.12e-02
+Epoch 48000, Loss: nan, LR_gen: 6.19e-03, LR_test: 3.09e-02
+Epoch 49000, Loss: nan, LR_gen: 6.13e-03, LR_test: 3.06e-02
+Epoch 50000, Loss: nan, LR_gen: 6.07e-03, LR_test: 3.03e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 51000, Loss: nan, LR_gen: 6.00e-03, LR_test: 3.00e-02
+Epoch 52000, Loss: nan, LR_gen: 5.95e-03, LR_test: 2.97e-02
+Epoch 53000, Loss: nan, LR_gen: 5.89e-03, LR_test: 2.94e-02
+Epoch 54000, Loss: nan, LR_gen: 5.83e-03, LR_test: 2.91e-02
+Epoch 55000, Loss: nan, LR_gen: 5.77e-03, LR_test: 2.88e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 56000, Loss: nan, LR_gen: 5.71e-03, LR_test: 2.86e-02
+Epoch 57000, Loss: nan, LR_gen: 5.66e-03, LR_test: 2.83e-02
+Epoch 58000, Loss: nan, LR_gen: 5.60e-03, LR_test: 2.80e-02
+Epoch 59000, Loss: nan, LR_gen: 5.54e-03, LR_test: 2.77e-02
+Epoch 60000, Loss: nan, LR_gen: 5.49e-03, LR_test: 2.74e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 61000, Loss: nan, LR_gen: 5.43e-03, LR_test: 2.72e-02
+Epoch 62000, Loss: nan, LR_gen: 5.38e-03, LR_test: 2.69e-02
+Epoch 63000, Loss: nan, LR_gen: 5.33e-03, LR_test: 2.66e-02
+Epoch 64000, Loss: nan, LR_gen: 5.27e-03, LR_test: 2.64e-02
+Epoch 65000, Loss: nan, LR_gen: 5.22e-03, LR_test: 2.61e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 66000, Loss: nan, LR_gen: 5.17e-03, LR_test: 2.58e-02
+Epoch 67000, Loss: nan, LR_gen: 5.12e-03, LR_test: 2.56e-02
+Epoch 68000, Loss: nan, LR_gen: 5.07e-03, LR_test: 2.53e-02
+Epoch 69000, Loss: nan, LR_gen: 5.02e-03, LR_test: 2.51e-02
+Epoch 70000, Loss: nan, LR_gen: 4.97e-03, LR_test: 2.48e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 71000, Loss: nan, LR_gen: 4.92e-03, LR_test: 2.46e-02
+Epoch 72000, Loss: nan, LR_gen: 4.87e-03, LR_test: 2.43e-02
+Epoch 73000, Loss: nan, LR_gen: 4.82e-03, LR_test: 2.41e-02
+Epoch 74000, Loss: nan, LR_gen: 4.77e-03, LR_test: 2.39e-02
+Epoch 75000, Loss: nan, LR_gen: 4.72e-03, LR_test: 2.36e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 76000, Loss: nan, LR_gen: 4.68e-03, LR_test: 2.34e-02
+Epoch 77000, Loss: nan, LR_gen: 4.63e-03, LR_test: 2.32e-02
+Epoch 78000, Loss: nan, LR_gen: 4.58e-03, LR_test: 2.29e-02
+Epoch 79000, Loss: nan, LR_gen: 4.54e-03, LR_test: 2.27e-02
+Epoch 80000, Loss: nan, LR_gen: 4.49e-03, LR_test: 2.25e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 81000, Loss: nan, LR_gen: 4.45e-03, LR_test: 2.22e-02
+Epoch 82000, Loss: nan, LR_gen: 4.40e-03, LR_test: 2.20e-02
+Epoch 83000, Loss: nan, LR_gen: 4.36e-03, LR_test: 2.18e-02
+Epoch 84000, Loss: nan, LR_gen: 4.32e-03, LR_test: 2.16e-02
+Epoch 85000, Loss: nan, LR_gen: 4.27e-03, LR_test: 2.14e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 86000, Loss: nan, LR_gen: 4.23e-03, LR_test: 2.12e-02
+Epoch 87000, Loss: nan, LR_gen: 4.19e-03, LR_test: 2.09e-02
+Epoch 88000, Loss: nan, LR_gen: 4.15e-03, LR_test: 2.07e-02
+Epoch 89000, Loss: nan, LR_gen: 4.11e-03, LR_test: 2.05e-02
+Epoch 90000, Loss: nan, LR_gen: 4.07e-03, LR_test: 2.03e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 91000, Loss: nan, LR_gen: 4.03e-03, LR_test: 2.01e-02
+Epoch 92000, Loss: nan, LR_gen: 3.99e-03, LR_test: 1.99e-02
+Epoch 93000, Loss: nan, LR_gen: 3.95e-03, LR_test: 1.97e-02
+Epoch 94000, Loss: nan, LR_gen: 3.91e-03, LR_test: 1.95e-02
+Epoch 95000, Loss: nan, LR_gen: 3.87e-03, LR_test: 1.93e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 96000, Loss: nan, LR_gen: 3.83e-03, LR_test: 1.91e-02
+Epoch 97000, Loss: nan, LR_gen: 3.79e-03, LR_test: 1.90e-02
+Epoch 98000, Loss: nan, LR_gen: 3.75e-03, LR_test: 1.88e-02
+Epoch 99000, Loss: nan, LR_gen: 3.72e-03, LR_test: 1.86e-02
+Epoch 100000, Loss: nan, LR_gen: 3.68e-03, LR_test: 1.84e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 101000, Loss: nan, LR_gen: 3.64e-03, LR_test: 1.82e-02
+Epoch 102000, Loss: nan, LR_gen: 3.61e-03, LR_test: 1.80e-02
+Epoch 103000, Loss: nan, LR_gen: 3.57e-03, LR_test: 1.79e-02
+Epoch 104000, Loss: nan, LR_gen: 3.53e-03, LR_test: 1.77e-02
+Epoch 105000, Loss: nan, LR_gen: 3.50e-03, LR_test: 1.75e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 106000, Loss: nan, LR_gen: 3.46e-03, LR_test: 1.73e-02
+Epoch 107000, Loss: nan, LR_gen: 3.43e-03, LR_test: 1.72e-02
+Epoch 108000, Loss: nan, LR_gen: 3.40e-03, LR_test: 1.70e-02
+Epoch 109000, Loss: nan, LR_gen: 3.36e-03, LR_test: 1.68e-02
+Epoch 110000, Loss: nan, LR_gen: 3.33e-03, LR_test: 1.66e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 111000, Loss: nan, LR_gen: 3.30e-03, LR_test: 1.65e-02
+Epoch 112000, Loss: nan, LR_gen: 3.26e-03, LR_test: 1.63e-02
+Epoch 113000, Loss: nan, LR_gen: 3.23e-03, LR_test: 1.62e-02
+Epoch 114000, Loss: nan, LR_gen: 3.20e-03, LR_test: 1.60e-02
+Epoch 115000, Loss: nan, LR_gen: 3.17e-03, LR_test: 1.58e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 116000, Loss: nan, LR_gen: 3.13e-03, LR_test: 1.57e-02
+Epoch 117000, Loss: nan, LR_gen: 3.10e-03, LR_test: 1.55e-02
+Epoch 118000, Loss: nan, LR_gen: 3.07e-03, LR_test: 1.54e-02
+Epoch 119000, Loss: nan, LR_gen: 3.04e-03, LR_test: 1.52e-02
+Epoch 120000, Loss: nan, LR_gen: 3.01e-03, LR_test: 1.51e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 121000, Loss: nan, LR_gen: 2.98e-03, LR_test: 1.49e-02
+Epoch 122000, Loss: nan, LR_gen: 2.95e-03, LR_test: 1.48e-02
+Epoch 123000, Loss: nan, LR_gen: 2.92e-03, LR_test: 1.46e-02
+Epoch 124000, Loss: nan, LR_gen: 2.89e-03, LR_test: 1.45e-02
+Epoch 125000, Loss: nan, LR_gen: 2.87e-03, LR_test: 1.43e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 126000, Loss: nan, LR_gen: 2.84e-03, LR_test: 1.42e-02
+Epoch 127000, Loss: nan, LR_gen: 2.81e-03, LR_test: 1.40e-02
+Epoch 128000, Loss: nan, LR_gen: 2.78e-03, LR_test: 1.39e-02
+Epoch 129000, Loss: nan, LR_gen: 2.75e-03, LR_test: 1.38e-02
+Epoch 130000, Loss: nan, LR_gen: 2.73e-03, LR_test: 1.36e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 131000, Loss: nan, LR_gen: 2.70e-03, LR_test: 1.35e-02
+Epoch 132000, Loss: nan, LR_gen: 2.67e-03, LR_test: 1.34e-02
+Epoch 133000, Loss: nan, LR_gen: 2.64e-03, LR_test: 1.32e-02
+Epoch 134000, Loss: nan, LR_gen: 2.62e-03, LR_test: 1.31e-02
+Epoch 135000, Loss: nan, LR_gen: 2.59e-03, LR_test: 1.30e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 136000, Loss: nan, LR_gen: 2.57e-03, LR_test: 1.28e-02
+Epoch 137000, Loss: nan, LR_gen: 2.54e-03, LR_test: 1.27e-02
+Epoch 138000, Loss: nan, LR_gen: 2.52e-03, LR_test: 1.26e-02
+Epoch 139000, Loss: nan, LR_gen: 2.49e-03, LR_test: 1.25e-02
+Epoch 140000, Loss: nan, LR_gen: 2.47e-03, LR_test: 1.23e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 141000, Loss: nan, LR_gen: 2.44e-03, LR_test: 1.22e-02
+Epoch 142000, Loss: nan, LR_gen: 2.42e-03, LR_test: 1.21e-02
+Epoch 143000, Loss: nan, LR_gen: 2.39e-03, LR_test: 1.20e-02
+Epoch 144000, Loss: nan, LR_gen: 2.37e-03, LR_test: 1.18e-02
+Epoch 145000, Loss: nan, LR_gen: 2.35e-03, LR_test: 1.17e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 146000, Loss: nan, LR_gen: 2.32e-03, LR_test: 1.16e-02
+Epoch 147000, Loss: nan, LR_gen: 2.30e-03, LR_test: 1.15e-02
+Epoch 148000, Loss: nan, LR_gen: 2.28e-03, LR_test: 1.14e-02
+Epoch 149000, Loss: nan, LR_gen: 2.25e-03, LR_test: 1.13e-02
+Epoch 150000, Loss: nan, LR_gen: 2.23e-03, LR_test: 1.12e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 151000, Loss: nan, LR_gen: 2.21e-03, LR_test: 1.10e-02
+Epoch 152000, Loss: nan, LR_gen: 2.19e-03, LR_test: 1.09e-02
+Epoch 153000, Loss: nan, LR_gen: 2.17e-03, LR_test: 1.08e-02
+Epoch 154000, Loss: nan, LR_gen: 2.14e-03, LR_test: 1.07e-02
+Epoch 155000, Loss: nan, LR_gen: 2.12e-03, LR_test: 1.06e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 156000, Loss: nan, LR_gen: 2.10e-03, LR_test: 1.05e-02
+Epoch 157000, Loss: nan, LR_gen: 2.08e-03, LR_test: 1.04e-02
+Epoch 158000, Loss: nan, LR_gen: 2.06e-03, LR_test: 1.03e-02
+Epoch 159000, Loss: nan, LR_gen: 2.04e-03, LR_test: 1.02e-02
+Epoch 160000, Loss: nan, LR_gen: 2.02e-03, LR_test: 1.01e-02
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 161000, Loss: nan, LR_gen: 2.00e-03, LR_test: 9.99e-03
+Epoch 162000, Loss: nan, LR_gen: 1.98e-03, LR_test: 9.89e-03
+Epoch 163000, Loss: nan, LR_gen: 1.96e-03, LR_test: 9.80e-03
+Epoch 164000, Loss: nan, LR_gen: 1.94e-03, LR_test: 9.70e-03
+Epoch 165000, Loss: nan, LR_gen: 1.92e-03, LR_test: 9.60e-03
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 166000, Loss: nan, LR_gen: 1.90e-03, LR_test: 9.51e-03
+Epoch 167000, Loss: nan, LR_gen: 1.88e-03, LR_test: 9.41e-03
+Epoch 168000, Loss: nan, LR_gen: 1.86e-03, LR_test: 9.32e-03
+Epoch 169000, Loss: nan, LR_gen: 1.85e-03, LR_test: 9.23e-03
+Epoch 170000, Loss: nan, LR_gen: 1.83e-03, LR_test: 9.13e-03
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 171000, Loss: nan, LR_gen: 1.81e-03, LR_test: 9.04e-03
+Epoch 172000, Loss: nan, LR_gen: 1.79e-03, LR_test: 8.95e-03
+Epoch 173000, Loss: nan, LR_gen: 1.77e-03, LR_test: 8.86e-03
+Epoch 174000, Loss: nan, LR_gen: 1.76e-03, LR_test: 8.78e-03
+Epoch 175000, Loss: nan, LR_gen: 1.74e-03, LR_test: 8.69e-03
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 176000, Loss: nan, LR_gen: 1.72e-03, LR_test: 8.60e-03
+Epoch 177000, Loss: nan, LR_gen: 1.70e-03, LR_test: 8.52e-03
+Epoch 178000, Loss: nan, LR_gen: 1.69e-03, LR_test: 8.43e-03
+Epoch 179000, Loss: nan, LR_gen: 1.67e-03, LR_test: 8.35e-03
+Epoch 180000, Loss: nan, LR_gen: 1.65e-03, LR_test: 8.26e-03
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 181000, Loss: nan, LR_gen: 1.64e-03, LR_test: 8.18e-03
+Epoch 182000, Loss: nan, LR_gen: 1.62e-03, LR_test: 8.10e-03
+Epoch 183000, Loss: nan, LR_gen: 1.60e-03, LR_test: 8.02e-03
+Epoch 184000, Loss: nan, LR_gen: 1.59e-03, LR_test: 7.94e-03
+Epoch 185000, Loss: nan, LR_gen: 1.57e-03, LR_test: 7.86e-03
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 186000, Loss: nan, LR_gen: 1.56e-03, LR_test: 7.78e-03
+Epoch 187000, Loss: nan, LR_gen: 1.54e-03, LR_test: 7.71e-03
+Epoch 188000, Loss: nan, LR_gen: 1.53e-03, LR_test: 7.63e-03
+Epoch 189000, Loss: nan, LR_gen: 1.51e-03, LR_test: 7.55e-03
+Epoch 190000, Loss: nan, LR_gen: 1.50e-03, LR_test: 7.48e-03
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 191000, Loss: nan, LR_gen: 1.48e-03, LR_test: 7.40e-03
+Epoch 192000, Loss: nan, LR_gen: 1.47e-03, LR_test: 7.33e-03
+Epoch 193000, Loss: nan, LR_gen: 1.45e-03, LR_test: 7.26e-03
+Epoch 194000, Loss: nan, LR_gen: 1.44e-03, LR_test: 7.19e-03
+Epoch 195000, Loss: nan, LR_gen: 1.42e-03, LR_test: 7.11e-03
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+Epoch 196000, Loss: nan, LR_gen: 1.41e-03, LR_test: 7.04e-03
+Epoch 197000, Loss: nan, LR_gen: 1.39e-03, LR_test: 6.97e-03
+Epoch 198000, Loss: nan, LR_gen: 1.38e-03, LR_test: 6.90e-03
+Epoch 199000, Loss: nan, LR_gen: 1.37e-03, LR_test: 6.83e-03
+Epoch 199999, Loss: nan, LR_gen: 1.35e-03, LR_test: 6.77e-03
+
+Training completed!
+
+================================================================================
+Final Statistics at Different Times:
+--------------------------------------------------------------------------------
+t=0.010: mean=(   nan,    nan), std=(nan, nan)
+t=0.200: mean=(   nan,    nan), std=(nan, nan)
+t=0.500: mean=(   nan,    nan), std=(nan, nan)
+t=0.800: mean=(   nan,    nan), std=(nan, nan)
+t=1.000: mean=(   nan,    nan), std=(nan, nan)
+
+================================================================================
+Generating visualizations...
+================================================================================
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+
+================================================================================
+All done! Generated plots:
+  1. double_peak_2d_time_loss.png
+  2. double_peak_2d_time_distributions.png
+  3. double_peak_2d_mean_evolution.png
+================================================================================

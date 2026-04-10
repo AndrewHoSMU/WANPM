@@ -1,0 +1,444 @@
+Using device: cuda
+======================================================================
+Time-Dependent 1D Double Well Fokker-Planck
+======================================================================
+Parameters: σ=0.5, T=1.0
+Potential: V(x) = (x² - 1)²
+Drift: b(x) = -4x³ + 4x
+Initial condition: N(0.0, 1.0)
+Training: K=5000 test functions, M=5000 batch size, 200000 epochs
+======================================================================
+Saved: results_doublewell1d/potential_drift.png
+
+Initializing networks...
+Pushforward network parameters: 449
+Test functions parameters: 15,000
+
+Starting training...
+----------------------------------------------------------------------
+Epoch     0/200000, Loss: 0.832158, t=0.5: mean=-1.4231, std=1.2104, Time/epoch: 0.150s, ETA: 498.7min
+Epoch   500/200000, Loss: 0.901479, t=0.5: mean=-0.0221, std=1.0314, Time/epoch: 0.004s, ETA: 12.3min
+Epoch  1000/200000, Loss: 0.977360, t=0.5: mean=0.0281, std=1.0453, Time/epoch: 0.004s, ETA: 12.2min
+Epoch  1500/200000, Loss: 0.879795, t=0.5: mean=-0.0334, std=0.9827, Time/epoch: 0.004s, ETA: 12.1min
+Epoch  2000/200000, Loss: 1.071054, t=0.5: mean=-0.0227, std=0.9996, Time/epoch: 0.004s, ETA: 12.1min
+Epoch  2500/200000, Loss: 1.043288, t=0.5: mean=-0.0161, std=0.9934, Time/epoch: 0.004s, ETA: 12.1min
+Epoch  3000/200000, Loss: 1.521027, t=0.5: mean=0.0108, std=1.1234, Time/epoch: 0.004s, ETA: 12.0min
+Epoch  3500/200000, Loss: 0.839431, t=0.5: mean=-0.0557, std=0.9635, Time/epoch: 0.004s, ETA: 12.0min
+Epoch  4000/200000, Loss: 1.237741, t=0.5: mean=0.0431, std=0.9734, Time/epoch: 0.004s, ETA: 12.0min
+Epoch  4500/200000, Loss: 1.129655, t=0.5: mean=0.0562, std=1.0295, Time/epoch: 0.004s, ETA: 12.0min
+Epoch  5000/200000, Loss: 1.123614, t=0.5: mean=0.0413, std=0.9782, Time/epoch: 0.004s, ETA: 11.9min
+Epoch  5500/200000, Loss: 1.262437, t=0.5: mean=-0.0317, std=1.0239, Time/epoch: 0.004s, ETA: 11.9min
+Epoch  6000/200000, Loss: 1.286014, t=0.5: mean=0.0803, std=0.9869, Time/epoch: 0.004s, ETA: 11.8min
+Epoch  6500/200000, Loss: 1.470204, t=0.5: mean=-0.0013, std=1.0011, Time/epoch: 0.004s, ETA: 11.8min
+Epoch  7000/200000, Loss: 1.301795, t=0.5: mean=0.0206, std=1.0013, Time/epoch: 0.004s, ETA: 11.8min
+Epoch  7500/200000, Loss: 1.545369, t=0.5: mean=-0.0360, std=0.9902, Time/epoch: 0.004s, ETA: 11.7min
+Epoch  8000/200000, Loss: 1.411869, t=0.5: mean=-0.0231, std=0.9621, Time/epoch: 0.004s, ETA: 11.7min
+Epoch  8500/200000, Loss: 1.742716, t=0.5: mean=-0.0280, std=1.0115, Time/epoch: 0.004s, ETA: 11.7min
+Epoch  9000/200000, Loss: 1.289049, t=0.5: mean=0.0740, std=0.9961, Time/epoch: 0.004s, ETA: 11.7min
+Epoch  9500/200000, Loss: 1.674509, t=0.5: mean=0.0012, std=1.0349, Time/epoch: 0.004s, ETA: 11.7min
+Epoch 10000/200000, Loss: 1.527686, t=0.5: mean=-0.0492, std=0.9897, Time/epoch: 0.004s, ETA: 11.6min
+Epoch 10500/200000, Loss: 1.794361, t=0.5: mean=-0.0262, std=0.9663, Time/epoch: 0.004s, ETA: 11.6min
+Epoch 11000/200000, Loss: 1.881636, t=0.5: mean=0.1242, std=0.9969, Time/epoch: 0.004s, ETA: 11.6min
+Epoch 11500/200000, Loss: 1.666507, t=0.5: mean=0.0221, std=0.9792, Time/epoch: 0.004s, ETA: 11.5min
+Epoch 12000/200000, Loss: 1.665471, t=0.5: mean=-0.0049, std=0.9993, Time/epoch: 0.004s, ETA: 11.5min
+Epoch 12500/200000, Loss: 1.903991, t=0.5: mean=0.1172, std=0.9780, Time/epoch: 0.004s, ETA: 11.5min
+Epoch 13000/200000, Loss: 1.725331, t=0.5: mean=-0.1029, std=1.0134, Time/epoch: 0.004s, ETA: 11.4min
+Epoch 13500/200000, Loss: 1.858002, t=0.5: mean=-0.0313, std=1.0060, Time/epoch: 0.004s, ETA: 11.4min
+Epoch 14000/200000, Loss: 2.053149, t=0.5: mean=0.0077, std=0.9903, Time/epoch: 0.004s, ETA: 11.3min
+Epoch 14500/200000, Loss: 2.111810, t=0.5: mean=-0.0240, std=0.9793, Time/epoch: 0.004s, ETA: 11.3min
+Epoch 15000/200000, Loss: 1.967435, t=0.5: mean=-0.0110, std=1.0151, Time/epoch: 0.004s, ETA: 11.3min
+Epoch 15500/200000, Loss: 2.134817, t=0.5: mean=0.0076, std=1.0030, Time/epoch: 0.004s, ETA: 11.3min
+Epoch 16000/200000, Loss: 2.142319, t=0.5: mean=-0.0916, std=1.0150, Time/epoch: 0.004s, ETA: 11.3min
+Epoch 16500/200000, Loss: 2.267150, t=0.5: mean=0.0478, std=1.0133, Time/epoch: 0.004s, ETA: 11.2min
+Epoch 17000/200000, Loss: 1.832867, t=0.5: mean=-0.0921, std=1.0098, Time/epoch: 0.004s, ETA: 11.2min
+Epoch 17500/200000, Loss: 2.587235, t=0.5: mean=0.0247, std=1.0344, Time/epoch: 0.004s, ETA: 11.2min
+Epoch 18000/200000, Loss: 2.020352, t=0.5: mean=0.0051, std=1.0317, Time/epoch: 0.004s, ETA: 11.1min
+Epoch 18500/200000, Loss: 2.197796, t=0.5: mean=0.0269, std=1.0227, Time/epoch: 0.004s, ETA: 11.1min
+Epoch 19000/200000, Loss: 2.348348, t=0.5: mean=0.0683, std=1.0185, Time/epoch: 0.004s, ETA: 11.1min
+Epoch 19500/200000, Loss: 2.324174, t=0.5: mean=0.0118, std=1.0107, Time/epoch: 0.004s, ETA: 11.0min
+Epoch 20000/200000, Loss: 2.344146, t=0.5: mean=-0.0177, std=0.9776, Time/epoch: 0.004s, ETA: 11.0min
+Epoch 20500/200000, Loss: 2.065274, t=0.5: mean=0.0554, std=0.9825, Time/epoch: 0.004s, ETA: 11.0min
+Epoch 21000/200000, Loss: 2.028018, t=0.5: mean=-0.0835, std=0.9848, Time/epoch: 0.004s, ETA: 10.9min
+Epoch 21500/200000, Loss: 2.367973, t=0.5: mean=0.0289, std=1.0254, Time/epoch: 0.004s, ETA: 10.9min
+Epoch 22000/200000, Loss: 2.375154, t=0.5: mean=-0.0639, std=0.9703, Time/epoch: 0.004s, ETA: 10.9min
+Epoch 22500/200000, Loss: 2.361917, t=0.5: mean=0.1168, std=1.0447, Time/epoch: 0.004s, ETA: 10.8min
+Epoch 23000/200000, Loss: 2.877986, t=0.5: mean=-0.0237, std=1.0035, Time/epoch: 0.004s, ETA: 10.8min
+Epoch 23500/200000, Loss: 2.652452, t=0.5: mean=-0.0038, std=0.9997, Time/epoch: 0.004s, ETA: 10.8min
+Epoch 24000/200000, Loss: 2.725863, t=0.5: mean=-0.1210, std=0.9801, Time/epoch: 0.004s, ETA: 10.8min
+Epoch 24500/200000, Loss: 2.986120, t=0.5: mean=0.0576, std=0.9982, Time/epoch: 0.004s, ETA: 10.7min
+Epoch 25000/200000, Loss: 2.655244, t=0.5: mean=0.0514, std=1.0534, Time/epoch: 0.004s, ETA: 10.7min
+Epoch 25500/200000, Loss: 2.784026, t=0.5: mean=0.0156, std=1.0133, Time/epoch: 0.004s, ETA: 10.7min
+Epoch 26000/200000, Loss: 2.983353, t=0.5: mean=0.0417, std=1.0402, Time/epoch: 0.004s, ETA: 10.6min
+Epoch 26500/200000, Loss: 2.743206, t=0.5: mean=-0.0148, std=0.9749, Time/epoch: 0.004s, ETA: 10.6min
+Epoch 27000/200000, Loss: 2.681875, t=0.5: mean=0.0149, std=1.0495, Time/epoch: 0.004s, ETA: 10.6min
+Epoch 27500/200000, Loss: 2.902898, t=0.5: mean=0.0137, std=0.9886, Time/epoch: 0.004s, ETA: 10.5min
+Epoch 28000/200000, Loss: 2.691329, t=0.5: mean=0.0549, std=1.0017, Time/epoch: 0.004s, ETA: 10.5min
+Epoch 28500/200000, Loss: 2.466594, t=0.5: mean=-0.0007, std=1.0320, Time/epoch: 0.004s, ETA: 10.5min
+Epoch 29000/200000, Loss: 3.175561, t=0.5: mean=0.0645, std=1.0233, Time/epoch: 0.004s, ETA: 10.5min
+Epoch 29500/200000, Loss: 2.664812, t=0.5: mean=-0.0239, std=0.9737, Time/epoch: 0.004s, ETA: 10.4min
+Epoch 30000/200000, Loss: 2.443622, t=0.5: mean=0.0277, std=1.0137, Time/epoch: 0.004s, ETA: 10.4min
+Epoch 30500/200000, Loss: 3.086711, t=0.5: mean=-0.0242, std=0.9986, Time/epoch: 0.004s, ETA: 10.4min
+Epoch 31000/200000, Loss: 2.739701, t=0.5: mean=-0.0954, std=1.0403, Time/epoch: 0.004s, ETA: 10.4min
+Epoch 31500/200000, Loss: 3.888708, t=0.5: mean=-0.0769, std=1.0025, Time/epoch: 0.004s, ETA: 10.3min
+Epoch 32000/200000, Loss: 2.831540, t=0.5: mean=-0.0365, std=1.0082, Time/epoch: 0.004s, ETA: 10.3min
+Epoch 32500/200000, Loss: 3.408183, t=0.5: mean=-0.0005, std=0.9620, Time/epoch: 0.004s, ETA: 10.2min
+Epoch 33000/200000, Loss: 2.553019, t=0.5: mean=0.1063, std=1.0276, Time/epoch: 0.004s, ETA: 10.2min
+Epoch 33500/200000, Loss: 3.389521, t=0.5: mean=0.0373, std=1.0158, Time/epoch: 0.004s, ETA: 10.2min
+Epoch 34000/200000, Loss: 2.844103, t=0.5: mean=0.0251, std=1.0048, Time/epoch: 0.004s, ETA: 10.2min
+Epoch 34500/200000, Loss: 2.988532, t=0.5: mean=0.0625, std=1.0069, Time/epoch: 0.004s, ETA: 10.1min
+Epoch 35000/200000, Loss: 2.540994, t=0.5: mean=-0.0182, std=1.0078, Time/epoch: 0.004s, ETA: 10.1min
+Epoch 35500/200000, Loss: 3.444145, t=0.5: mean=-0.0430, std=1.0288, Time/epoch: 0.004s, ETA: 10.1min
+Epoch 36000/200000, Loss: 2.907162, t=0.5: mean=-0.0469, std=1.0250, Time/epoch: 0.004s, ETA: 10.0min
+Epoch 36500/200000, Loss: 2.939493, t=0.5: mean=-0.0276, std=0.9932, Time/epoch: 0.004s, ETA: 10.0min
+Epoch 37000/200000, Loss: 3.624025, t=0.5: mean=0.0735, std=1.0311, Time/epoch: 0.004s, ETA: 10.0min
+Epoch 37500/200000, Loss: 2.997313, t=0.5: mean=0.0584, std=0.9822, Time/epoch: 0.004s, ETA: 10.0min
+Epoch 38000/200000, Loss: 3.051532, t=0.5: mean=-0.0279, std=0.9788, Time/epoch: 0.004s, ETA: 9.9min
+Epoch 38500/200000, Loss: 3.249006, t=0.5: mean=-0.0835, std=0.9994, Time/epoch: 0.004s, ETA: 9.9min
+Epoch 39000/200000, Loss: 2.942755, t=0.5: mean=-0.0270, std=1.0243, Time/epoch: 0.004s, ETA: 9.8min
+Epoch 39500/200000, Loss: 3.954574, t=0.5: mean=0.0407, std=1.0399, Time/epoch: 0.004s, ETA: 9.8min
+Epoch 40000/200000, Loss: 2.644924, t=0.5: mean=0.0114, std=1.0161, Time/epoch: 0.004s, ETA: 9.8min
+Epoch 40500/200000, Loss: 2.727582, t=0.5: mean=-0.0043, std=1.0339, Time/epoch: 0.004s, ETA: 9.8min
+Epoch 41000/200000, Loss: 3.048485, t=0.5: mean=-0.0060, std=1.0297, Time/epoch: 0.004s, ETA: 9.7min
+Epoch 41500/200000, Loss: 3.115768, t=0.5: mean=-0.0171, std=1.0238, Time/epoch: 0.004s, ETA: 9.7min
+Epoch 42000/200000, Loss: 3.105152, t=0.5: mean=0.0670, std=1.0144, Time/epoch: 0.004s, ETA: 9.7min
+Epoch 42500/200000, Loss: 3.508080, t=0.5: mean=0.0033, std=1.0334, Time/epoch: 0.004s, ETA: 9.7min
+Epoch 43000/200000, Loss: 3.484947, t=0.5: mean=-0.0472, std=0.9824, Time/epoch: 0.004s, ETA: 9.6min
+Epoch 43500/200000, Loss: 3.345823, t=0.5: mean=-0.0118, std=1.0070, Time/epoch: 0.004s, ETA: 9.6min
+Epoch 44000/200000, Loss: 3.231687, t=0.5: mean=-0.0292, std=1.0432, Time/epoch: 0.004s, ETA: 9.6min
+Epoch 44500/200000, Loss: 3.094047, t=0.5: mean=0.0720, std=1.0181, Time/epoch: 0.004s, ETA: 9.5min
+Epoch 45000/200000, Loss: 3.953773, t=0.5: mean=0.0276, std=0.9952, Time/epoch: 0.004s, ETA: 9.5min
+Epoch 45500/200000, Loss: 3.691110, t=0.5: mean=0.0204, std=0.9514, Time/epoch: 0.004s, ETA: 9.4min
+Epoch 46000/200000, Loss: 3.953878, t=0.5: mean=-0.0258, std=1.0086, Time/epoch: 0.004s, ETA: 9.4min
+Epoch 46500/200000, Loss: 3.534294, t=0.5: mean=-0.1070, std=1.0235, Time/epoch: 0.004s, ETA: 9.4min
+Epoch 47000/200000, Loss: 3.806915, t=0.5: mean=-0.0064, std=0.9826, Time/epoch: 0.004s, ETA: 9.4min
+Epoch 47500/200000, Loss: 3.687677, t=0.5: mean=-0.0746, std=0.9909, Time/epoch: 0.004s, ETA: 9.3min
+Epoch 48000/200000, Loss: 3.290637, t=0.5: mean=0.0695, std=1.0398, Time/epoch: 0.004s, ETA: 9.3min
+Epoch 48500/200000, Loss: 3.247653, t=0.5: mean=-0.0663, std=0.9788, Time/epoch: 0.004s, ETA: 9.3min
+Epoch 49000/200000, Loss: 3.659322, t=0.5: mean=-0.0117, std=1.0443, Time/epoch: 0.004s, ETA: 9.2min
+Epoch 49500/200000, Loss: 3.853467, t=0.5: mean=-0.0944, std=0.9999, Time/epoch: 0.004s, ETA: 9.2min
+Epoch 50000/200000, Loss: 3.827618, t=0.5: mean=0.0604, std=1.0260, Time/epoch: 0.004s, ETA: 9.2min
+Epoch 50500/200000, Loss: 3.195850, t=0.5: mean=-0.0254, std=1.0050, Time/epoch: 0.004s, ETA: 9.1min
+Epoch 51000/200000, Loss: 3.691784, t=0.5: mean=0.0214, std=1.0277, Time/epoch: 0.004s, ETA: 9.1min
+Epoch 51500/200000, Loss: 2.900785, t=0.5: mean=0.0579, std=1.0072, Time/epoch: 0.004s, ETA: 9.1min
+Epoch 52000/200000, Loss: 3.671777, t=0.5: mean=-0.1291, std=0.9962, Time/epoch: 0.004s, ETA: 9.0min
+Epoch 52500/200000, Loss: 4.185649, t=0.5: mean=-0.1162, std=1.0381, Time/epoch: 0.004s, ETA: 9.0min
+Epoch 53000/200000, Loss: 3.405452, t=0.5: mean=-0.0768, std=1.0204, Time/epoch: 0.004s, ETA: 9.0min
+Epoch 53500/200000, Loss: 3.232847, t=0.5: mean=0.0197, std=1.0499, Time/epoch: 0.004s, ETA: 9.0min
+Epoch 54000/200000, Loss: 3.734332, t=0.5: mean=0.0529, std=1.0171, Time/epoch: 0.004s, ETA: 8.9min
+Epoch 54500/200000, Loss: 3.998596, t=0.5: mean=-0.0841, std=1.0032, Time/epoch: 0.004s, ETA: 8.9min
+Epoch 55000/200000, Loss: 4.075054, t=0.5: mean=0.0047, std=1.0010, Time/epoch: 0.004s, ETA: 8.8min
+Epoch 55500/200000, Loss: 4.235176, t=0.5: mean=0.0212, std=1.0203, Time/epoch: 0.004s, ETA: 8.8min
+Epoch 56000/200000, Loss: 3.337173, t=0.5: mean=-0.0833, std=1.0419, Time/epoch: 0.004s, ETA: 8.8min
+Epoch 56500/200000, Loss: 3.629235, t=0.5: mean=-0.0771, std=1.0502, Time/epoch: 0.004s, ETA: 8.8min
+Epoch 57000/200000, Loss: 3.426308, t=0.5: mean=-0.0399, std=1.0457, Time/epoch: 0.004s, ETA: 8.7min
+Epoch 57500/200000, Loss: 3.570096, t=0.5: mean=0.1274, std=1.0076, Time/epoch: 0.004s, ETA: 8.7min
+Epoch 58000/200000, Loss: 3.860046, t=0.5: mean=0.0714, std=1.0024, Time/epoch: 0.004s, ETA: 8.7min
+Epoch 58500/200000, Loss: 3.417730, t=0.5: mean=0.0289, std=1.0113, Time/epoch: 0.004s, ETA: 8.6min
+Epoch 59000/200000, Loss: 3.503369, t=0.5: mean=-0.0403, std=1.0080, Time/epoch: 0.004s, ETA: 8.6min
+Epoch 59500/200000, Loss: 4.087976, t=0.5: mean=-0.0511, std=0.9778, Time/epoch: 0.004s, ETA: 8.6min
+Epoch 60000/200000, Loss: 3.330955, t=0.5: mean=0.0760, std=1.0344, Time/epoch: 0.004s, ETA: 8.6min
+Epoch 60500/200000, Loss: 4.031977, t=0.5: mean=-0.0930, std=0.9850, Time/epoch: 0.004s, ETA: 8.5min
+Epoch 61000/200000, Loss: 3.351306, t=0.5: mean=0.0755, std=1.0108, Time/epoch: 0.004s, ETA: 8.5min
+Epoch 61500/200000, Loss: 3.876664, t=0.5: mean=-0.0620, std=1.0339, Time/epoch: 0.004s, ETA: 8.4min
+Epoch 62000/200000, Loss: 4.223788, t=0.5: mean=-0.0322, std=1.0457, Time/epoch: 0.004s, ETA: 8.4min
+Epoch 62500/200000, Loss: 4.085574, t=0.5: mean=0.0187, std=1.0220, Time/epoch: 0.004s, ETA: 8.4min
+Epoch 63000/200000, Loss: 3.296844, t=0.5: mean=-0.0186, std=1.0164, Time/epoch: 0.004s, ETA: 8.4min
+Epoch 63500/200000, Loss: 3.917080, t=0.5: mean=0.1010, std=1.0216, Time/epoch: 0.004s, ETA: 8.3min
+Epoch 64000/200000, Loss: 3.909714, t=0.5: mean=-0.0423, std=1.0211, Time/epoch: 0.004s, ETA: 8.3min
+Epoch 64500/200000, Loss: 3.906165, t=0.5: mean=0.1535, std=1.0121, Time/epoch: 0.004s, ETA: 8.3min
+Epoch 65000/200000, Loss: 4.347531, t=0.5: mean=-0.1407, std=1.0310, Time/epoch: 0.004s, ETA: 8.2min
+Epoch 65500/200000, Loss: 4.411173, t=0.5: mean=-0.0378, std=0.9898, Time/epoch: 0.004s, ETA: 8.2min
+Epoch 66000/200000, Loss: 3.249865, t=0.5: mean=-0.0756, std=1.0493, Time/epoch: 0.004s, ETA: 8.2min
+Epoch 66500/200000, Loss: 4.023651, t=0.5: mean=0.0367, std=1.0164, Time/epoch: 0.004s, ETA: 8.1min
+Epoch 67000/200000, Loss: 3.919499, t=0.5: mean=-0.0100, std=1.0465, Time/epoch: 0.004s, ETA: 8.1min
+Epoch 67500/200000, Loss: 3.789220, t=0.5: mean=0.0583, std=0.9625, Time/epoch: 0.004s, ETA: 8.1min
+Epoch 68000/200000, Loss: 4.150172, t=0.5: mean=0.0153, std=1.0568, Time/epoch: 0.004s, ETA: 8.1min
+Epoch 68500/200000, Loss: 3.999810, t=0.5: mean=0.0181, std=0.9742, Time/epoch: 0.004s, ETA: 8.0min
+Epoch 69000/200000, Loss: 4.353826, t=0.5: mean=0.0674, std=0.9859, Time/epoch: 0.004s, ETA: 8.0min
+Epoch 69500/200000, Loss: 3.890470, t=0.5: mean=-0.0997, std=1.0015, Time/epoch: 0.004s, ETA: 8.0min
+Epoch 70000/200000, Loss: 3.514163, t=0.5: mean=-0.1674, std=0.9860, Time/epoch: 0.004s, ETA: 7.9min
+Epoch 70500/200000, Loss: 3.460663, t=0.5: mean=0.0550, std=0.9844, Time/epoch: 0.004s, ETA: 7.9min
+Epoch 71000/200000, Loss: 3.694117, t=0.5: mean=-0.0355, std=1.0029, Time/epoch: 0.004s, ETA: 7.9min
+Epoch 71500/200000, Loss: 3.744802, t=0.5: mean=-0.0378, std=1.0047, Time/epoch: 0.004s, ETA: 7.8min
+Epoch 72000/200000, Loss: 4.455596, t=0.5: mean=0.0059, std=1.0127, Time/epoch: 0.004s, ETA: 7.8min
+Epoch 72500/200000, Loss: 3.718108, t=0.5: mean=0.0462, std=1.0082, Time/epoch: 0.004s, ETA: 7.8min
+Epoch 73000/200000, Loss: 3.844743, t=0.5: mean=0.0145, std=1.0385, Time/epoch: 0.004s, ETA: 7.7min
+Epoch 73500/200000, Loss: 4.461772, t=0.5: mean=0.1001, std=0.9948, Time/epoch: 0.004s, ETA: 7.7min
+Epoch 74000/200000, Loss: 3.711655, t=0.5: mean=-0.0488, std=1.0233, Time/epoch: 0.004s, ETA: 7.7min
+Epoch 74500/200000, Loss: 4.449700, t=0.5: mean=0.0711, std=1.0463, Time/epoch: 0.004s, ETA: 7.7min
+Epoch 75000/200000, Loss: 3.954066, t=0.5: mean=-0.0752, std=1.0182, Time/epoch: 0.004s, ETA: 7.6min
+Epoch 75500/200000, Loss: 4.533061, t=0.5: mean=0.1201, std=0.9784, Time/epoch: 0.004s, ETA: 7.6min
+Epoch 76000/200000, Loss: 4.564929, t=0.5: mean=-0.0682, std=1.0261, Time/epoch: 0.004s, ETA: 7.5min
+Epoch 76500/200000, Loss: 3.960476, t=0.5: mean=0.0094, std=1.0322, Time/epoch: 0.004s, ETA: 7.5min
+Epoch 77000/200000, Loss: 4.489132, t=0.5: mean=-0.1091, std=1.0133, Time/epoch: 0.004s, ETA: 7.5min
+Epoch 77500/200000, Loss: 3.760466, t=0.5: mean=-0.0121, std=1.0190, Time/epoch: 0.004s, ETA: 7.5min
+Epoch 78000/200000, Loss: 3.650916, t=0.5: mean=-0.0088, std=0.9516, Time/epoch: 0.004s, ETA: 7.5min
+Epoch 78500/200000, Loss: 4.286029, t=0.5: mean=-0.1527, std=0.9935, Time/epoch: 0.004s, ETA: 7.4min
+Epoch 79000/200000, Loss: 3.915647, t=0.5: mean=-0.0128, std=1.0095, Time/epoch: 0.004s, ETA: 7.4min
+Epoch 79500/200000, Loss: 4.903200, t=0.5: mean=-0.1294, std=1.0313, Time/epoch: 0.004s, ETA: 7.3min
+Epoch 80000/200000, Loss: 3.881001, t=0.5: mean=0.0546, std=0.9829, Time/epoch: 0.004s, ETA: 7.3min
+Epoch 80500/200000, Loss: 4.330462, t=0.5: mean=-0.0113, std=1.0163, Time/epoch: 0.004s, ETA: 7.3min
+Epoch 81000/200000, Loss: 5.620996, t=0.5: mean=0.1142, std=1.0254, Time/epoch: 0.004s, ETA: 7.2min
+Epoch 81500/200000, Loss: 3.723881, t=0.5: mean=0.0092, std=1.0171, Time/epoch: 0.004s, ETA: 7.2min
+Epoch 82000/200000, Loss: 4.939308, t=0.5: mean=-0.0071, std=0.9696, Time/epoch: 0.004s, ETA: 7.2min
+Epoch 82500/200000, Loss: 4.053295, t=0.5: mean=-0.0912, std=1.0024, Time/epoch: 0.004s, ETA: 7.2min
+Epoch 83000/200000, Loss: 4.335218, t=0.5: mean=-0.1102, std=1.0119, Time/epoch: 0.004s, ETA: 7.1min
+Epoch 83500/200000, Loss: 4.084868, t=0.5: mean=-0.0189, std=1.0190, Time/epoch: 0.004s, ETA: 7.1min
+Epoch 84000/200000, Loss: 5.020321, t=0.5: mean=-0.0100, std=1.0359, Time/epoch: 0.004s, ETA: 7.1min
+Epoch 84500/200000, Loss: 4.178893, t=0.5: mean=0.0193, std=1.0353, Time/epoch: 0.004s, ETA: 7.0min
+Epoch 85000/200000, Loss: 4.586182, t=0.5: mean=0.0525, std=1.0257, Time/epoch: 0.004s, ETA: 7.0min
+Epoch 85500/200000, Loss: 4.502744, t=0.5: mean=-0.0222, std=1.0110, Time/epoch: 0.004s, ETA: 7.0min
+Epoch 86000/200000, Loss: 3.997999, t=0.5: mean=0.0585, std=1.0197, Time/epoch: 0.004s, ETA: 6.9min
+Epoch 86500/200000, Loss: 4.876973, t=0.5: mean=0.0395, std=1.0586, Time/epoch: 0.004s, ETA: 6.9min
+Epoch 87000/200000, Loss: 4.504827, t=0.5: mean=-0.0543, std=1.0027, Time/epoch: 0.004s, ETA: 6.9min
+Epoch 87500/200000, Loss: 4.161570, t=0.5: mean=-0.0912, std=0.9941, Time/epoch: 0.004s, ETA: 6.9min
+Epoch 88000/200000, Loss: 4.513329, t=0.5: mean=0.0838, std=0.9666, Time/epoch: 0.004s, ETA: 6.8min
+Epoch 88500/200000, Loss: 4.345540, t=0.5: mean=-0.0040, std=0.9974, Time/epoch: 0.004s, ETA: 6.8min
+Epoch 89000/200000, Loss: 4.280343, t=0.5: mean=-0.0498, std=1.0004, Time/epoch: 0.004s, ETA: 6.8min
+Epoch 89500/200000, Loss: 4.249412, t=0.5: mean=-0.0578, std=1.0030, Time/epoch: 0.004s, ETA: 6.8min
+Epoch 90000/200000, Loss: 4.188604, t=0.5: mean=0.0626, std=1.0352, Time/epoch: 0.004s, ETA: 6.7min
+Epoch 90500/200000, Loss: 3.545138, t=0.5: mean=-0.0181, std=1.0410, Time/epoch: 0.004s, ETA: 6.7min
+Epoch 91000/200000, Loss: 3.946625, t=0.5: mean=0.0510, std=1.0099, Time/epoch: 0.004s, ETA: 6.7min
+Epoch 91500/200000, Loss: 4.503429, t=0.5: mean=0.0060, std=1.0085, Time/epoch: 0.004s, ETA: 6.6min
+Epoch 92000/200000, Loss: 4.035090, t=0.5: mean=0.1141, std=1.0376, Time/epoch: 0.004s, ETA: 6.6min
+Epoch 92500/200000, Loss: 4.227785, t=0.5: mean=0.0187, std=0.9850, Time/epoch: 0.004s, ETA: 6.5min
+Epoch 93000/200000, Loss: 4.668046, t=0.5: mean=0.0175, std=1.0182, Time/epoch: 0.004s, ETA: 6.5min
+Epoch 93500/200000, Loss: 4.169510, t=0.5: mean=-0.0815, std=0.9973, Time/epoch: 0.004s, ETA: 6.5min
+Epoch 94000/200000, Loss: 4.401088, t=0.5: mean=-0.0352, std=0.9710, Time/epoch: 0.004s, ETA: 6.5min
+Epoch 94500/200000, Loss: 4.401502, t=0.5: mean=-0.0004, std=1.0191, Time/epoch: 0.004s, ETA: 6.4min
+Epoch 95000/200000, Loss: 3.816431, t=0.5: mean=-0.0238, std=1.0633, Time/epoch: 0.004s, ETA: 6.4min
+Epoch 95500/200000, Loss: 4.497865, t=0.5: mean=0.0776, std=0.9781, Time/epoch: 0.004s, ETA: 6.4min
+Epoch 96000/200000, Loss: 4.095745, t=0.5: mean=0.0109, std=1.0192, Time/epoch: 0.004s, ETA: 6.3min
+Epoch 96500/200000, Loss: 4.088963, t=0.5: mean=-0.0701, std=1.0626, Time/epoch: 0.004s, ETA: 6.3min
+Epoch 97000/200000, Loss: 4.338914, t=0.5: mean=-0.0385, std=0.9772, Time/epoch: 0.004s, ETA: 6.3min
+Epoch 97500/200000, Loss: 4.257147, t=0.5: mean=0.0706, std=0.9785, Time/epoch: 0.004s, ETA: 6.3min
+Epoch 98000/200000, Loss: 4.539623, t=0.5: mean=0.0566, std=0.9723, Time/epoch: 0.004s, ETA: 6.2min
+Epoch 98500/200000, Loss: 4.198409, t=0.5: mean=0.0702, std=1.0113, Time/epoch: 0.004s, ETA: 6.2min
+Epoch 99000/200000, Loss: 4.206891, t=0.5: mean=-0.0349, std=1.0257, Time/epoch: 0.004s, ETA: 6.2min
+Epoch 99500/200000, Loss: 4.714998, t=0.5: mean=0.0059, std=1.0366, Time/epoch: 0.004s, ETA: 6.1min
+Epoch 100000/200000, Loss: 4.388227, t=0.5: mean=-0.0254, std=1.0194, Time/epoch: 0.004s, ETA: 6.1min
+Epoch 100500/200000, Loss: 4.975576, t=0.5: mean=0.0006, std=1.0162, Time/epoch: 0.004s, ETA: 6.1min
+Epoch 101000/200000, Loss: 4.016727, t=0.5: mean=0.0423, std=0.9898, Time/epoch: 0.004s, ETA: 6.0min
+Epoch 101500/200000, Loss: 4.760097, t=0.5: mean=0.0218, std=0.9914, Time/epoch: 0.004s, ETA: 6.0min
+Epoch 102000/200000, Loss: 3.861593, t=0.5: mean=-0.0201, std=1.0220, Time/epoch: 0.004s, ETA: 6.0min
+Epoch 102500/200000, Loss: 4.255577, t=0.5: mean=0.0578, std=0.9906, Time/epoch: 0.004s, ETA: 5.9min
+Epoch 103000/200000, Loss: 4.306398, t=0.5: mean=-0.0570, std=1.0480, Time/epoch: 0.004s, ETA: 5.9min
+Epoch 103500/200000, Loss: 3.810905, t=0.5: mean=-0.1209, std=1.0311, Time/epoch: 0.004s, ETA: 5.9min
+Epoch 104000/200000, Loss: 4.334485, t=0.5: mean=0.0257, std=1.0141, Time/epoch: 0.004s, ETA: 5.8min
+Epoch 104500/200000, Loss: 5.795577, t=0.5: mean=0.1039, std=0.9920, Time/epoch: 0.004s, ETA: 5.8min
+Epoch 105000/200000, Loss: 4.181640, t=0.5: mean=0.0408, std=0.9827, Time/epoch: 0.004s, ETA: 5.8min
+Epoch 105500/200000, Loss: 4.736269, t=0.5: mean=-0.0061, std=1.0074, Time/epoch: 0.004s, ETA: 5.8min
+Epoch 106000/200000, Loss: 5.052396, t=0.5: mean=0.0081, std=1.0260, Time/epoch: 0.004s, ETA: 5.7min
+Epoch 106500/200000, Loss: 5.041468, t=0.5: mean=0.0314, std=1.0273, Time/epoch: 0.004s, ETA: 5.7min
+Epoch 107000/200000, Loss: 4.469825, t=0.5: mean=0.1070, std=1.0264, Time/epoch: 0.004s, ETA: 5.7min
+Epoch 107500/200000, Loss: 4.332719, t=0.5: mean=0.0217, std=1.0066, Time/epoch: 0.004s, ETA: 5.6min
+Epoch 108000/200000, Loss: 4.217186, t=0.5: mean=0.0608, std=1.0274, Time/epoch: 0.004s, ETA: 5.6min
+Epoch 108500/200000, Loss: 4.267386, t=0.5: mean=-0.0477, std=1.0029, Time/epoch: 0.004s, ETA: 5.6min
+Epoch 109000/200000, Loss: 4.628116, t=0.5: mean=0.0887, std=1.0276, Time/epoch: 0.004s, ETA: 5.5min
+Epoch 109500/200000, Loss: 5.045788, t=0.5: mean=0.0167, std=1.0255, Time/epoch: 0.004s, ETA: 5.5min
+Epoch 110000/200000, Loss: 4.592945, t=0.5: mean=-0.0256, std=1.0127, Time/epoch: 0.004s, ETA: 5.5min
+Epoch 110500/200000, Loss: 4.158413, t=0.5: mean=-0.0053, std=1.0030, Time/epoch: 0.004s, ETA: 5.5min
+Epoch 111000/200000, Loss: 5.425763, t=0.5: mean=0.1115, std=1.0134, Time/epoch: 0.004s, ETA: 5.4min
+Epoch 111500/200000, Loss: 4.226035, t=0.5: mean=-0.1212, std=0.9965, Time/epoch: 0.004s, ETA: 5.4min
+Epoch 112000/200000, Loss: 3.917440, t=0.5: mean=0.0030, std=0.9805, Time/epoch: 0.004s, ETA: 5.4min
+Epoch 112500/200000, Loss: 4.655367, t=0.5: mean=-0.0005, std=1.0049, Time/epoch: 0.004s, ETA: 5.3min
+Epoch 113000/200000, Loss: 5.090765, t=0.5: mean=-0.0910, std=1.0243, Time/epoch: 0.004s, ETA: 5.3min
+Epoch 113500/200000, Loss: 5.321540, t=0.5: mean=-0.0358, std=0.9977, Time/epoch: 0.004s, ETA: 5.3min
+Epoch 114000/200000, Loss: 5.129752, t=0.5: mean=0.0173, std=1.0181, Time/epoch: 0.004s, ETA: 5.2min
+Epoch 114500/200000, Loss: 4.150648, t=0.5: mean=0.0312, std=0.9775, Time/epoch: 0.004s, ETA: 5.2min
+Epoch 115000/200000, Loss: 3.942697, t=0.5: mean=0.0749, std=1.0001, Time/epoch: 0.004s, ETA: 5.2min
+Epoch 115500/200000, Loss: 4.054986, t=0.5: mean=-0.1000, std=1.0150, Time/epoch: 0.004s, ETA: 5.2min
+Epoch 116000/200000, Loss: 3.999328, t=0.5: mean=0.0786, std=1.0113, Time/epoch: 0.004s, ETA: 5.1min
+Epoch 116500/200000, Loss: 4.657738, t=0.5: mean=-0.0239, std=0.9731, Time/epoch: 0.004s, ETA: 5.1min
+Epoch 117000/200000, Loss: 4.595396, t=0.5: mean=0.0339, std=1.0613, Time/epoch: 0.004s, ETA: 5.1min
+Epoch 117500/200000, Loss: 4.179179, t=0.5: mean=0.0499, std=1.0098, Time/epoch: 0.004s, ETA: 5.0min
+Epoch 118000/200000, Loss: 4.182249, t=0.5: mean=0.0329, std=1.0114, Time/epoch: 0.004s, ETA: 5.0min
+Epoch 118500/200000, Loss: 4.498237, t=0.5: mean=-0.0318, std=1.0365, Time/epoch: 0.004s, ETA: 5.0min
+Epoch 119000/200000, Loss: 4.138828, t=0.5: mean=-0.0170, std=0.9964, Time/epoch: 0.004s, ETA: 4.9min
+Epoch 119500/200000, Loss: 4.526904, t=0.5: mean=0.0774, std=0.9924, Time/epoch: 0.004s, ETA: 4.9min
+Epoch 120000/200000, Loss: 3.986715, t=0.5: mean=-0.0716, std=1.0306, Time/epoch: 0.004s, ETA: 4.9min
+Epoch 120500/200000, Loss: 4.349669, t=0.5: mean=0.0761, std=0.9813, Time/epoch: 0.004s, ETA: 4.8min
+Epoch 121000/200000, Loss: 4.225386, t=0.5: mean=-0.0713, std=1.0201, Time/epoch: 0.004s, ETA: 4.8min
+Epoch 121500/200000, Loss: 4.809651, t=0.5: mean=0.0388, std=1.0197, Time/epoch: 0.004s, ETA: 4.8min
+Epoch 122000/200000, Loss: 5.721404, t=0.5: mean=-0.0113, std=1.0119, Time/epoch: 0.004s, ETA: 4.8min
+Epoch 122500/200000, Loss: 4.269765, t=0.5: mean=0.0068, std=1.0180, Time/epoch: 0.004s, ETA: 4.7min
+Epoch 123000/200000, Loss: 4.931889, t=0.5: mean=-0.0055, std=1.0223, Time/epoch: 0.004s, ETA: 4.7min
+Epoch 123500/200000, Loss: 4.453457, t=0.5: mean=-0.0622, std=0.9804, Time/epoch: 0.004s, ETA: 4.7min
+Epoch 124000/200000, Loss: 4.115105, t=0.5: mean=0.0107, std=0.9968, Time/epoch: 0.004s, ETA: 4.6min
+Epoch 124500/200000, Loss: 4.605836, t=0.5: mean=0.0840, std=1.0264, Time/epoch: 0.004s, ETA: 4.6min
+Epoch 125000/200000, Loss: 4.536498, t=0.5: mean=0.0557, std=0.9940, Time/epoch: 0.004s, ETA: 4.6min
+Epoch 125500/200000, Loss: 4.740578, t=0.5: mean=0.0109, std=1.0145, Time/epoch: 0.004s, ETA: 4.5min
+Epoch 126000/200000, Loss: 4.854317, t=0.5: mean=-0.1276, std=1.0074, Time/epoch: 0.004s, ETA: 4.5min
+Epoch 126500/200000, Loss: 4.262594, t=0.5: mean=0.0070, std=1.0112, Time/epoch: 0.004s, ETA: 4.5min
+Epoch 127000/200000, Loss: 3.986582, t=0.5: mean=-0.0419, std=1.0216, Time/epoch: 0.004s, ETA: 4.5min
+Epoch 127500/200000, Loss: 4.902191, t=0.5: mean=-0.0518, std=0.9833, Time/epoch: 0.004s, ETA: 4.4min
+Epoch 128000/200000, Loss: 5.169070, t=0.5: mean=0.1367, std=1.0147, Time/epoch: 0.004s, ETA: 4.4min
+Epoch 128500/200000, Loss: 4.630302, t=0.5: mean=-0.0336, std=0.9710, Time/epoch: 0.004s, ETA: 4.4min
+Epoch 129000/200000, Loss: 4.125779, t=0.5: mean=-0.1025, std=1.0148, Time/epoch: 0.004s, ETA: 4.3min
+Epoch 129500/200000, Loss: 4.806446, t=0.5: mean=0.1485, std=1.0046, Time/epoch: 0.004s, ETA: 4.3min
+Epoch 130000/200000, Loss: 4.576872, t=0.5: mean=0.0983, std=0.9594, Time/epoch: 0.004s, ETA: 4.2min
+Epoch 130500/200000, Loss: 4.386942, t=0.5: mean=-0.0045, std=1.0258, Time/epoch: 0.004s, ETA: 4.2min
+Epoch 131000/200000, Loss: 4.991036, t=0.5: mean=-0.0057, std=1.0445, Time/epoch: 0.004s, ETA: 4.2min
+Epoch 131500/200000, Loss: 5.144168, t=0.5: mean=-0.0017, std=1.0021, Time/epoch: 0.004s, ETA: 4.2min
+Epoch 132000/200000, Loss: 4.838252, t=0.5: mean=-0.0040, std=1.0183, Time/epoch: 0.004s, ETA: 4.1min
+Epoch 132500/200000, Loss: 5.257912, t=0.5: mean=-0.0995, std=0.9970, Time/epoch: 0.004s, ETA: 4.1min
+Epoch 133000/200000, Loss: 4.258111, t=0.5: mean=-0.0077, std=1.0328, Time/epoch: 0.004s, ETA: 4.1min
+Epoch 133500/200000, Loss: 4.545832, t=0.5: mean=0.0798, std=1.0169, Time/epoch: 0.004s, ETA: 4.1min
+Epoch 134000/200000, Loss: 4.859548, t=0.5: mean=0.0557, std=0.9997, Time/epoch: 0.004s, ETA: 4.0min
+Epoch 134500/200000, Loss: 4.270450, t=0.5: mean=0.0599, std=1.0307, Time/epoch: 0.004s, ETA: 4.0min
+Epoch 135000/200000, Loss: 5.541984, t=0.5: mean=-0.0332, std=1.0214, Time/epoch: 0.004s, ETA: 4.0min
+Epoch 135500/200000, Loss: 4.745642, t=0.5: mean=-0.0596, std=1.0269, Time/epoch: 0.004s, ETA: 3.9min
+Epoch 136000/200000, Loss: 5.288908, t=0.5: mean=-0.0058, std=1.0082, Time/epoch: 0.004s, ETA: 3.9min
+Epoch 136500/200000, Loss: 5.490544, t=0.5: mean=0.1055, std=1.0012, Time/epoch: 0.004s, ETA: 3.9min
+Epoch 137000/200000, Loss: 4.732944, t=0.5: mean=0.0176, std=1.0273, Time/epoch: 0.004s, ETA: 3.9min
+Epoch 137500/200000, Loss: 4.754321, t=0.5: mean=-0.0274, std=1.0368, Time/epoch: 0.004s, ETA: 3.8min
+Epoch 138000/200000, Loss: 4.460093, t=0.5: mean=-0.0604, std=1.0467, Time/epoch: 0.004s, ETA: 3.8min
+Epoch 138500/200000, Loss: 4.324700, t=0.5: mean=0.0159, std=1.0252, Time/epoch: 0.004s, ETA: 3.7min
+Epoch 139000/200000, Loss: 5.113747, t=0.5: mean=0.0043, std=0.9487, Time/epoch: 0.004s, ETA: 3.7min
+Epoch 139500/200000, Loss: 4.658206, t=0.5: mean=-0.1223, std=1.0419, Time/epoch: 0.004s, ETA: 3.7min
+Epoch 140000/200000, Loss: 4.787532, t=0.5: mean=-0.1070, std=1.0042, Time/epoch: 0.004s, ETA: 3.7min
+Epoch 140500/200000, Loss: 4.796383, t=0.5: mean=-0.0153, std=1.0078, Time/epoch: 0.004s, ETA: 3.6min
+Epoch 141000/200000, Loss: 4.637943, t=0.5: mean=0.0562, std=1.0340, Time/epoch: 0.004s, ETA: 3.6min
+Epoch 141500/200000, Loss: 4.799989, t=0.5: mean=-0.0048, std=0.9578, Time/epoch: 0.004s, ETA: 3.6min
+Epoch 142000/200000, Loss: 5.436547, t=0.5: mean=-0.0008, std=0.9875, Time/epoch: 0.004s, ETA: 3.5min
+Epoch 142500/200000, Loss: 4.318952, t=0.5: mean=-0.0657, std=1.0086, Time/epoch: 0.004s, ETA: 3.5min
+Epoch 143000/200000, Loss: 4.123137, t=0.5: mean=-0.0445, std=1.0008, Time/epoch: 0.004s, ETA: 3.5min
+Epoch 143500/200000, Loss: 4.897186, t=0.5: mean=0.0131, std=0.9927, Time/epoch: 0.004s, ETA: 3.4min
+Epoch 144000/200000, Loss: 5.428938, t=0.5: mean=0.1484, std=1.0257, Time/epoch: 0.004s, ETA: 3.4min
+Epoch 144500/200000, Loss: 4.751137, t=0.5: mean=-0.0426, std=0.9822, Time/epoch: 0.004s, ETA: 3.4min
+Epoch 145000/200000, Loss: 6.277878, t=0.5: mean=0.1755, std=1.0681, Time/epoch: 0.004s, ETA: 3.4min
+Epoch 145500/200000, Loss: 4.733951, t=0.5: mean=-0.0281, std=0.9875, Time/epoch: 0.004s, ETA: 3.3min
+Epoch 146000/200000, Loss: 4.779669, t=0.5: mean=0.0078, std=1.0266, Time/epoch: 0.004s, ETA: 3.3min
+Epoch 146500/200000, Loss: 5.140094, t=0.5: mean=-0.0733, std=1.0150, Time/epoch: 0.004s, ETA: 3.3min
+Epoch 147000/200000, Loss: 5.223096, t=0.5: mean=0.0857, std=1.0021, Time/epoch: 0.004s, ETA: 3.2min
+Epoch 147500/200000, Loss: 4.959565, t=0.5: mean=0.0525, std=0.9855, Time/epoch: 0.004s, ETA: 3.2min
+Epoch 148000/200000, Loss: 4.428479, t=0.5: mean=-0.0342, std=0.9793, Time/epoch: 0.004s, ETA: 3.2min
+Epoch 148500/200000, Loss: 4.397641, t=0.5: mean=-0.0203, std=1.0055, Time/epoch: 0.004s, ETA: 3.1min
+Epoch 149000/200000, Loss: 5.158803, t=0.5: mean=0.0103, std=1.0032, Time/epoch: 0.004s, ETA: 3.1min
+Epoch 149500/200000, Loss: 5.069493, t=0.5: mean=-0.0365, std=1.0331, Time/epoch: 0.004s, ETA: 3.1min
+Epoch 150000/200000, Loss: 4.477516, t=0.5: mean=-0.0331, std=1.0402, Time/epoch: 0.004s, ETA: 3.0min
+Epoch 150500/200000, Loss: 4.466445, t=0.5: mean=0.0348, std=1.0022, Time/epoch: 0.004s, ETA: 3.0min
+Epoch 151000/200000, Loss: 4.908724, t=0.5: mean=0.0656, std=1.0149, Time/epoch: 0.004s, ETA: 3.0min
+Epoch 151500/200000, Loss: 5.130192, t=0.5: mean=-0.0098, std=1.0041, Time/epoch: 0.004s, ETA: 2.9min
+Epoch 152000/200000, Loss: 5.069941, t=0.5: mean=0.0565, std=1.0231, Time/epoch: 0.004s, ETA: 2.9min
+Epoch 152500/200000, Loss: 5.645414, t=0.5: mean=0.0681, std=0.9946, Time/epoch: 0.004s, ETA: 2.9min
+Epoch 153000/200000, Loss: 5.480879, t=0.5: mean=0.0960, std=1.0606, Time/epoch: 0.004s, ETA: 2.9min
+Epoch 153500/200000, Loss: 5.346416, t=0.5: mean=-0.0058, std=1.0282, Time/epoch: 0.004s, ETA: 2.8min
+Epoch 154000/200000, Loss: 4.975656, t=0.5: mean=-0.0248, std=1.0047, Time/epoch: 0.004s, ETA: 2.8min
+Epoch 154500/200000, Loss: 4.860112, t=0.5: mean=0.0211, std=1.0190, Time/epoch: 0.004s, ETA: 2.8min
+Epoch 155000/200000, Loss: 4.775436, t=0.5: mean=0.0665, std=1.0177, Time/epoch: 0.004s, ETA: 2.7min
+Epoch 155500/200000, Loss: 5.515323, t=0.5: mean=0.1036, std=1.0173, Time/epoch: 0.004s, ETA: 2.7min
+Epoch 156000/200000, Loss: 6.457271, t=0.5: mean=0.0905, std=1.0076, Time/epoch: 0.004s, ETA: 2.7min
+Epoch 156500/200000, Loss: 4.682678, t=0.5: mean=0.0237, std=1.0235, Time/epoch: 0.004s, ETA: 2.6min
+Epoch 157000/200000, Loss: 5.076892, t=0.5: mean=-0.0848, std=1.0547, Time/epoch: 0.004s, ETA: 2.6min
+Epoch 157500/200000, Loss: 5.539985, t=0.5: mean=-0.1003, std=1.0066, Time/epoch: 0.004s, ETA: 2.6min
+Epoch 158000/200000, Loss: 5.174477, t=0.5: mean=-0.0258, std=0.9851, Time/epoch: 0.004s, ETA: 2.6min
+Epoch 158500/200000, Loss: 4.698530, t=0.5: mean=0.0738, std=0.9648, Time/epoch: 0.004s, ETA: 2.5min
+Epoch 159000/200000, Loss: 5.739476, t=0.5: mean=0.1116, std=1.0477, Time/epoch: 0.004s, ETA: 2.5min
+Epoch 159500/200000, Loss: 4.812311, t=0.5: mean=-0.0009, std=0.9939, Time/epoch: 0.004s, ETA: 2.5min
+Epoch 160000/200000, Loss: 5.131141, t=0.5: mean=0.0226, std=1.0451, Time/epoch: 0.004s, ETA: 2.4min
+Epoch 160500/200000, Loss: 4.636265, t=0.5: mean=0.0666, std=1.0287, Time/epoch: 0.004s, ETA: 2.4min
+Epoch 161000/200000, Loss: 4.698055, t=0.5: mean=0.0326, std=1.0352, Time/epoch: 0.004s, ETA: 2.4min
+Epoch 161500/200000, Loss: 5.145093, t=0.5: mean=0.0366, std=0.9698, Time/epoch: 0.004s, ETA: 2.3min
+Epoch 162000/200000, Loss: 5.428353, t=0.5: mean=-0.0413, std=1.0172, Time/epoch: 0.004s, ETA: 2.3min
+Epoch 162500/200000, Loss: 4.395257, t=0.5: mean=-0.0306, std=1.0011, Time/epoch: 0.004s, ETA: 2.3min
+Epoch 163000/200000, Loss: 4.724835, t=0.5: mean=-0.0752, std=0.9497, Time/epoch: 0.004s, ETA: 2.3min
+Epoch 163500/200000, Loss: 5.469779, t=0.5: mean=-0.0942, std=1.0359, Time/epoch: 0.004s, ETA: 2.2min
+Epoch 164000/200000, Loss: 4.930999, t=0.5: mean=-0.0727, std=0.9778, Time/epoch: 0.004s, ETA: 2.2min
+Epoch 164500/200000, Loss: 5.118498, t=0.5: mean=-0.0875, std=1.0250, Time/epoch: 0.004s, ETA: 2.2min
+Epoch 165000/200000, Loss: 4.072967, t=0.5: mean=-0.0140, std=0.9987, Time/epoch: 0.004s, ETA: 2.1min
+Epoch 165500/200000, Loss: 5.103504, t=0.5: mean=0.0369, std=1.0172, Time/epoch: 0.004s, ETA: 2.1min
+Epoch 166000/200000, Loss: 4.722317, t=0.5: mean=0.0580, std=1.0165, Time/epoch: 0.004s, ETA: 2.1min
+Epoch 166500/200000, Loss: 3.754037, t=0.5: mean=0.1049, std=1.0764, Time/epoch: 0.004s, ETA: 2.0min
+Epoch 167000/200000, Loss: 4.655875, t=0.5: mean=-0.0953, std=1.0203, Time/epoch: 0.004s, ETA: 2.0min
+Epoch 167500/200000, Loss: 4.997041, t=0.5: mean=0.0228, std=1.0335, Time/epoch: 0.004s, ETA: 2.0min
+Epoch 168000/200000, Loss: 5.058234, t=0.5: mean=0.0211, std=1.0178, Time/epoch: 0.004s, ETA: 1.9min
+Epoch 168500/200000, Loss: 4.986502, t=0.5: mean=-0.0592, std=1.0093, Time/epoch: 0.004s, ETA: 1.9min
+Epoch 169000/200000, Loss: 5.462460, t=0.5: mean=0.0759, std=1.0163, Time/epoch: 0.004s, ETA: 1.9min
+Epoch 169500/200000, Loss: 4.442137, t=0.5: mean=0.0003, std=1.0419, Time/epoch: 0.004s, ETA: 1.9min
+Epoch 170000/200000, Loss: 5.335362, t=0.5: mean=-0.0220, std=1.0144, Time/epoch: 0.004s, ETA: 1.8min
+Epoch 170500/200000, Loss: 5.052586, t=0.5: mean=0.0534, std=1.0309, Time/epoch: 0.004s, ETA: 1.8min
+Epoch 171000/200000, Loss: 4.561317, t=0.5: mean=-0.1035, std=1.0127, Time/epoch: 0.004s, ETA: 1.8min
+Epoch 171500/200000, Loss: 5.619545, t=0.5: mean=0.0533, std=0.9921, Time/epoch: 0.004s, ETA: 1.7min
+Epoch 172000/200000, Loss: 5.803195, t=0.5: mean=0.0450, std=0.9566, Time/epoch: 0.004s, ETA: 1.7min
+Epoch 172500/200000, Loss: 5.132426, t=0.5: mean=-0.1212, std=1.0053, Time/epoch: 0.004s, ETA: 1.7min
+Epoch 173000/200000, Loss: 5.648701, t=0.5: mean=0.0570, std=1.0087, Time/epoch: 0.004s, ETA: 1.6min
+Epoch 173500/200000, Loss: 5.052226, t=0.5: mean=0.0100, std=0.9934, Time/epoch: 0.004s, ETA: 1.6min
+Epoch 174000/200000, Loss: 5.729974, t=0.5: mean=0.0424, std=1.0038, Time/epoch: 0.004s, ETA: 1.6min
+Epoch 174500/200000, Loss: 4.639006, t=0.5: mean=0.0873, std=0.9967, Time/epoch: 0.004s, ETA: 1.5min
+Epoch 175000/200000, Loss: 5.411919, t=0.5: mean=-0.0648, std=1.0016, Time/epoch: 0.004s, ETA: 1.5min
+Epoch 175500/200000, Loss: 5.510734, t=0.5: mean=-0.0405, std=1.0068, Time/epoch: 0.004s, ETA: 1.5min
+Epoch 176000/200000, Loss: 5.272050, t=0.5: mean=-0.0537, std=1.0038, Time/epoch: 0.004s, ETA: 1.5min
+Epoch 176500/200000, Loss: 5.348705, t=0.5: mean=-0.0429, std=1.0245, Time/epoch: 0.004s, ETA: 1.4min
+Epoch 177000/200000, Loss: 4.186399, t=0.5: mean=-0.0194, std=0.9807, Time/epoch: 0.004s, ETA: 1.4min
+Epoch 177500/200000, Loss: 6.231227, t=0.5: mean=0.0852, std=1.0066, Time/epoch: 0.004s, ETA: 1.4min
+Epoch 178000/200000, Loss: 4.945636, t=0.5: mean=-0.1121, std=1.0114, Time/epoch: 0.004s, ETA: 1.3min
+Epoch 178500/200000, Loss: 3.979644, t=0.5: mean=0.0046, std=1.0311, Time/epoch: 0.004s, ETA: 1.3min
+Epoch 179000/200000, Loss: 5.013338, t=0.5: mean=-0.0151, std=1.0070, Time/epoch: 0.004s, ETA: 1.3min
+Epoch 179500/200000, Loss: 4.645659, t=0.5: mean=0.0249, std=0.9910, Time/epoch: 0.004s, ETA: 1.2min
+Epoch 180000/200000, Loss: 5.379601, t=0.5: mean=0.0747, std=1.0107, Time/epoch: 0.004s, ETA: 1.2min
+Epoch 180500/200000, Loss: 5.817146, t=0.5: mean=0.0649, std=1.0213, Time/epoch: 0.004s, ETA: 1.2min
+Epoch 181000/200000, Loss: 4.792830, t=0.5: mean=-0.0357, std=1.0132, Time/epoch: 0.004s, ETA: 1.2min
+Epoch 181500/200000, Loss: 4.723654, t=0.5: mean=0.0428, std=1.0086, Time/epoch: 0.004s, ETA: 1.1min
+Epoch 182000/200000, Loss: 4.990495, t=0.5: mean=0.0724, std=1.0519, Time/epoch: 0.004s, ETA: 1.1min
+Epoch 182500/200000, Loss: 4.646331, t=0.5: mean=0.0537, std=1.0225, Time/epoch: 0.004s, ETA: 1.1min
+Epoch 183000/200000, Loss: 5.693618, t=0.5: mean=-0.0891, std=0.9919, Time/epoch: 0.004s, ETA: 1.0min
+Epoch 183500/200000, Loss: 5.003336, t=0.5: mean=0.0426, std=1.0132, Time/epoch: 0.004s, ETA: 1.0min
+Epoch 184000/200000, Loss: 5.159107, t=0.5: mean=0.0180, std=1.0247, Time/epoch: 0.004s, ETA: 1.0min
+Epoch 184500/200000, Loss: 4.693104, t=0.5: mean=-0.0218, std=1.0097, Time/epoch: 0.004s, ETA: 0.9min
+Epoch 185000/200000, Loss: 5.042857, t=0.5: mean=0.0259, std=0.9997, Time/epoch: 0.004s, ETA: 0.9min
+Epoch 185500/200000, Loss: 5.163530, t=0.5: mean=-0.0391, std=1.0184, Time/epoch: 0.004s, ETA: 0.9min
+Epoch 186000/200000, Loss: 5.529332, t=0.5: mean=-0.0406, std=0.9898, Time/epoch: 0.004s, ETA: 0.8min
+Epoch 186500/200000, Loss: 4.948228, t=0.5: mean=0.0511, std=0.9868, Time/epoch: 0.004s, ETA: 0.8min
+Epoch 187000/200000, Loss: 5.078331, t=0.5: mean=-0.0055, std=0.9776, Time/epoch: 0.004s, ETA: 0.8min
+Epoch 187500/200000, Loss: 5.089612, t=0.5: mean=-0.0678, std=1.0588, Time/epoch: 0.004s, ETA: 0.8min
+Epoch 188000/200000, Loss: 4.913120, t=0.5: mean=0.0528, std=1.0169, Time/epoch: 0.004s, ETA: 0.7min
+Epoch 188500/200000, Loss: 5.377538, t=0.5: mean=-0.0675, std=1.0193, Time/epoch: 0.004s, ETA: 0.7min
+Epoch 189000/200000, Loss: 4.606603, t=0.5: mean=-0.0032, std=1.0418, Time/epoch: 0.004s, ETA: 0.7min
+Epoch 189500/200000, Loss: 5.718945, t=0.5: mean=0.0170, std=0.9924, Time/epoch: 0.004s, ETA: 0.6min
+Epoch 190000/200000, Loss: 6.427170, t=0.5: mean=-0.1199, std=1.0559, Time/epoch: 0.004s, ETA: 0.6min
+Epoch 190500/200000, Loss: 5.065941, t=0.5: mean=0.0459, std=0.9588, Time/epoch: 0.004s, ETA: 0.6min
+Epoch 191000/200000, Loss: 5.753351, t=0.5: mean=-0.1175, std=0.9961, Time/epoch: 0.004s, ETA: 0.5min
+Epoch 191500/200000, Loss: 5.452639, t=0.5: mean=-0.0394, std=1.0159, Time/epoch: 0.004s, ETA: 0.5min
+Epoch 192000/200000, Loss: 5.116924, t=0.5: mean=-0.0454, std=1.0390, Time/epoch: 0.004s, ETA: 0.5min
+Epoch 192500/200000, Loss: 4.617227, t=0.5: mean=0.0427, std=0.9969, Time/epoch: 0.004s, ETA: 0.5min
+Epoch 193000/200000, Loss: 5.055494, t=0.5: mean=0.0187, std=1.0282, Time/epoch: 0.004s, ETA: 0.4min
+Epoch 193500/200000, Loss: 4.650539, t=0.5: mean=-0.1192, std=1.0502, Time/epoch: 0.004s, ETA: 0.4min
+Epoch 194000/200000, Loss: 5.167903, t=0.5: mean=-0.0026, std=1.0501, Time/epoch: 0.004s, ETA: 0.4min
+Epoch 194500/200000, Loss: 5.402215, t=0.5: mean=-0.0111, std=0.9838, Time/epoch: 0.004s, ETA: 0.3min
+Epoch 195000/200000, Loss: 4.953562, t=0.5: mean=0.0255, std=1.0411, Time/epoch: 0.004s, ETA: 0.3min
+Epoch 195500/200000, Loss: 5.351205, t=0.5: mean=-0.0077, std=1.0315, Time/epoch: 0.004s, ETA: 0.3min
+Epoch 196000/200000, Loss: 5.047333, t=0.5: mean=0.0210, std=0.9947, Time/epoch: 0.004s, ETA: 0.2min
+Epoch 196500/200000, Loss: 4.605813, t=0.5: mean=0.0378, std=0.9867, Time/epoch: 0.004s, ETA: 0.2min
+Epoch 197000/200000, Loss: 5.425748, t=0.5: mean=0.0183, std=1.0206, Time/epoch: 0.004s, ETA: 0.2min
+Epoch 197500/200000, Loss: 4.707982, t=0.5: mean=-0.0139, std=1.0243, Time/epoch: 0.004s, ETA: 0.2min
+Epoch 198000/200000, Loss: 4.914551, t=0.5: mean=-0.0679, std=0.9937, Time/epoch: 0.004s, ETA: 0.1min
+Epoch 198500/200000, Loss: 5.039710, t=0.5: mean=0.1310, std=1.0214, Time/epoch: 0.004s, ETA: 0.1min
+Epoch 199000/200000, Loss: 5.431993, t=0.5: mean=0.0545, std=0.9964, Time/epoch: 0.004s, ETA: 0.1min
+Epoch 199500/200000, Loss: 5.177317, t=0.5: mean=0.0300, std=1.0076, Time/epoch: 0.004s, ETA: 0.0min
+Epoch 199999/200000, Loss: 5.046566, t=0.5: mean=0.0283, std=1.0077, Time/epoch: 0.004s, ETA: 0.0min
+
+Training completed in 30.22 minutes!
+
+======================================================================
+Final Validation and Visualization
+======================================================================
+
+Saved: results_doublewell1d/loss.png
+Saved: results_doublewell1d/distributions.png
+Saved: results_doublewell1d/time_evolution.png
+Saved: results_doublewell1d/mean_variance.png
+
+Saved: results_doublewell1d/checkpoint.pth
+
+======================================================================
+Summary Statistics:
+======================================================================
+Total training time: 30.22 minutes
+Average time per epoch: 0.004 seconds
+Final loss: 5.046566e+00
+Final distribution (t=1.0): mean=0.0537, std=1.0315
+
+======================================================================
+All done! Check the 'results_doublewell1d' directory for outputs.
+======================================================================

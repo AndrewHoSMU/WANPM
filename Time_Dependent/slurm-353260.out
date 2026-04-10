@@ -1,0 +1,127 @@
+Using device: cuda
+GPU: NVIDIA A100-SXM4-80GB
+Memory available: 85.10 GB
+======================================================================
+Time-Dependent 100D Ornstein-Uhlenbeck Process
+======================================================================
+Parameters: σ=1.0, θ=1.0, μ=0 (all dims), T=1.0
+Initial condition: N(μ₀, 0.25·I)
+  μ₀[0:5] = [ 0.9934283  -0.2765286   1.2953771   3.0460596  -0.46830675]
+Equilibrium: N(0, 0.5·I)
+Training: K=4000 test functions, M=5000 batch size, 20000 epochs
+======================================================================
+
+Initializing networks...
+Pushforward network parameters: 52,580
+Test functions parameters: 408,000
+
+Starting training...
+----------------------------------------------------------------------
+Epoch     0/20000, Loss: 1.117530, t=0.5: mean[0]=1.0341, std_avg=0.5046, Time/epoch: 0.45s, ETA: 151.2min
+Epoch   500/20000, Loss: 0.001250, t=0.5: mean[0]=0.5983, std_avg=0.6277, Time/epoch: 0.01s, ETA: 3.4min
+Epoch  1000/20000, Loss: 0.001036, t=0.5: mean[0]=0.6259, std_avg=0.6231, Time/epoch: 0.01s, ETA: 3.3min
+Epoch  1500/20000, Loss: 0.000984, t=0.5: mean[0]=0.6358, std_avg=0.6212, Time/epoch: 0.01s, ETA: 3.2min
+Epoch  2000/20000, Loss: 0.001095, t=0.5: mean[0]=0.5881, std_avg=0.6218, Time/epoch: 0.01s, ETA: 3.1min
+Epoch  2500/20000, Loss: 0.001297, t=0.5: mean[0]=0.6003, std_avg=0.6236, Time/epoch: 0.01s, ETA: 3.0min
+Epoch  3000/20000, Loss: 0.000795, t=0.5: mean[0]=0.6326, std_avg=0.6188, Time/epoch: 0.01s, ETA: 2.9min
+Epoch  3500/20000, Loss: 0.000839, t=0.5: mean[0]=0.5905, std_avg=0.6215, Time/epoch: 0.01s, ETA: 2.9min
+Epoch  4000/20000, Loss: 0.000738, t=0.5: mean[0]=0.5912, std_avg=0.6154, Time/epoch: 0.01s, ETA: 2.8min
+Epoch  4500/20000, Loss: 0.000586, t=0.5: mean[0]=0.6001, std_avg=0.6160, Time/epoch: 0.01s, ETA: 2.7min
+Epoch  5000/20000, Loss: 0.000569, t=0.5: mean[0]=0.5980, std_avg=0.6195, Time/epoch: 0.01s, ETA: 2.6min
+
+======================================================================
+Validation: Mean and Variance Statistics
+======================================================================
+    Time      Mean Error       Var Error         Mean L2          Var L2
+----------------------------------------------------------------------
+   0.010        0.017884        0.004494        0.224616        0.051402
+   0.500        0.014157        0.036313        0.177284        0.420997
+   1.000        0.016709        0.048816        0.207694        0.643573
+Epoch  5500/20000, Loss: 0.000596, t=0.5: mean[0]=0.6130, std_avg=0.6178, Time/epoch: 0.01s, ETA: 2.5min
+Epoch  6000/20000, Loss: 0.000611, t=0.5: mean[0]=0.5844, std_avg=0.6180, Time/epoch: 0.01s, ETA: 2.4min
+Epoch  6500/20000, Loss: 0.000613, t=0.5: mean[0]=0.6242, std_avg=0.6194, Time/epoch: 0.01s, ETA: 2.3min
+Epoch  7000/20000, Loss: 0.000748, t=0.5: mean[0]=0.6039, std_avg=0.6194, Time/epoch: 0.01s, ETA: 2.2min
+Epoch  7500/20000, Loss: 0.000488, t=0.5: mean[0]=0.5836, std_avg=0.6166, Time/epoch: 0.01s, ETA: 2.2min
+Epoch  8000/20000, Loss: 0.000558, t=0.5: mean[0]=0.5898, std_avg=0.6103, Time/epoch: 0.01s, ETA: 2.1min
+Epoch  8500/20000, Loss: 0.000691, t=0.5: mean[0]=0.5953, std_avg=0.6129, Time/epoch: 0.01s, ETA: 2.0min
+Epoch  9000/20000, Loss: 0.000483, t=0.5: mean[0]=0.6228, std_avg=0.6219, Time/epoch: 0.01s, ETA: 1.9min
+Epoch  9500/20000, Loss: 0.000765, t=0.5: mean[0]=0.5811, std_avg=0.6183, Time/epoch: 0.01s, ETA: 1.8min
+Epoch 10000/20000, Loss: 0.000608, t=0.5: mean[0]=0.5926, std_avg=0.6126, Time/epoch: 0.01s, ETA: 1.7min
+
+======================================================================
+Validation: Mean and Variance Statistics
+======================================================================
+    Time      Mean Error       Var Error         Mean L2          Var L2
+----------------------------------------------------------------------
+   0.010        0.018018        0.004009        0.221162        0.049492
+   0.500        0.019861        0.033536        0.245847        0.386270
+   1.000        0.019114        0.040372        0.222572        0.538293
+Epoch 10500/20000, Loss: 0.000433, t=0.5: mean[0]=0.5919, std_avg=0.6172, Time/epoch: 0.01s, ETA: 1.6min
+Epoch 11000/20000, Loss: 0.000405, t=0.5: mean[0]=0.5932, std_avg=0.6224, Time/epoch: 0.01s, ETA: 1.6min
+Epoch 11500/20000, Loss: 0.000538, t=0.5: mean[0]=0.6194, std_avg=0.6163, Time/epoch: 0.01s, ETA: 1.5min
+Epoch 12000/20000, Loss: 0.000491, t=0.5: mean[0]=0.6429, std_avg=0.6241, Time/epoch: 0.01s, ETA: 1.4min
+Epoch 12500/20000, Loss: 0.000713, t=0.5: mean[0]=0.5857, std_avg=0.6204, Time/epoch: 0.01s, ETA: 1.3min
+Epoch 13000/20000, Loss: 0.000427, t=0.5: mean[0]=0.5837, std_avg=0.6165, Time/epoch: 0.01s, ETA: 1.2min
+Epoch 13500/20000, Loss: 0.000384, t=0.5: mean[0]=0.6144, std_avg=0.6175, Time/epoch: 0.01s, ETA: 1.1min
+Epoch 14000/20000, Loss: 0.000434, t=0.5: mean[0]=0.5953, std_avg=0.6194, Time/epoch: 0.01s, ETA: 1.0min
+Epoch 14500/20000, Loss: 0.000438, t=0.5: mean[0]=0.5781, std_avg=0.6182, Time/epoch: 0.01s, ETA: 1.0min
+Epoch 15000/20000, Loss: 0.000484, t=0.5: mean[0]=0.5744, std_avg=0.6106, Time/epoch: 0.01s, ETA: 0.9min
+
+======================================================================
+Validation: Mean and Variance Statistics
+======================================================================
+    Time      Mean Error       Var Error         Mean L2          Var L2
+----------------------------------------------------------------------
+   0.010        0.021240        0.004120        0.272235        0.051401
+   0.500        0.021930        0.033590        0.277196        0.387327
+   1.000        0.013706        0.035990        0.180579        0.444540
+Epoch 15500/20000, Loss: 0.000401, t=0.5: mean[0]=0.5797, std_avg=0.6164, Time/epoch: 0.01s, ETA: 0.8min
+Epoch 16000/20000, Loss: 0.000698, t=0.5: mean[0]=0.6332, std_avg=0.6233, Time/epoch: 0.01s, ETA: 0.7min
+Epoch 16500/20000, Loss: 0.000510, t=0.5: mean[0]=0.5779, std_avg=0.6232, Time/epoch: 0.01s, ETA: 0.6min
+Epoch 17000/20000, Loss: 0.000440, t=0.5: mean[0]=0.6200, std_avg=0.6150, Time/epoch: 0.01s, ETA: 0.5min
+Epoch 17500/20000, Loss: 0.000460, t=0.5: mean[0]=0.5987, std_avg=0.6217, Time/epoch: 0.01s, ETA: 0.4min
+Epoch 18000/20000, Loss: 0.000502, t=0.5: mean[0]=0.6163, std_avg=0.6191, Time/epoch: 0.01s, ETA: 0.3min
+Epoch 18500/20000, Loss: 0.000440, t=0.5: mean[0]=0.6204, std_avg=0.6183, Time/epoch: 0.01s, ETA: 0.3min
+Epoch 19000/20000, Loss: 0.000500, t=0.5: mean[0]=0.6054, std_avg=0.6168, Time/epoch: 0.01s, ETA: 0.2min
+Epoch 19500/20000, Loss: 0.000527, t=0.5: mean[0]=0.5872, std_avg=0.6255, Time/epoch: 0.01s, ETA: 0.1min
+Epoch 19999/20000, Loss: 0.000437, t=0.5: mean[0]=0.6054, std_avg=0.6169, Time/epoch: 0.01s, ETA: 0.0min
+
+Training completed in 4.98 minutes!
+
+======================================================================
+Final Validation
+======================================================================
+
+======================================================================
+Validation: Mean and Variance Statistics
+======================================================================
+    Time      Mean Error       Var Error         Mean L2          Var L2
+----------------------------------------------------------------------
+   0.001        0.012705        0.004040        0.157970        0.051699
+   0.100        0.016133        0.016500        0.205425        0.184501
+   0.200        0.009527        0.025114        0.118726        0.277920
+   0.500        0.024138        0.031399        0.306129        0.365633
+   0.800        0.016574        0.028927        0.201419        0.358538
+   1.000        0.011139        0.042515        0.144679        0.532833
+
+Saved: results_100d/loss.png
+Saved: results_100d/distributions.png
+
+Computing evolution over time...
+Saved: results_100d/evolution.png
+Saved: results_100d/error_heatmap.png
+Saved: results_100d/checkpoint.pth
+Saved: results_100d/validation_results.npz
+
+======================================================================
+Summary Statistics:
+======================================================================
+Total training time: 4.98 minutes
+Average time per epoch: 0.01 seconds
+Final loss: 4.370121e-04
+Mean absolute error (t=1.0): 0.011139
+Variance error (t=1.0): 0.042515
+
+======================================================================
+All done! Check the 'results_100d' directory for outputs.
+======================================================================

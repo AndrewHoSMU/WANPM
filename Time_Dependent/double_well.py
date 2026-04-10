@@ -1,0 +1,439 @@
+"""
+Time-Dependent n-Dimensional Fokker-Planck Equation with Double-Well Potential
+===============================================================================
+
+Solves the time-dependent Fokker-Planck equation:
+    ∂ρ/∂t - (σ²/2)Δρ + ∇·(b(x)ρ) = 0
+
+where b(x) = -∇V(x) is the drift from a double-well potential.
+
+Double-well potential: V(x) = ||x - x₊||⁴ + ||x - x₋||⁴
+with minima at x± = ±(1,1,...,1)/√n
+
+Initial condition: Gaussian ρ₀(x) = N(μ₀, Σ₀)
+"""
+
+import torch
+import torch.nn as nn
+import torch.optim as optim
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+torch.manual_seed(42)
+np.random.seed(42)
+
+# ============================================================================
+# Problem Parameters (ADJUSTABLE)
+# ============================================================================
+
+DIM = 2  # Spatial dimension n (can be changed to any value)
+SIGMA = 0.6  # Diffusion coefficient
+T = 1.0  # Final time
+EPSILON = 1e-3  # Small time to avoid t=0
+
+# Double-well potential parameters
+# Wells located at ±(1,1,...,1)/√n
+SQRT_N = np.sqrt(DIM)
+X_PLUS = np.ones(DIM) / SQRT_N  # Right well at (1,1,...,1)/√n
+X_MINUS = -np.ones(DIM) / SQRT_N  # Left well at -(1,1,...,1)/√n
+
+# Initial condition: Gaussian centered at one of the wells
+# Starting near the left well to see transition dynamics
+MU_0 = X_MINUS.copy()
+SIGMA_0 = 0.2  # Initial standard deviation
+
+# Training parameters
+K = 100  # Number of test functions
+M = 2000  # Batch size for interior time points
+M_0 = 500  # Batch size for initial condition
+D_BASE = max(8, 2 * DIM)  # Base distribution dimension
+N_EPOCHS = 150000
+LR_GEN = 1e-3
+LR_TEST = 1e-2
+N_TEST_UPDATES = 3
+TEST_UPDATE_FREQ = 10
+
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+print(f"Using device: {device}")
+print(f"Dimension: {DIM}")
+print(f"Wells at: ±{X_PLUS}")
+print(f"Initial center: {MU_0}")
+
+# Convert to torch tensors
+X_PLUS_T = torch.tensor(X_PLUS, dtype=torch.float32, device=device)
+X_MINUS_T = torch.tensor(X_MINUS, dtype=torch.float32, device=device)
+MU_0_T = torch.tensor(MU_0, dtype=torch.float32, device=device)
+
+
+# ============================================================================
+# Double-Well Potential and Drift
+# ============================================================================
+
+def double_well_potential(x):
+    """
+    V(x) = ||x - x₊||⁴ + ||x - x₋||⁴
+    Creates two wells at x₊ and x₋
+    """
+    diff_plus = x - X_PLUS_T
+    diff_minus = x - X_MINUS_T
+
+    dist_plus_sq = torch.sum(diff_plus ** 2, dim=-1, keepdim=True)
+    dist_minus_sq = torch.sum(diff_minus ** 2, dim=-1, keepdim=True)
+
+    V = dist_plus_sq ** 2 + dist_minus_sq ** 2
+    return V
+
+
+def drift_coefficient(x):
+    """
+    Drift: b(x) = -∇V(x)
+
+    ∇V(x) = 4||x-x₊||²(x-x₊) + 4||x-x₋||²(x-x₋)
+    """
+    diff_plus = x - X_PLUS_T
+    diff_minus = x - X_MINUS_T
+
+    dist_plus_sq = torch.sum(diff_plus ** 2, dim=-1, keepdim=True)
+    dist_minus_sq = torch.sum(diff_minus ** 2, dim=-1, keepdim=True)
+
+    grad_V = 4 * dist_plus_sq * diff_plus + 4 * dist_minus_sq * diff_minus
+    b = -grad_V
+
+    return b
+
+
+# ============================================================================
+# Neural Networks
+# ============================================================================
+
+class PushforwardNetwork(nn.Module):
+    """
+    Time-dependent pushforward: F_θ(t, x₀, r) = x₀ + √t · G_θ(t, r)
+
+    - At t=0: F_θ(0, x₀, r) = x₀ (enforces initial condition)
+    - √t scaling matches diffusion behavior
+    """
+
+    def __init__(self, n, d_base, hidden_dims=[64, 64]):
+        super().__init__()
+        self.n = n
+        self.d_base = d_base
+
+        # Network G_θ(t, r): R^(1+d) → R^n
+        layers = []
+        in_dim = 1 + d_base
+
+        for h_dim in hidden_dims:
+            layers.append(nn.Linear(in_dim, h_dim))
+            layers.append(nn.Tanh())
+            in_dim = h_dim
+
+        layers.append(nn.Linear(in_dim, n))
+        self.network = nn.Sequential(*layers)
+
+    def forward(self, t, x0, r):
+        """
+        Args:
+            t: (batch_size, 1) - time
+            x0: (batch_size, n) - initial positions
+            r: (batch_size, d) - base noise
+        Returns:
+            x: (batch_size, n) - positions at time t
+        """
+        # Concatenate [t, r]
+        tr_input = torch.cat([t, r], dim=1)
+
+        # Displacement from network
+        displacement = self.network(tr_input)
+
+        # x(t) = x₀ + √t · displacement
+        x = x0 + torch.sqrt(t + EPSILON) * displacement
+
+        return x
+
+
+class TestFunctionBank(nn.Module):
+    """
+    Test functions: f^(k)(t,x) = sin(w·x + κ·t + b)
+    """
+
+    def __init__(self, n, K):
+        super().__init__()
+        self.n = n
+        self.K = K
+
+        # Spatial frequencies
+        self.w = nn.Parameter(torch.randn(K, n))
+        # Temporal frequencies
+        self.kappa = nn.Parameter(torch.randn(K, 1) * 0.5)
+        # Bias
+        self.b = nn.Parameter(torch.rand(K, 1) * 2 * np.pi)
+
+    def forward(self, t, x):
+        """
+        Args:
+            t: (batch_size, 1)
+            x: (batch_size, n)
+        Returns:
+            f: (batch_size, K)
+        """
+        # w·x: (batch, n) @ (K, n)^T → (batch, K)
+        spatial_part = torch.matmul(x, self.w.t())
+
+        # κ·t: (batch, 1) @ (K, 1)^T → (batch, K)
+        temporal_part = torch.matmul(t, self.kappa.t())
+
+        # sin(w·x + κ·t + b)
+        argument = spatial_part + temporal_part + self.b.t()
+        f = torch.sin(argument)
+
+        return f
+
+    def time_derivative(self, t, x):
+        """∂f/∂t = κ·cos(w·x + κ·t + b)"""
+        spatial_part = torch.matmul(x, self.w.t())
+        temporal_part = torch.matmul(t, self.kappa.t())
+        argument = spatial_part + temporal_part + self.b.t()
+
+        df_dt = self.kappa.t() * torch.cos(argument)
+        return df_dt
+
+    def spatial_gradient(self, t, x):
+        """∇f = w·cos(w·x + κ·t + b)"""
+        spatial_part = torch.matmul(x, self.w.t())
+        temporal_part = torch.matmul(t, self.kappa.t())
+        argument = spatial_part + temporal_part + self.b.t()
+
+        cos_arg = torch.cos(argument)  # (batch, K)
+        # ∇f_k = w_k · cos(...): (batch, K, n)
+        grad_f = self.w.unsqueeze(0) * cos_arg.unsqueeze(2)
+
+        return grad_f
+
+
+# ============================================================================
+# Fokker-Planck Operator on Test Function
+# ============================================================================
+
+def compute_Lf(test_bank, t, x):
+    """
+    Compute Lf = -σ²/2 · Δf - b·∇f
+
+    For f = sin(w·x + κ·t + b):
+        ∇f = w·cos(...)
+        Δf = -||w||²·sin(...)
+    """
+    # Get test function values
+    f = test_bank(t, x)  # (batch, K)
+
+    # Get spatial gradient: (batch, K, n)
+    grad_f = test_bank.spatial_gradient(t, x)
+
+    # Laplacian: Δf = -||w||² · f
+    w_norm_sq = torch.sum(test_bank.w ** 2, dim=1)  # (K,)
+    laplacian_f = -w_norm_sq.unsqueeze(0) * f  # (batch, K)
+
+    # Drift term: b·∇f
+    b = drift_coefficient(x)  # (batch, n)
+    # b·∇f for each k: sum over n
+    b_dot_grad_f = torch.sum(b.unsqueeze(1) * grad_f, dim=2)  # (batch, K)
+
+    # Lf = -(σ²/2)Δf - b·∇f
+    Lf = -(SIGMA ** 2 / 2) * laplacian_f - b_dot_grad_f
+
+    return Lf
+
+
+# ============================================================================
+# Loss Function
+# ============================================================================
+
+def compute_loss(gen, test_bank, M_interior, M_initial):
+    """
+    Weak form: E[f(T,·)] - E[f(0,·)] - ∫₀ᵀ E[∂f/∂t + Lf] dt = 0
+    """
+    # --------------------- Terminal time T ---------------------
+    t_T = torch.ones(M_interior, 1, device=device) * T
+    x0_T = MU_0_T + SIGMA_0 * torch.randn(M_interior, DIM, device=device)
+    r_T = torch.randn(M_interior, D_BASE, device=device)
+    x_T = gen(t_T, x0_T, r_T)
+    f_T = test_bank(t_T, x_T)
+    E_T = f_T.mean(dim=0)  # (K,)
+
+    # --------------------- Initial time t=0 ---------------------
+    # Sample from initial distribution
+    x0_samples = MU_0_T + SIGMA_0 * torch.randn(M_initial, DIM, device=device)
+    t_0 = torch.zeros(M_initial, 1, device=device)
+    f_0 = test_bank(t_0, x0_samples)
+    E_0 = f_0.mean(dim=0)  # (K,)
+
+    # --------------------- Interior integral ---------------------
+    # Sample times uniformly from [ε, T]
+    t_interior = EPSILON + (T - EPSILON) * torch.rand(M_interior, 1, device=device)
+    x0_interior = MU_0_T + SIGMA_0 * torch.randn(M_interior, DIM, device=device)
+    r_interior = torch.randn(M_interior, D_BASE, device=device)
+    x_interior = gen(t_interior, x0_interior, r_interior)
+
+    # Compute ∂f/∂t + Lf
+    df_dt = test_bank.time_derivative(t_interior, x_interior)
+    Lf = compute_Lf(test_bank, t_interior, x_interior)
+    integrand = df_dt + Lf
+
+    # Monte Carlo integral: (T-ε) · E[∂f/∂t + Lf]
+    E_interior = (T - EPSILON) * integrand.mean(dim=0)  # (K,)
+
+    # --------------------- Total residual ---------------------
+    residual = E_T - E_0 - E_interior  # (K,)
+    loss = torch.mean(residual ** 2)
+
+    return loss
+
+
+# ============================================================================
+# Training
+# ============================================================================
+
+# Initialize networks
+generator = PushforwardNetwork(DIM, D_BASE, hidden_dims=[64, 64]).to(device)
+test_bank = TestFunctionBank(DIM, K).to(device)
+
+# Optimizers
+opt_gen = optim.Adam(generator.parameters(), lr=LR_GEN)
+opt_test = optim.SGD(test_bank.parameters(), lr=LR_TEST)
+
+# Training loop
+loss_history = []
+
+print("\nStarting training...")
+for epoch in range(N_EPOCHS):
+    # --------------------- Update Generator (minimize) ---------------------
+    opt_gen.zero_grad()
+    loss = compute_loss(generator, test_bank, M, M_0)
+    loss.backward()
+    opt_gen.step()
+
+    loss_val = loss.item()
+    loss_history.append(loss_val)
+
+    # --------------------- Update Test Functions (maximize) ---------------------
+    if (epoch + 1) % TEST_UPDATE_FREQ == 0:
+        for _ in range(N_TEST_UPDATES):
+            opt_test.zero_grad()
+            loss_adv = compute_loss(generator, test_bank, M, M_0)
+            (-loss_adv).backward()  # Maximize = minimize negative
+            opt_test.step()
+
+    # --------------------- Logging ---------------------
+    if (epoch + 1) % 500 == 0:
+        print(f"Epoch {epoch + 1}/{N_EPOCHS}, Loss: {loss_val:.6f}")
+
+print("Training complete!")
+
+
+# ============================================================================
+# Visualization
+# ============================================================================
+
+def generate_samples(gen, t_val, n_samples=2000):
+    """Generate samples at time t"""
+    with torch.no_grad():
+        t = torch.ones(n_samples, 1, device=device) * t_val
+        x0 = MU_0_T + SIGMA_0 * torch.randn(n_samples, DIM, device=device)
+        r = torch.randn(n_samples, D_BASE, device=device)
+        x = gen(t, x0, r)
+    return x.cpu().numpy()
+
+
+# Plot training loss
+plt.figure(figsize=(10, 4))
+plt.semilogy(loss_history)
+plt.xlabel('Epoch')
+plt.ylabel('Loss')
+plt.title('Training Loss Convergence')
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.savefig('doublewell_loss.png', dpi=150, bbox_inches='tight')
+plt.show()
+
+# Visualize distribution evolution
+if DIM == 2:
+    # 2D case: can visualize density
+    fig, axes = plt.subplots(2, 2, figsize=(12, 12))
+    times = [0.01, 0.3, 0.6, 1.0]
+
+    for idx, t_val in enumerate(times):
+        ax = axes[idx // 2, idx % 2]
+
+        # Generate samples
+        samples = generate_samples(generator, t_val, n_samples=3000)
+
+        # 2D histogram
+        ax.hist2d(samples[:, 0], samples[:, 1], bins=50, cmap='Blues', density=True)
+
+        # Mark the wells
+        ax.plot(X_PLUS[0], X_PLUS[1], 'r*', markersize=15, label='Right well')
+        ax.plot(X_MINUS[0], X_MINUS[1], 'g*', markersize=15, label='Left well')
+
+        ax.set_xlabel('$x_1$')
+        ax.set_ylabel('$x_2$')
+        ax.set_title(f't = {t_val:.2f}')
+        ax.legend()
+        ax.grid(True, alpha=0.3)
+        ax.set_aspect('equal')
+
+    plt.tight_layout()
+    plt.savefig('doublewell_evolution_2d.png', dpi=150, bbox_inches='tight')
+    plt.show()
+
+elif DIM == 1:
+    # 1D case: plot PDFs
+    fig, axes = plt.subplots(2, 2, figsize=(12, 8))
+    times = [0.01, 0.3, 0.6, 1.0]
+
+    for idx, t_val in enumerate(times):
+        ax = axes[idx // 2, idx % 2]
+
+        samples = generate_samples(generator, t_val, n_samples=5000)
+
+        ax.hist(samples[:, 0], bins=50, density=True, alpha=0.7, label='Learned')
+        ax.axvline(X_PLUS[0], color='r', linestyle='--', label='Right well')
+        ax.axvline(X_MINUS[0], color='g', linestyle='--', label='Left well')
+
+        ax.set_xlabel('$x$')
+        ax.set_ylabel('Probability density')
+        ax.set_title(f't = {t_val:.2f}')
+        ax.legend()
+        ax.grid(True, alpha=0.3)
+
+    plt.tight_layout()
+    plt.savefig('doublewell_evolution_1d.png', dpi=150, bbox_inches='tight')
+    plt.show()
+
+else:
+    # Higher dimensions: plot projections
+    print(f"\nSampling at different times (showing first 2 dimensions)...")
+    fig, axes = plt.subplots(2, 2, figsize=(12, 12))
+    times = [0.01, 0.3, 0.6, 1.0]
+
+    for idx, t_val in enumerate(times):
+        ax = axes[idx // 2, idx % 2]
+
+        samples = generate_samples(generator, t_val, n_samples=3000)
+
+        # Plot first two dimensions
+        ax.scatter(samples[:, 0], samples[:, 1], alpha=0.3, s=1)
+        ax.plot(X_PLUS[0], X_PLUS[1], 'r*', markersize=15, label='Right well')
+        ax.plot(X_MINUS[0], X_MINUS[1], 'g*', markersize=15, label='Left well')
+
+        ax.set_xlabel('$x_1$')
+        ax.set_ylabel('$x_2$')
+        ax.set_title(f't = {t_val:.2f} (projection to first 2D)')
+        ax.legend()
+        ax.grid(True, alpha=0.3)
+
+    plt.tight_layout()
+    plt.savefig(f'doublewell_evolution_{DIM}d.png', dpi=150, bbox_inches='tight')
+    plt.show()
+
+print("\nVisualization complete! Images saved.")

@@ -1,0 +1,568 @@
+"""
+Time-Dependent 2D Double-Peak Distribution
+Extends DoublePeak2D.py to solve the time-dependent Fokker-Planck equation
+
+DETAILED PARAMETER GUIDE:
+========================
+
+PHYSICAL PARAMETERS:
+-------------------
+- SIGMA = 0.4: Diffusion strength (noise level)
+  * Smaller values (0.3-0.5) give sharper peaks
+  * Matches steady-state DoublePeak2D.py
+  
+- T = 1.0: Final time for evolution
+  * Standard choice for reaching near-equilibrium
+  
+- EPSILON = 1e-3: Avoid t=0 singularity
+  * Prevents numerical issues at initial time
+
+INITIAL CONDITION:
+-----------------
+Strategy: Start from a SINGLE GAUSSIAN centered near origin
+- MU_0 = [0.0, 0.0]: Starting far from both equilibrium peaks
+- SIGMA_0 = 0.5: Moderate initial spread
+- This is SIMPLER than mixture and avoids the bimodal IC complexity
+
+The evolution: Single blob → splits into two peaks at (-1,-1) and (1,1)
+
+NETWORK ARCHITECTURE:
+--------------------
+- D_BASE = 16: Base distribution dimension
+  * Higher dim (16-20) helps with complex 2D dynamics
+  * Provides flexibility for the network
+  
+- Hidden layers: [64, 64, 64]
+  * Deep enough for 2D spatial + time complexity
+  * Tanh activation for smoothness
+
+TEST FUNCTIONS:
+--------------
+- K = 200: Number of test functions
+  * More test functions for 2D (vs 100 for 1D)
+  * Needs to capture spatial variations in both dimensions
+
+TRAINING PARAMETERS:
+-------------------
+- M = 2000: Batch size
+  * Larger batch for stable 2D training
+  * More samples to estimate 2D expectations
+  
+- N_EPOCHS = 50000: Training iterations
+  * Longer training for complex 2D dynamics
+  
+- LR_GEN = 1e-3: Generator learning rate
+  * Conservative rate for stability
+  
+- LR_TEST = 5e-3: Test function learning rate
+  * Can be higher since test functions are simpler
+  
+- N_TEST_UPDATES = 5: Adversarial updates per epoch
+- TEST_UPDATE_FREQ = 5: Update test functions every 5 epochs
+  * Balance between adversarial training and generator progress
+
+LOSS COMPUTATION:
+----------------
+Uses THREE terms (Equation 179 from paper):
+1. Terminal term: E[f(T, x(T))]
+2. Initial term: E[f(0, x_0)]
+3. Interior integral: ∫₀ᵀ E[∂f/∂t + L*f] dt
+
+Key insight: The sqrt(t) parameterization helps with Brownian scaling
+"""
+
+import torch
+import torch.nn as nn
+import torch.optim as optim
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+torch.random.manual_seed(42)
+np.random.seed(42)
+
+# ============================================================================
+# Problem Parameters
+# ============================================================================
+
+# Physical parameters
+SIGMA = 0.4  # Diffusion strength (noise level) - same as steady-state version
+T = 1.0  # Final time
+EPSILON = 1e-3  # Small time to avoid t=0
+
+# Initial condition: SINGLE Gaussian centered near origin
+# This will evolve into the double-peak structure
+MU_0 = np.array([0.0, 0.0])  # Start at origin (far from equilibrium peaks)
+SIGMA_0 = 0.5  # Initial spread
+
+# Training parameters
+K = 200  # Number of test functions (more for 2D)
+M = 2000  # Batch size (larger for 2D)
+D_BASE = 16  # Base distribution dimension
+N_EPOCHS = 200000
+LR_GEN = 1e-3  # Generator learning rate (initial)
+LR_TEST = 5e-3  # Test function learning rate (initial)
+N_TEST_UPDATES = 5
+TEST_UPDATE_FREQ = 1
+SCHEDULER_GAMMA = 0.99999  # Exponential LR decay: lr_t = lr_0 * gamma^t
+
+# Device
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+print(f"Using device: {device}")
+
+
+# ============================================================================
+# Initial Condition and Potential
+# ============================================================================
+
+def sample_initial_condition(n_samples, device):
+    """
+    Sample from SINGLE Gaussian initial condition
+    N(mu_0, sigma_0^2 * I)
+    
+    This is simpler and more stable than mixture of Gaussians
+    """
+    mu_tensor = torch.tensor(MU_0, device=device, dtype=torch.float32)
+    samples = mu_tensor + SIGMA_0 * torch.randn(n_samples, 2, device=device, dtype=torch.float32)
+    return samples
+
+
+def potential_and_gradient(x):
+    """
+    Double-well potential V(x,y) = ((x-1)^2 + (y-1)^2) * ((x+1)^2 + (y+1)^2)
+    
+    This creates minima at approximately (-1,-1) and (1,1)
+    
+    Returns:
+        V: potential values (batch, 1)
+        grad_V: gradient (batch, 2)
+    """
+    x1, x2 = x[:, 0:1], x[:, 1:2]
+    
+    # Distance squared from (1,1) and (-1,-1)
+    r1_sq = (x1 - 1) ** 2 + (x2 - 1) ** 2
+    r2_sq = (x1 + 1) ** 2 + (x2 + 1) ** 2
+    
+    V = r1_sq * r2_sq
+    
+    # Gradient: ∇V = [∂V/∂x₁, ∂V/∂x₂]
+    dV_dx1 = 2 * (x1 - 1) * r2_sq + 2 * (x1 + 1) * r1_sq
+    dV_dx2 = 2 * (x2 - 1) * r2_sq + 2 * (x2 + 1) * r1_sq
+    
+    return V, torch.cat([dV_dx1, dV_dx2], dim=1)
+
+
+def analytical_steady_state(x1, x2, sigma=0.4):
+    """
+    Steady-state Boltzmann distribution (for reference)
+    ρ(x) ∝ exp(-2V(x)/σ²)
+    """
+    r1_sq = (x1 - 1) ** 2 + (x2 - 1) ** 2
+    r2_sq = (x1 + 1) ** 2 + (x2 + 1) ** 2
+    V = r1_sq * r2_sq
+    
+    f = np.exp(-2 * V / (sigma ** 2))
+    
+    # Normalize
+    dx = (x1[0, 1] - x1[0, 0]) if x1.shape[1] > 1 else 0.01
+    dy = (x2[1, 0] - x2[0, 0]) if x2.shape[0] > 1 else 0.01
+    f = f / (np.sum(f) * dx * dy)
+    
+    return f
+
+
+# ============================================================================
+# Neural Networks
+# ============================================================================
+
+class PushforwardNetwork(nn.Module):
+    """
+    Time-dependent pushforward network
+    
+    Architecture: F_θ(t, r) = x_0 + t * G_θ(t, r)
+    
+    Note: Using t (not sqrt(t)) for this problem based on working examples
+    At t=0: F_θ(0, r) = x_0, automatically satisfying IC
+    """
+    
+    def __init__(self, d_base, hidden_dims=[64, 64, 64]):
+        super(PushforwardNetwork, self).__init__()
+        self.d_base = d_base
+        
+        # Project base distribution to initial condition
+        self.r_to_z = nn.Linear(d_base, 2, bias=False)
+        
+        # Time-dependent evolution network
+        # Input: [t, r_1, ..., r_d]
+        # Output: [Δx, Δy] displacement vector
+        layers = []
+        input_dim = 1 + d_base
+        
+        for hidden_dim in hidden_dims:
+            layers.append(nn.Linear(input_dim, hidden_dim))
+            layers.append(nn.Tanh())
+            input_dim = hidden_dim
+        
+        layers.append(nn.Linear(input_dim, 2))  # Output is 2D displacement
+        self.G_theta = nn.Sequential(*layers)
+        
+        # Store initial condition parameters
+        self.mu_0 = torch.tensor(MU_0, dtype=torch.float32)
+        self.sigma_0 = SIGMA_0
+    
+    def forward(self, t, r):
+        """
+        F_θ(t, r) = (μ₀ + σ₀·z) + t·G_θ(t, r)
+        
+        where z ~ N(0, I) is derived from r
+        
+        Args:
+            t: (batch_size, 1) time values
+            r: (batch_size, d_base) base distribution samples
+        
+        Returns:
+            x: (batch_size, 2) positions at time t
+        """
+        # Move mu_0 to correct device if needed
+        if self.mu_0.device != r.device:
+            self.mu_0 = self.mu_0.to(r.device)
+        
+        # Initial condition: N(μ₀, σ₀²·I)
+        z = self.r_to_z(r)  # (batch, 2)
+        x_0 = self.mu_0 + self.sigma_0 * z
+        
+        # Time-dependent correction
+        tr = torch.cat([t, r], dim=1)
+        g = self.G_theta(tr)
+        
+        x = x_0 + t * g
+        return x
+
+
+class TestFunctions(nn.Module):
+    """
+    Test functions with plane wave form (Equation 214 from paper)
+    
+    f^(k)(t, x) = sin(w₁^(k)·x₁ + w₂^(k)·x₂ + κ^(k)·t + b^(k))
+    
+    This is the form from the LaTeX paper, NOT the factored form
+    """
+    
+    def __init__(self, n_spatial, n_out, T):
+        super(TestFunctions, self).__init__()
+        self.n_spatial = n_spatial  # 2
+        self.n_out = n_out  # K
+        self.T = T
+        
+        # Temporal frequency κ
+        self.kappa = nn.Parameter(torch.randn(n_out))
+        
+        # Spatial frequencies w
+        self.w = nn.Parameter(torch.randn(n_spatial, n_out))
+        
+        # Phase shift b
+        self.b = nn.Parameter(torch.rand(n_out) * 2 * np.pi)
+    
+    def evaluate(self, t, x):
+        """f(t, x) = sin(w·x + κ·t + b)"""
+        phase = x @ self.w + self.kappa * t + self.b
+        return torch.sin(phase)
+    
+    def time_derivative(self, t, x):
+        """∂f/∂t = κ·cos(w·x + κ·t + b)"""
+        phase = x @ self.w + self.kappa * t + self.b
+        return self.kappa * torch.cos(phase)
+    
+    def spatial_FP_operator(self, t, x):
+        """
+        L*f = -(σ²/2)·Δf - b·∇f
+        
+        where b = -∇V (drift from potential gradient)
+        
+        For f = sin(w·x + κ·t + b):
+        - ∂²f/∂x_i∂x_j = -w_i·w_j·sin(w·x + κ·t + b)
+        - Δf = -||w||²·sin(w·x + κ·t + b)
+        - ∂f/∂x_i = w_i·cos(w·x + κ·t + b)
+        """
+        phase = x @ self.w + self.kappa * t + self.b
+        sin_phase = torch.sin(phase)
+        cos_phase = torch.cos(phase)
+        
+        # Laplacian: Δf = -||w||²·sin(phase)
+        w_squared_sum = (self.w ** 2).sum(dim=0, keepdim=True)  # (1, n_out)
+        laplacian = -w_squared_sum * sin_phase  # (batch, n_out)
+        
+        # Diffusion term: -(σ²/2) * Δf
+        diffusion_term = -(SIGMA ** 2 / 2) * laplacian
+        
+        # Drift term: -b·∇f where b = -∇V
+        # So this becomes: ∇V · ∇f
+        _, grad_V = potential_and_gradient(x)  # (batch, 2)
+        
+        # ∇f = w * cos(phase)
+        # (grad_V · w) * cos_phase
+        drift_term = torch.einsum('bi,ik,bk->bk', grad_V, self.w, cos_phase)
+        
+        return diffusion_term + drift_term
+    
+    def weak_form_integrand(self, t, x):
+        """∂f/∂t + L*f (the interior term)"""
+        return self.time_derivative(t, x) + self.spatial_FP_operator(t, x)
+    
+    def ic_term(self, n_samples=1000):
+        """
+        𝔼_{x~ρ₀}[f(0, x)]
+        
+        Monte Carlo approximation for Gaussian IC
+        """
+        x_samples = sample_initial_condition(n_samples, device=self.w.device)
+        t_zero = torch.zeros(n_samples, 1, device=self.w.device)
+        f_values = self.evaluate(t_zero, x_samples)
+        return f_values.mean(dim=0)
+
+
+# ============================================================================
+# Loss Function
+# ============================================================================
+
+def compute_loss(t, x, test_funcs):
+    """
+    Simplified loss for training loop (interior integral only with IC subtraction)
+    
+    This is used during the main training loop for efficiency
+    """
+    # Interior integral term
+    integrand = test_funcs.weak_form_integrand(t, x)
+    temporal_integral = (T - EPSILON) * integrand.mean(dim=0)
+    
+    # Initial condition term
+    ic_term = test_funcs.ic_term(n_samples=500)
+    
+    # Residual (missing terminal term for efficiency)
+    residual = temporal_integral - ic_term
+    
+    return (residual ** 2).mean()
+
+
+# ============================================================================
+# Validation and Visualization
+# ============================================================================
+
+def plot_distributions_at_times(pushforward_net, times, n_samples=5000):
+    """Plot 2D distributions at different times"""
+    n_times = len(times)
+    fig, axes = plt.subplots(2, n_times, figsize=(5*n_times, 10))
+    if n_times == 1:
+        axes = axes.reshape(-1, 1)
+    
+    with torch.no_grad():
+        for idx, t_val in enumerate(times):
+            t_batch = torch.full((n_samples, 1), t_val, device=device)
+            r_batch = torch.randn(n_samples, D_BASE, device=device)
+            x_samples = pushforward_net(t_batch, r_batch).cpu().numpy()
+            
+            # Scatter plot
+            axes[0, idx].scatter(x_samples[:, 0], x_samples[:, 1], 
+                               alpha=0.3, s=1, c='blue')
+            axes[0, idx].scatter([-1, 1], [-1, 1], c='red', s=100, 
+                               marker='x', linewidths=3, label='Target peaks')
+            axes[0, idx].set_xlabel('x')
+            axes[0, idx].set_ylabel('y')
+            axes[0, idx].set_title(f't = {t_val:.3f} (Scatter)')
+            axes[0, idx].legend()
+            axes[0, idx].grid(True, alpha=0.3)
+            axes[0, idx].axis('equal')
+            axes[0, idx].set_xlim([-3, 3])
+            axes[0, idx].set_ylim([-3, 3])
+            
+            # Density plot
+            h = axes[1, idx].hist2d(x_samples[:, 0], x_samples[:, 1], 
+                                   bins=50, cmap='viridis', range=[[-3, 3], [-3, 3]])
+            axes[1, idx].scatter([-1, 1], [-1, 1], c='red', s=100,
+                               marker='x', linewidths=3, label='Target peaks')
+            axes[1, idx].set_xlabel('x')
+            axes[1, idx].set_ylabel('y')
+            axes[1, idx].set_title(f't = {t_val:.3f} (Density)')
+            axes[1, idx].legend()
+            plt.colorbar(h[3], ax=axes[1, idx], label='Density')
+    
+    plt.tight_layout()
+    plt.savefig('double_peak_2d_time_distributions.png', dpi=150, bbox_inches='tight')
+    plt.show()
+
+
+def plot_mean_evolution(pushforward_net, n_time_points=100):
+    """Plot evolution of mean position"""
+    times = np.linspace(EPSILON, T, n_time_points)
+    
+    means = []
+    
+    with torch.no_grad():
+        for t_val in times:
+            t_batch = torch.full((5000, 1), t_val, device=device)
+            r_batch = torch.randn(5000, D_BASE, device=device)
+            x_samples = pushforward_net(t_batch, r_batch).cpu().numpy()
+            means.append(x_samples.mean(axis=0))
+    
+    means = np.array(means)
+    
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
+    
+    # x-coordinate
+    ax1.plot(times, means[:, 0], 'b-', lw=2, label='Learned')
+    ax1.axhline(y=0, color='r', linestyle='--', label='Equilibrium')
+    ax1.set_xlabel('Time')
+    ax1.set_ylabel('Mean x-coordinate')
+    ax1.set_title('Mean x Evolution')
+    ax1.legend()
+    ax1.grid(True, alpha=0.3)
+    
+    # y-coordinate
+    ax2.plot(times, means[:, 1], 'b-', lw=2, label='Learned')
+    ax2.axhline(y=0, color='r', linestyle='--', label='Equilibrium')
+    ax2.set_xlabel('Time')
+    ax2.set_ylabel('Mean y-coordinate')
+    ax2.set_title('Mean y Evolution')
+    ax2.legend()
+    ax2.grid(True, alpha=0.3)
+    
+    plt.tight_layout()
+    plt.savefig('double_peak_2d_mean_evolution.png', dpi=150, bbox_inches='tight')
+    plt.show()
+
+
+def print_statistics(pushforward_net, t_val, n_samples=5000):
+    """Print statistics at a given time"""
+    with torch.no_grad():
+        t_batch = torch.full((n_samples, 1), t_val, device=device)
+        r_batch = torch.randn(n_samples, D_BASE, device=device)
+        x_samples = pushforward_net(t_batch, r_batch).cpu().numpy()
+        
+        mean = x_samples.mean(axis=0)
+        std = x_samples.std(axis=0)
+        
+        print(f"t={t_val:.3f}: mean=({mean[0]:6.3f}, {mean[1]:6.3f}), "
+              f"std=({std[0]:.3f}, {std[1]:.3f})")
+
+
+# ============================================================================
+# Main Training Loop
+# ============================================================================
+
+if __name__ == '__main__':
+    print("=" * 80)
+    print("Time-Dependent 2D Double-Peak Distribution")
+    print("=" * 80)
+    print(f"\nPHYSICAL PARAMETERS:")
+    print(f"  Diffusion coefficient: σ = {SIGMA}")
+    print(f"  Time interval: [0, {T}]")
+    print(f"\nINITIAL CONDITION:")
+    print(f"  Type: Single Gaussian")
+    print(f"  Mean: μ₀ = {MU_0}")
+    print(f"  Std dev: σ₀ = {SIGMA_0}")
+    print(f"  Strategy: Single blob at origin → evolves to double peaks")
+    print(f"\nNETWORK ARCHITECTURE:")
+    print(f"  Base dimension: {D_BASE}")
+    print(f"  Hidden layers: [64, 64, 64]")
+    print(f"  Activation: Tanh")
+    print(f"\nTRAINING PARAMETERS:")
+    print(f"  Test functions: K = {K}")
+    print(f"  Batch size: M = {M}")
+    print(f"  Epochs: {N_EPOCHS}")
+    print(f"  Generator LR: {LR_GEN} (with exponential decay γ={SCHEDULER_GAMMA})")
+    print(f"  Test function LR: {LR_TEST} (with exponential decay γ={SCHEDULER_GAMMA})")
+    print(f"  Test updates: {N_TEST_UPDATES} every {TEST_UPDATE_FREQ} epochs")
+    print("=" * 80)
+    
+    # Initialize networks
+    pushforward_net = PushforwardNetwork(D_BASE).to(device)
+    test_funcs = TestFunctions(2, K, T).to(device)
+    
+    # Optimizers
+    gen_optimizer = optim.Adam(pushforward_net.parameters(), lr=LR_GEN)
+    test_optimizer = optim.SGD(test_funcs.parameters(), lr=LR_TEST)
+    
+    # Learning rate schedulers
+    # Exponential decay: lr_t = lr_0 * gamma^t
+    # After 50000 epochs: lr ≈ lr_0 * 0.606 (gradual decay)
+    gen_scheduler = optim.lr_scheduler.ExponentialLR(gen_optimizer, gamma=SCHEDULER_GAMMA)
+    test_scheduler = optim.lr_scheduler.ExponentialLR(test_optimizer, gamma=SCHEDULER_GAMMA)
+    
+    # Training history
+    loss_log = []
+    
+    print("\nStarting training...")
+    print("-" * 80)
+    
+    for epoch in range(N_EPOCHS):
+        # Sample spacetime points
+        t = EPSILON + (T - EPSILON) * torch.rand(M, 1, device=device)
+        r = torch.randn(M, D_BASE, device=device)
+        x = pushforward_net(t, r)
+        
+        # Adversarial test function update
+        if epoch % TEST_UPDATE_FREQ == 0 and epoch > 0:
+            for _ in range(N_TEST_UPDATES):
+                test_loss = compute_loss(t, x.detach(), test_funcs)
+                test_optimizer.zero_grad()
+                (-test_loss).backward()
+                test_optimizer.step()
+        
+        # Generator update
+        gen_loss = compute_loss(t, x, test_funcs)
+        gen_optimizer.zero_grad()
+        gen_loss.backward()
+        gen_optimizer.step()
+        
+        # Step schedulers
+        gen_scheduler.step()
+        test_scheduler.step()
+        
+        loss_log.append(gen_loss.item())
+        
+        # Logging
+        if epoch % 1000 == 0 or epoch == N_EPOCHS - 1:
+            current_lr_gen = gen_scheduler.get_last_lr()[0]
+            current_lr_test = test_scheduler.get_last_lr()[0]
+            print(f"Epoch {epoch:5d}, Loss: {gen_loss.item():.6f}, "
+                  f"LR_gen: {current_lr_gen:.2e}, LR_test: {current_lr_test:.2e}")
+            if epoch % 5000 == 0:
+                print_statistics(pushforward_net, 0.5)
+    
+    print("\nTraining completed!")
+    
+    # Final Validation
+    print("\n" + "=" * 80)
+    print("Final Statistics at Different Times:")
+    print("-" * 80)
+    for t_val in [0.01, 0.2, 0.5, 0.8, 1.0]:
+        print_statistics(pushforward_net, t_val)
+    
+    # Visualization
+    print("\n" + "=" * 80)
+    print("Generating visualizations...")
+    print("=" * 80)
+    
+    # Plot loss convergence
+    plt.figure(figsize=(10, 6))
+    plt.semilogy(loss_log)
+    plt.xlabel('Epoch')
+    plt.ylabel('Loss')
+    plt.title('Training Loss Convergence')
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig('double_peak_2d_time_loss.png', dpi=150, bbox_inches='tight')
+    plt.show()
+    
+    # Plot distributions at different times
+    plot_distributions_at_times(pushforward_net, times=[0.01, 0.2, 0.5, 1.0])
+    
+    # Plot mean evolution
+    plot_mean_evolution(pushforward_net)
+    
+    print("\n" + "=" * 80)
+    print("All done! Generated plots:")
+    print("  1. double_peak_2d_time_loss.png")
+    print("  2. double_peak_2d_time_distributions.png")
+    print("  3. double_peak_2d_mean_evolution.png")
+    print("=" * 80)

@@ -1,0 +1,18 @@
+Using device: cuda
+================================================================================
+Time-Dependent 2D Double-Peak Distribution
+================================================================================
+Parameters: σ=0.4, T=1.0
+Initial condition: Mixture of Gaussians at [-1.5 -1.5] and [1.5 1.5]
+Target: Double-well potential with equilibrium peaks at (-1,-1) and (1,1)
+Training: K=200 test functions, M=1000 batch size, 50000 epochs
+================================================================================
+
+Starting training...
+--------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/users/andrewho/WANPM_FP/Time_Dependent/double_well_2d.py", line 440, in <module>
+    x_0 = sample_initial_condition(M, device)
+  File "/users/andrewho/WANPM_FP/Time_Dependent/double_well_2d.py", line 65, in sample_initial_condition
+    samples[component] = torch.tensor(MU_1, device=device) + \
+RuntimeError: Index put requires the source and destination dtypes match, got Float for the destination and Double for the source.

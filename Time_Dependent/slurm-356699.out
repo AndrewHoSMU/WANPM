@@ -1,0 +1,304 @@
+Using device: cuda
+================================================================================
+Time-Dependent 2D Double-Peak Distribution
+================================================================================
+
+PHYSICAL PARAMETERS:
+  Diffusion coefficient: σ = 0.4
+  Time interval: [0, 1.0]
+
+INITIAL CONDITION:
+  Type: Single Gaussian
+  Mean: μ₀ = [0. 0.]
+  Std dev: σ₀ = 0.5
+  Strategy: Single blob at origin → evolves to double peaks
+
+NETWORK ARCHITECTURE:
+  Base dimension: 16
+  Hidden layers: [64, 64, 64]
+  Activation: Tanh
+
+TRAINING PARAMETERS:
+  Test functions: K = 200
+  Batch size: M = 2000
+  Epochs: 200000
+  Generator LR: 0.001 (with exponential decay γ=0.99999)
+  Test function LR: 0.005 (with exponential decay γ=0.99999)
+  Test updates: 5 every 1 epochs
+================================================================================
+
+Starting training...
+--------------------------------------------------------------------------------
+/users/andrewho/.conda/envs/torch_gpu/lib/python3.10/site-packages/torch/optim/lr_scheduler.py:224: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  warnings.warn(
+Epoch     0, Loss: 1.249458, LR_gen: 1.00e-03, LR_test: 5.00e-03
+t=0.500: mean=( 0.032,  0.026), std=(0.280, 0.270)
+Epoch  1000, Loss: 1.566347, LR_gen: 9.90e-04, LR_test: 4.95e-03
+Epoch  2000, Loss: 2.361905, LR_gen: 9.80e-04, LR_test: 4.90e-03
+Epoch  3000, Loss: 3.191823, LR_gen: 9.70e-04, LR_test: 4.85e-03
+Epoch  4000, Loss: 3.883844, LR_gen: 9.61e-04, LR_test: 4.80e-03
+Epoch  5000, Loss: 4.520153, LR_gen: 9.51e-04, LR_test: 4.76e-03
+t=0.500: mean=(-0.003, -0.017), std=(0.088, 0.084)
+Epoch  6000, Loss: 4.995033, LR_gen: 9.42e-04, LR_test: 4.71e-03
+Epoch  7000, Loss: 5.341737, LR_gen: 9.32e-04, LR_test: 4.66e-03
+Epoch  8000, Loss: 5.744640, LR_gen: 9.23e-04, LR_test: 4.62e-03
+Epoch  9000, Loss: 6.176026, LR_gen: 9.14e-04, LR_test: 4.57e-03
+Epoch 10000, Loss: 6.282397, LR_gen: 9.05e-04, LR_test: 4.52e-03
+t=0.500: mean=(-0.093, -0.101), std=(0.824, 0.815)
+Epoch 11000, Loss: 6.452203, LR_gen: 8.96e-04, LR_test: 4.48e-03
+Epoch 12000, Loss: 6.551737, LR_gen: 8.87e-04, LR_test: 4.43e-03
+Epoch 13000, Loss: 6.787848, LR_gen: 8.78e-04, LR_test: 4.39e-03
+Epoch 14000, Loss: 6.858544, LR_gen: 8.69e-04, LR_test: 4.35e-03
+Epoch 15000, Loss: 7.254482, LR_gen: 8.61e-04, LR_test: 4.30e-03
+t=0.500: mean=( 0.009, -0.014), std=(0.731, 0.734)
+Epoch 16000, Loss: 7.287485, LR_gen: 8.52e-04, LR_test: 4.26e-03
+Epoch 17000, Loss: 7.460539, LR_gen: 8.44e-04, LR_test: 4.22e-03
+Epoch 18000, Loss: 7.426022, LR_gen: 8.35e-04, LR_test: 4.18e-03
+Epoch 19000, Loss: 7.531886, LR_gen: 8.27e-04, LR_test: 4.13e-03
+Epoch 20000, Loss: 7.639576, LR_gen: 8.19e-04, LR_test: 4.09e-03
+t=0.500: mean=( 0.022,  0.016), std=(0.718, 0.720)
+Epoch 21000, Loss: 7.542968, LR_gen: 8.11e-04, LR_test: 4.05e-03
+Epoch 22000, Loss: 7.719115, LR_gen: 8.03e-04, LR_test: 4.01e-03
+Epoch 23000, Loss: 7.649904, LR_gen: 7.95e-04, LR_test: 3.97e-03
+Epoch 24000, Loss: 7.735051, LR_gen: 7.87e-04, LR_test: 3.93e-03
+Epoch 25000, Loss: 7.715996, LR_gen: 7.79e-04, LR_test: 3.89e-03
+t=0.500: mean=(-0.023, -0.028), std=(0.739, 0.757)
+Epoch 26000, Loss: 7.840476, LR_gen: 7.71e-04, LR_test: 3.86e-03
+Epoch 27000, Loss: 7.698024, LR_gen: 7.63e-04, LR_test: 3.82e-03
+Epoch 28000, Loss: 7.786960, LR_gen: 7.56e-04, LR_test: 3.78e-03
+Epoch 29000, Loss: 7.679111, LR_gen: 7.48e-04, LR_test: 3.74e-03
+Epoch 30000, Loss: 7.657817, LR_gen: 7.41e-04, LR_test: 3.70e-03
+t=0.500: mean=( 0.013,  0.011), std=(0.763, 0.783)
+Epoch 31000, Loss: 7.875482, LR_gen: 7.33e-04, LR_test: 3.67e-03
+Epoch 32000, Loss: 7.610608, LR_gen: 7.26e-04, LR_test: 3.63e-03
+Epoch 33000, Loss: 7.730927, LR_gen: 7.19e-04, LR_test: 3.59e-03
+Epoch 34000, Loss: 7.617025, LR_gen: 7.12e-04, LR_test: 3.56e-03
+Epoch 35000, Loss: 7.684009, LR_gen: 7.05e-04, LR_test: 3.52e-03
+t=0.500: mean=(-0.037, -0.054), std=(0.729, 0.751)
+Epoch 36000, Loss: 7.785392, LR_gen: 6.98e-04, LR_test: 3.49e-03
+Epoch 37000, Loss: 7.694393, LR_gen: 6.91e-04, LR_test: 3.45e-03
+Epoch 38000, Loss: 7.875494, LR_gen: 6.84e-04, LR_test: 3.42e-03
+Epoch 39000, Loss: 7.678974, LR_gen: 6.77e-04, LR_test: 3.39e-03
+Epoch 40000, Loss: 7.905157, LR_gen: 6.70e-04, LR_test: 3.35e-03
+t=0.500: mean=( 0.007, -0.016), std=(0.741, 0.767)
+Epoch 41000, Loss: 7.717641, LR_gen: 6.64e-04, LR_test: 3.32e-03
+Epoch 42000, Loss: 7.787879, LR_gen: 6.57e-04, LR_test: 3.29e-03
+Epoch 43000, Loss: 7.827956, LR_gen: 6.51e-04, LR_test: 3.25e-03
+Epoch 44000, Loss: 7.824059, LR_gen: 6.44e-04, LR_test: 3.22e-03
+Epoch 45000, Loss: 7.824121, LR_gen: 6.38e-04, LR_test: 3.19e-03
+t=0.500: mean=( 0.031,  0.015), std=(0.747, 0.777)
+Epoch 46000, Loss: 7.876047, LR_gen: 6.31e-04, LR_test: 3.16e-03
+Epoch 47000, Loss: 7.888947, LR_gen: 6.25e-04, LR_test: 3.12e-03
+Epoch 48000, Loss: 7.862757, LR_gen: 6.19e-04, LR_test: 3.09e-03
+Epoch 49000, Loss: 7.914695, LR_gen: 6.13e-04, LR_test: 3.06e-03
+Epoch 50000, Loss: 7.704119, LR_gen: 6.07e-04, LR_test: 3.03e-03
+t=0.500: mean=( 0.036,  0.023), std=(0.749, 0.761)
+Epoch 51000, Loss: 7.846776, LR_gen: 6.00e-04, LR_test: 3.00e-03
+Epoch 52000, Loss: 7.937904, LR_gen: 5.95e-04, LR_test: 2.97e-03
+Epoch 53000, Loss: 7.808874, LR_gen: 5.89e-04, LR_test: 2.94e-03
+Epoch 54000, Loss: 7.707198, LR_gen: 5.83e-04, LR_test: 2.91e-03
+Epoch 55000, Loss: 7.832512, LR_gen: 5.77e-04, LR_test: 2.88e-03
+t=0.500: mean=( 0.085, -0.030), std=(0.746, 0.741)
+Epoch 56000, Loss: 7.925338, LR_gen: 5.71e-04, LR_test: 2.86e-03
+Epoch 57000, Loss: 7.614308, LR_gen: 5.66e-04, LR_test: 2.83e-03
+Epoch 58000, Loss: 7.952346, LR_gen: 5.60e-04, LR_test: 2.80e-03
+Epoch 59000, Loss: 7.949487, LR_gen: 5.54e-04, LR_test: 2.77e-03
+Epoch 60000, Loss: 7.810501, LR_gen: 5.49e-04, LR_test: 2.74e-03
+t=0.500: mean=( 0.096,  0.076), std=(0.768, 0.754)
+Epoch 61000, Loss: 8.012084, LR_gen: 5.43e-04, LR_test: 2.72e-03
+Epoch 62000, Loss: 7.907260, LR_gen: 5.38e-04, LR_test: 2.69e-03
+Epoch 63000, Loss: 7.976125, LR_gen: 5.33e-04, LR_test: 2.66e-03
+Epoch 64000, Loss: 7.922824, LR_gen: 5.27e-04, LR_test: 2.64e-03
+Epoch 65000, Loss: 8.017607, LR_gen: 5.22e-04, LR_test: 2.61e-03
+t=0.500: mean=( 0.130,  0.101), std=(0.752, 0.752)
+Epoch 66000, Loss: 7.853958, LR_gen: 5.17e-04, LR_test: 2.58e-03
+Epoch 67000, Loss: 7.891242, LR_gen: 5.12e-04, LR_test: 2.56e-03
+Epoch 68000, Loss: 7.950472, LR_gen: 5.07e-04, LR_test: 2.53e-03
+Epoch 69000, Loss: 7.818495, LR_gen: 5.02e-04, LR_test: 2.51e-03
+Epoch 70000, Loss: 7.837762, LR_gen: 4.97e-04, LR_test: 2.48e-03
+t=0.500: mean=( 0.068,  0.034), std=(0.753, 0.765)
+Epoch 71000, Loss: 7.859305, LR_gen: 4.92e-04, LR_test: 2.46e-03
+Epoch 72000, Loss: 8.078287, LR_gen: 4.87e-04, LR_test: 2.43e-03
+Epoch 73000, Loss: 7.811090, LR_gen: 4.82e-04, LR_test: 2.41e-03
+Epoch 74000, Loss: 7.785636, LR_gen: 4.77e-04, LR_test: 2.39e-03
+Epoch 75000, Loss: 7.733362, LR_gen: 4.72e-04, LR_test: 2.36e-03
+t=0.500: mean=( 0.091,  0.053), std=(0.763, 0.802)
+Epoch 76000, Loss: 8.080301, LR_gen: 4.68e-04, LR_test: 2.34e-03
+Epoch 77000, Loss: 7.928488, LR_gen: 4.63e-04, LR_test: 2.32e-03
+Epoch 78000, Loss: 7.997632, LR_gen: 4.58e-04, LR_test: 2.29e-03
+Epoch 79000, Loss: 7.970144, LR_gen: 4.54e-04, LR_test: 2.27e-03
+Epoch 80000, Loss: 7.943850, LR_gen: 4.49e-04, LR_test: 2.25e-03
+t=0.500: mean=( 0.078,  0.087), std=(0.745, 0.728)
+Epoch 81000, Loss: 7.908474, LR_gen: 4.45e-04, LR_test: 2.22e-03
+Epoch 82000, Loss: 7.979436, LR_gen: 4.40e-04, LR_test: 2.20e-03
+Epoch 83000, Loss: 7.971974, LR_gen: 4.36e-04, LR_test: 2.18e-03
+Epoch 84000, Loss: 7.920989, LR_gen: 4.32e-04, LR_test: 2.16e-03
+Epoch 85000, Loss: 8.056183, LR_gen: 4.27e-04, LR_test: 2.14e-03
+t=0.500: mean=( 0.403, -0.229), std=(0.612, 0.587)
+Epoch 86000, Loss: 7.733732, LR_gen: 4.23e-04, LR_test: 2.12e-03
+Epoch 87000, Loss: 8.036893, LR_gen: 4.19e-04, LR_test: 2.09e-03
+Epoch 88000, Loss: 7.918959, LR_gen: 4.15e-04, LR_test: 2.07e-03
+Epoch 89000, Loss: 8.140824, LR_gen: 4.11e-04, LR_test: 2.05e-03
+Epoch 90000, Loss: 7.798529, LR_gen: 4.07e-04, LR_test: 2.03e-03
+t=0.500: mean=(-0.403,  0.452), std=(0.635, 0.596)
+Epoch 91000, Loss: 8.034583, LR_gen: 4.03e-04, LR_test: 2.01e-03
+Epoch 92000, Loss: 8.238246, LR_gen: 3.99e-04, LR_test: 1.99e-03
+Epoch 93000, Loss: 8.239157, LR_gen: 3.95e-04, LR_test: 1.97e-03
+Epoch 94000, Loss: 8.012843, LR_gen: 3.91e-04, LR_test: 1.95e-03
+Epoch 95000, Loss: 7.911922, LR_gen: 3.87e-04, LR_test: 1.93e-03
+t=0.500: mean=( 0.005,  0.006), std=(0.656, 0.719)
+Epoch 96000, Loss: 7.772301, LR_gen: 3.83e-04, LR_test: 1.91e-03
+Epoch 97000, Loss: 7.907005, LR_gen: 3.79e-04, LR_test: 1.90e-03
+Epoch 98000, Loss: 8.071182, LR_gen: 3.75e-04, LR_test: 1.88e-03
+Epoch 99000, Loss: 7.941932, LR_gen: 3.72e-04, LR_test: 1.86e-03
+Epoch 100000, Loss: 8.122625, LR_gen: 3.68e-04, LR_test: 1.84e-03
+t=0.500: mean=( 0.064, -0.030), std=(0.772, 0.793)
+Epoch 101000, Loss: 8.096734, LR_gen: 3.64e-04, LR_test: 1.82e-03
+Epoch 102000, Loss: 7.980482, LR_gen: 3.61e-04, LR_test: 1.80e-03
+Epoch 103000, Loss: 8.020369, LR_gen: 3.57e-04, LR_test: 1.79e-03
+Epoch 104000, Loss: 8.134223, LR_gen: 3.53e-04, LR_test: 1.77e-03
+Epoch 105000, Loss: 8.072088, LR_gen: 3.50e-04, LR_test: 1.75e-03
+t=0.500: mean=( 0.049,  0.013), std=(0.811, 0.825)
+Epoch 106000, Loss: 7.949481, LR_gen: 3.46e-04, LR_test: 1.73e-03
+Epoch 107000, Loss: 7.973759, LR_gen: 3.43e-04, LR_test: 1.72e-03
+Epoch 108000, Loss: 7.902796, LR_gen: 3.40e-04, LR_test: 1.70e-03
+Epoch 109000, Loss: 7.749250, LR_gen: 3.36e-04, LR_test: 1.68e-03
+Epoch 110000, Loss: 7.792725, LR_gen: 3.33e-04, LR_test: 1.66e-03
+t=0.500: mean=( 0.046,  0.053), std=(0.803, 0.810)
+Epoch 111000, Loss: 7.939755, LR_gen: 3.30e-04, LR_test: 1.65e-03
+Epoch 112000, Loss: 8.081394, LR_gen: 3.26e-04, LR_test: 1.63e-03
+Epoch 113000, Loss: 8.044092, LR_gen: 3.23e-04, LR_test: 1.62e-03
+Epoch 114000, Loss: 7.840543, LR_gen: 3.20e-04, LR_test: 1.60e-03
+Epoch 115000, Loss: 8.170696, LR_gen: 3.17e-04, LR_test: 1.58e-03
+t=0.500: mean=( 0.046,  0.048), std=(0.813, 0.817)
+Epoch 116000, Loss: 7.885464, LR_gen: 3.13e-04, LR_test: 1.57e-03
+Epoch 117000, Loss: 7.919260, LR_gen: 3.10e-04, LR_test: 1.55e-03
+Epoch 118000, Loss: 7.990740, LR_gen: 3.07e-04, LR_test: 1.54e-03
+Epoch 119000, Loss: 8.047213, LR_gen: 3.04e-04, LR_test: 1.52e-03
+Epoch 120000, Loss: 7.940071, LR_gen: 3.01e-04, LR_test: 1.51e-03
+t=0.500: mean=( 0.027,  0.031), std=(0.812, 0.814)
+Epoch 121000, Loss: 7.935518, LR_gen: 2.98e-04, LR_test: 1.49e-03
+Epoch 122000, Loss: 8.025161, LR_gen: 2.95e-04, LR_test: 1.48e-03
+Epoch 123000, Loss: 8.067555, LR_gen: 2.92e-04, LR_test: 1.46e-03
+Epoch 124000, Loss: 8.009473, LR_gen: 2.89e-04, LR_test: 1.45e-03
+Epoch 125000, Loss: 7.807481, LR_gen: 2.87e-04, LR_test: 1.43e-03
+t=0.500: mean=( 0.063,  0.065), std=(0.806, 0.803)
+Epoch 126000, Loss: 8.043659, LR_gen: 2.84e-04, LR_test: 1.42e-03
+Epoch 127000, Loss: 7.971718, LR_gen: 2.81e-04, LR_test: 1.40e-03
+Epoch 128000, Loss: 7.972677, LR_gen: 2.78e-04, LR_test: 1.39e-03
+Epoch 129000, Loss: 7.937051, LR_gen: 2.75e-04, LR_test: 1.38e-03
+Epoch 130000, Loss: 7.786294, LR_gen: 2.73e-04, LR_test: 1.36e-03
+t=0.500: mean=( 0.039,  0.041), std=(0.820, 0.818)
+Epoch 131000, Loss: 8.020249, LR_gen: 2.70e-04, LR_test: 1.35e-03
+Epoch 132000, Loss: 8.016954, LR_gen: 2.67e-04, LR_test: 1.34e-03
+Epoch 133000, Loss: 8.256677, LR_gen: 2.64e-04, LR_test: 1.32e-03
+Epoch 134000, Loss: 7.717308, LR_gen: 2.62e-04, LR_test: 1.31e-03
+Epoch 135000, Loss: 7.998628, LR_gen: 2.59e-04, LR_test: 1.30e-03
+t=0.500: mean=( 0.069,  0.066), std=(0.828, 0.825)
+Epoch 136000, Loss: 7.953196, LR_gen: 2.57e-04, LR_test: 1.28e-03
+Epoch 137000, Loss: 7.951706, LR_gen: 2.54e-04, LR_test: 1.27e-03
+Epoch 138000, Loss: 8.000711, LR_gen: 2.52e-04, LR_test: 1.26e-03
+Epoch 139000, Loss: 7.937955, LR_gen: 2.49e-04, LR_test: 1.25e-03
+Epoch 140000, Loss: 7.985067, LR_gen: 2.47e-04, LR_test: 1.23e-03
+t=0.500: mean=( 0.072,  0.071), std=(0.834, 0.833)
+Epoch 141000, Loss: 7.722914, LR_gen: 2.44e-04, LR_test: 1.22e-03
+Epoch 142000, Loss: 7.864342, LR_gen: 2.42e-04, LR_test: 1.21e-03
+Epoch 143000, Loss: 8.034573, LR_gen: 2.39e-04, LR_test: 1.20e-03
+Epoch 144000, Loss: 7.906296, LR_gen: 2.37e-04, LR_test: 1.18e-03
+Epoch 145000, Loss: 8.106290, LR_gen: 2.35e-04, LR_test: 1.17e-03
+t=0.500: mean=( 0.081,  0.079), std=(0.819, 0.830)
+Epoch 146000, Loss: 7.776799, LR_gen: 2.32e-04, LR_test: 1.16e-03
+Epoch 147000, Loss: 7.817341, LR_gen: 2.30e-04, LR_test: 1.15e-03
+Epoch 148000, Loss: 8.032665, LR_gen: 2.28e-04, LR_test: 1.14e-03
+Epoch 149000, Loss: 7.900563, LR_gen: 2.25e-04, LR_test: 1.13e-03
+Epoch 150000, Loss: 7.833580, LR_gen: 2.23e-04, LR_test: 1.12e-03
+t=0.500: mean=( 0.085,  0.062), std=(0.798, 0.829)
+Epoch 151000, Loss: 8.062767, LR_gen: 2.21e-04, LR_test: 1.10e-03
+Epoch 152000, Loss: 7.931562, LR_gen: 2.19e-04, LR_test: 1.09e-03
+Epoch 153000, Loss: 7.949818, LR_gen: 2.17e-04, LR_test: 1.08e-03
+Epoch 154000, Loss: 8.049506, LR_gen: 2.14e-04, LR_test: 1.07e-03
+Epoch 155000, Loss: 7.864562, LR_gen: 2.12e-04, LR_test: 1.06e-03
+t=0.500: mean=( 0.100,  0.088), std=(0.811, 0.813)
+Epoch 156000, Loss: 7.830785, LR_gen: 2.10e-04, LR_test: 1.05e-03
+Epoch 157000, Loss: 7.994177, LR_gen: 2.08e-04, LR_test: 1.04e-03
+Epoch 158000, Loss: 8.080180, LR_gen: 2.06e-04, LR_test: 1.03e-03
+Epoch 159000, Loss: 8.196672, LR_gen: 2.04e-04, LR_test: 1.02e-03
+Epoch 160000, Loss: 7.937787, LR_gen: 2.02e-04, LR_test: 1.01e-03
+t=0.500: mean=( 0.076,  0.067), std=(0.845, 0.831)
+Epoch 161000, Loss: 8.081159, LR_gen: 2.00e-04, LR_test: 9.99e-04
+Epoch 162000, Loss: 8.017600, LR_gen: 1.98e-04, LR_test: 9.89e-04
+Epoch 163000, Loss: 7.811570, LR_gen: 1.96e-04, LR_test: 9.80e-04
+Epoch 164000, Loss: 8.065000, LR_gen: 1.94e-04, LR_test: 9.70e-04
+Epoch 165000, Loss: 8.106750, LR_gen: 1.92e-04, LR_test: 9.60e-04
+t=0.500: mean=( 0.096,  0.071), std=(0.832, 0.814)
+Epoch 166000, Loss: 7.977056, LR_gen: 1.90e-04, LR_test: 9.51e-04
+Epoch 167000, Loss: 8.124731, LR_gen: 1.88e-04, LR_test: 9.41e-04
+Epoch 168000, Loss: 7.839772, LR_gen: 1.86e-04, LR_test: 9.32e-04
+Epoch 169000, Loss: 7.955110, LR_gen: 1.85e-04, LR_test: 9.23e-04
+Epoch 170000, Loss: 7.997521, LR_gen: 1.83e-04, LR_test: 9.13e-04
+t=0.500: mean=( 0.093,  0.069), std=(0.848, 0.827)
+Epoch 171000, Loss: 8.043985, LR_gen: 1.81e-04, LR_test: 9.04e-04
+Epoch 172000, Loss: 7.986974, LR_gen: 1.79e-04, LR_test: 8.95e-04
+Epoch 173000, Loss: 8.172720, LR_gen: 1.77e-04, LR_test: 8.86e-04
+Epoch 174000, Loss: 8.157642, LR_gen: 1.76e-04, LR_test: 8.78e-04
+Epoch 175000, Loss: 8.057495, LR_gen: 1.74e-04, LR_test: 8.69e-04
+t=0.500: mean=( 0.088,  0.065), std=(0.843, 0.828)
+Epoch 176000, Loss: 8.211066, LR_gen: 1.72e-04, LR_test: 8.60e-04
+Epoch 177000, Loss: 7.986320, LR_gen: 1.70e-04, LR_test: 8.52e-04
+Epoch 178000, Loss: 8.093102, LR_gen: 1.69e-04, LR_test: 8.43e-04
+Epoch 179000, Loss: 7.888752, LR_gen: 1.67e-04, LR_test: 8.35e-04
+Epoch 180000, Loss: 7.941860, LR_gen: 1.65e-04, LR_test: 8.26e-04
+t=0.500: mean=( 0.076,  0.050), std=(0.837, 0.826)
+Epoch 181000, Loss: 8.139654, LR_gen: 1.64e-04, LR_test: 8.18e-04
+Epoch 182000, Loss: 8.019899, LR_gen: 1.62e-04, LR_test: 8.10e-04
+Epoch 183000, Loss: 7.982269, LR_gen: 1.60e-04, LR_test: 8.02e-04
+Epoch 184000, Loss: 7.943271, LR_gen: 1.59e-04, LR_test: 7.94e-04
+Epoch 185000, Loss: 8.082703, LR_gen: 1.57e-04, LR_test: 7.86e-04
+t=0.500: mean=( 0.074,  0.042), std=(0.834, 0.827)
+Epoch 186000, Loss: 7.963284, LR_gen: 1.56e-04, LR_test: 7.78e-04
+Epoch 187000, Loss: 7.970659, LR_gen: 1.54e-04, LR_test: 7.71e-04
+Epoch 188000, Loss: 8.135952, LR_gen: 1.53e-04, LR_test: 7.63e-04
+Epoch 189000, Loss: 7.895324, LR_gen: 1.51e-04, LR_test: 7.55e-04
+Epoch 190000, Loss: 7.936858, LR_gen: 1.50e-04, LR_test: 7.48e-04
+t=0.500: mean=( 0.053,  0.022), std=(0.842, 0.837)
+Epoch 191000, Loss: 7.966427, LR_gen: 1.48e-04, LR_test: 7.40e-04
+Epoch 192000, Loss: 7.896348, LR_gen: 1.47e-04, LR_test: 7.33e-04
+Epoch 193000, Loss: 7.951436, LR_gen: 1.45e-04, LR_test: 7.26e-04
+Epoch 194000, Loss: 7.962245, LR_gen: 1.44e-04, LR_test: 7.19e-04
+Epoch 195000, Loss: 8.141762, LR_gen: 1.42e-04, LR_test: 7.11e-04
+t=0.500: mean=( 0.079,  0.051), std=(0.833, 0.834)
+Epoch 196000, Loss: 8.012321, LR_gen: 1.41e-04, LR_test: 7.04e-04
+Epoch 197000, Loss: 8.028119, LR_gen: 1.39e-04, LR_test: 6.97e-04
+Epoch 198000, Loss: 7.916180, LR_gen: 1.38e-04, LR_test: 6.90e-04
+Epoch 199000, Loss: 7.973557, LR_gen: 1.37e-04, LR_test: 6.83e-04
+Epoch 199999, Loss: 7.897507, LR_gen: 1.35e-04, LR_test: 6.77e-04
+
+Training completed!
+
+================================================================================
+Final Statistics at Different Times:
+--------------------------------------------------------------------------------
+t=0.010: mean=( 0.004,  0.009), std=(0.433, 0.556)
+t=0.200: mean=( 0.056,  0.099), std=(0.742, 0.884)
+t=0.500: mean=( 0.053,  0.022), std=(0.842, 0.847)
+t=0.800: mean=( 0.030,  0.070), std=(0.881, 0.834)
+t=1.000: mean=(-0.036,  0.052), std=(0.863, 0.892)
+
+================================================================================
+Generating visualizations...
+================================================================================
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed y limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed y limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed y limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed y limits to fulfill fixed data aspect with adjustable data limits.
+
+================================================================================
+All done! Generated plots:
+  1. double_peak_2d_time_loss.png
+  2. double_peak_2d_time_distributions.png
+  3. double_peak_2d_mean_evolution.png
+================================================================================

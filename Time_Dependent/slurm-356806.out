@@ -1,0 +1,54 @@
+Using device: cuda
+======================================================================
+Time-Dependent 1D Double Well Fokker-Planck
+======================================================================
+Parameters: σ=0.5, T=1.0
+Potential: V(x) = (x² - 1)²
+Drift: b(x) = -4x³ + 4x
+Initial condition: N(0.0, 1.0)
+Training: K=5000 test functions, M=5000 batch size, 5000 epochs
+======================================================================
+Saved: results_doublewell1d/potential_drift.png
+
+Initializing networks...
+Pushforward network parameters: 34,433
+Test functions parameters: 15,000
+
+Starting training...
+----------------------------------------------------------------------
+Epoch     0/5000, Loss: 0.775501, t=0.5: mean=-0.0326, std=1.0164, Time/epoch: 0.413s, ETA: 34.4min
+Epoch   500/5000, Loss: 0.860106, t=0.5: mean=-0.0043, std=1.0379, Time/epoch: 0.005s, ETA: 0.4min
+Epoch  1000/5000, Loss: 0.771847, t=0.5: mean=0.0259, std=0.9773, Time/epoch: 0.005s, ETA: 0.3min
+Epoch  1500/5000, Loss: 0.812665, t=0.5: mean=0.0150, std=0.9964, Time/epoch: 0.005s, ETA: 0.3min
+Epoch  2000/5000, Loss: 0.849121, t=0.5: mean=-0.0516, std=1.0033, Time/epoch: 0.005s, ETA: 0.3min
+Epoch  2500/5000, Loss: 0.817514, t=0.5: mean=-0.0442, std=0.9755, Time/epoch: 0.005s, ETA: 0.2min
+Epoch  3000/5000, Loss: 0.988926, t=0.5: mean=0.0397, std=0.9762, Time/epoch: 0.005s, ETA: 0.2min
+Epoch  3500/5000, Loss: 0.808010, t=0.5: mean=-0.0453, std=0.9784, Time/epoch: 0.005s, ETA: 0.1min
+Epoch  4000/5000, Loss: 0.930423, t=0.5: mean=-0.0182, std=0.9998, Time/epoch: 0.005s, ETA: 0.1min
+Epoch  4500/5000, Loss: 0.960236, t=0.5: mean=-0.0084, std=1.0030, Time/epoch: 0.005s, ETA: 0.0min
+Epoch  4999/5000, Loss: 1.071314, t=0.5: mean=0.0476, std=1.0149, Time/epoch: 0.005s, ETA: 0.0min
+
+Training completed in 0.91 minutes!
+
+======================================================================
+Final Validation and Visualization
+======================================================================
+
+Saved: results_doublewell1d/loss.png
+Saved: results_doublewell1d/distributions.png
+Saved: results_doublewell1d/time_evolution.png
+Saved: results_doublewell1d/mean_variance.png
+
+Saved: results_doublewell1d/checkpoint.pth
+
+======================================================================
+Summary Statistics:
+======================================================================
+Total training time: 0.91 minutes
+Average time per epoch: 0.005 seconds
+Final loss: 1.071314e+00
+Final distribution (t=1.0): mean=0.0030, std=1.0040
+
+======================================================================
+All done! Check the 'results_doublewell1d' directory for outputs.
+======================================================================

@@ -1,0 +1,124 @@
+Using device: cuda
+================================================================================
+Time-Dependent 2D Double-Peak Distribution
+================================================================================
+
+PHYSICAL PARAMETERS:
+  Diffusion coefficient: σ = 0.4
+  Time interval: [0, 1.0]
+
+INITIAL CONDITION:
+  Type: Single Gaussian
+  Mean: μ₀ = [0. 0.]
+  Std dev: σ₀ = 0.5
+  Strategy: Single blob at origin → evolves to double peaks
+
+NETWORK ARCHITECTURE:
+  Base dimension: 16
+  Hidden layers: [64, 64, 64]
+  Activation: Tanh
+
+TRAINING PARAMETERS:
+  Test functions: K = 200
+  Batch size: M = 2000
+  Epochs: 50000
+  Generator LR: 0.001 (with exponential decay γ=0.9999)
+  Test function LR: 0.005 (with exponential decay γ=0.9999)
+  Test updates: 5 every 5 epochs
+================================================================================
+
+Starting training...
+--------------------------------------------------------------------------------
+/users/andrewho/.conda/envs/torch_gpu/lib/python3.10/site-packages/torch/optim/lr_scheduler.py:224: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  warnings.warn(
+Epoch     0, Loss: 1.249458, LR_gen: 1.00e-03, LR_test: 5.00e-03
+t=0.500: mean=( 0.032,  0.026), std=(0.280, 0.270)
+Epoch  1000, Loss: 0.961706, LR_gen: 9.05e-04, LR_test: 4.52e-03
+Epoch  2000, Loss: 1.036356, LR_gen: 8.19e-04, LR_test: 4.09e-03
+Epoch  3000, Loss: 1.167530, LR_gen: 7.41e-04, LR_test: 3.70e-03
+Epoch  4000, Loss: 1.264572, LR_gen: 6.70e-04, LR_test: 3.35e-03
+Epoch  5000, Loss: 1.160155, LR_gen: 6.06e-04, LR_test: 3.03e-03
+t=0.500: mean=( 0.518,  0.511), std=(0.493, 0.471)
+Epoch  6000, Loss: 1.207264, LR_gen: 5.49e-04, LR_test: 2.74e-03
+Epoch  7000, Loss: 1.283510, LR_gen: 4.97e-04, LR_test: 2.48e-03
+Epoch  8000, Loss: 1.337839, LR_gen: 4.49e-04, LR_test: 2.25e-03
+Epoch  9000, Loss: 1.371636, LR_gen: 4.07e-04, LR_test: 2.03e-03
+Epoch 10000, Loss: 1.400240, LR_gen: 3.68e-04, LR_test: 1.84e-03
+t=0.500: mean=( 0.135,  0.133), std=(0.960, 0.943)
+Epoch 11000, Loss: 1.421567, LR_gen: 3.33e-04, LR_test: 1.66e-03
+Epoch 12000, Loss: 1.476532, LR_gen: 3.01e-04, LR_test: 1.51e-03
+Epoch 13000, Loss: 1.496579, LR_gen: 2.72e-04, LR_test: 1.36e-03
+Epoch 14000, Loss: 1.551527, LR_gen: 2.47e-04, LR_test: 1.23e-03
+Epoch 15000, Loss: 1.576943, LR_gen: 2.23e-04, LR_test: 1.12e-03
+t=0.500: mean=(-0.057, -0.071), std=(0.969, 0.963)
+Epoch 16000, Loss: 1.633838, LR_gen: 2.02e-04, LR_test: 1.01e-03
+Epoch 17000, Loss: 1.673777, LR_gen: 1.83e-04, LR_test: 9.13e-04
+Epoch 18000, Loss: 1.683952, LR_gen: 1.65e-04, LR_test: 8.26e-04
+Epoch 19000, Loss: 1.711035, LR_gen: 1.50e-04, LR_test: 7.48e-04
+Epoch 20000, Loss: 1.725420, LR_gen: 1.35e-04, LR_test: 6.77e-04
+t=0.500: mean=(-0.061, -0.074), std=(0.963, 0.959)
+Epoch 21000, Loss: 1.748961, LR_gen: 1.22e-04, LR_test: 6.12e-04
+Epoch 22000, Loss: 1.782056, LR_gen: 1.11e-04, LR_test: 5.54e-04
+Epoch 23000, Loss: 1.777430, LR_gen: 1.00e-04, LR_test: 5.01e-04
+Epoch 24000, Loss: 1.810421, LR_gen: 9.07e-05, LR_test: 4.53e-04
+Epoch 25000, Loss: 1.802306, LR_gen: 8.21e-05, LR_test: 4.10e-04
+t=0.500: mean=(-0.056, -0.063), std=(0.963, 0.958)
+Epoch 26000, Loss: 1.804536, LR_gen: 7.43e-05, LR_test: 3.71e-04
+Epoch 27000, Loss: 1.837381, LR_gen: 6.72e-05, LR_test: 3.36e-04
+Epoch 28000, Loss: 1.832204, LR_gen: 6.08e-05, LR_test: 3.04e-04
+Epoch 29000, Loss: 1.858948, LR_gen: 5.50e-05, LR_test: 2.75e-04
+Epoch 30000, Loss: 1.870800, LR_gen: 4.98e-05, LR_test: 2.49e-04
+t=0.500: mean=(-0.040, -0.047), std=(0.960, 0.958)
+Epoch 31000, Loss: 1.870115, LR_gen: 4.50e-05, LR_test: 2.25e-04
+Epoch 32000, Loss: 1.869820, LR_gen: 4.08e-05, LR_test: 2.04e-04
+Epoch 33000, Loss: 1.880627, LR_gen: 3.69e-05, LR_test: 1.84e-04
+Epoch 34000, Loss: 1.877959, LR_gen: 3.34e-05, LR_test: 1.67e-04
+Epoch 35000, Loss: 1.888847, LR_gen: 3.02e-05, LR_test: 1.51e-04
+t=0.500: mean=(-0.018, -0.021), std=(0.956, 0.953)
+Epoch 36000, Loss: 1.900313, LR_gen: 2.73e-05, LR_test: 1.37e-04
+Epoch 37000, Loss: 1.923972, LR_gen: 2.47e-05, LR_test: 1.24e-04
+Epoch 38000, Loss: 1.917916, LR_gen: 2.24e-05, LR_test: 1.12e-04
+Epoch 39000, Loss: 1.880609, LR_gen: 2.02e-05, LR_test: 1.01e-04
+Epoch 40000, Loss: 1.908863, LR_gen: 1.83e-05, LR_test: 9.16e-05
+t=0.500: mean=(-0.019, -0.021), std=(0.955, 0.953)
+Epoch 41000, Loss: 1.905898, LR_gen: 1.66e-05, LR_test: 8.28e-05
+Epoch 42000, Loss: 1.916084, LR_gen: 1.50e-05, LR_test: 7.50e-05
+Epoch 43000, Loss: 1.939059, LR_gen: 1.36e-05, LR_test: 6.78e-05
+Epoch 44000, Loss: 1.911786, LR_gen: 1.23e-05, LR_test: 6.14e-05
+Epoch 45000, Loss: 1.909549, LR_gen: 1.11e-05, LR_test: 5.55e-05
+t=0.500: mean=(-0.027, -0.029), std=(0.954, 0.950)
+Epoch 46000, Loss: 1.916150, LR_gen: 1.00e-05, LR_test: 5.02e-05
+Epoch 47000, Loss: 1.929647, LR_gen: 9.09e-06, LR_test: 4.55e-05
+Epoch 48000, Loss: 1.905989, LR_gen: 8.23e-06, LR_test: 4.11e-05
+Epoch 49000, Loss: 1.929203, LR_gen: 7.44e-06, LR_test: 3.72e-05
+Epoch 49999, Loss: 1.922634, LR_gen: 6.74e-06, LR_test: 3.37e-05
+
+Training completed!
+
+================================================================================
+Final Statistics at Different Times:
+--------------------------------------------------------------------------------
+t=0.010: mean=( 0.005,  0.004), std=(0.434, 0.430)
+t=0.200: mean=(-0.022, -0.027), std=(0.919, 0.919)
+t=0.500: mean=(-0.033, -0.034), std=(0.953, 0.949)
+t=0.800: mean=( 0.062,  0.019), std=(0.904, 0.907)
+t=1.000: mean=(-0.164,  0.081), std=(1.002, 0.956)
+
+================================================================================
+Generating visualizations...
+================================================================================
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed y limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed y limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed y limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed y limits to fulfill fixed data aspect with adjustable data limits.
+
+================================================================================
+All done! Generated plots:
+  1. double_peak_2d_time_loss.png
+  2. double_peak_2d_time_distributions.png
+  3. double_peak_2d_mean_evolution.png
+================================================================================

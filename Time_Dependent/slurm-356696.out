@@ -1,0 +1,84 @@
+Using device: cuda
+================================================================================
+Time-Dependent 2D Double-Peak Distribution
+================================================================================
+Parameters: σ=0.4, T=1.0
+Initial condition: Mixture of Gaussians at [-1.5 -1.5] and [1.5 1.5]
+Target: Double-well potential with equilibrium peaks at (-1,-1) and (1,1)
+Training: K=200 test functions, M=1000 batch size, 50000 epochs
+================================================================================
+
+Starting training...
+--------------------------------------------------------------------------------
+Epoch     0, Loss: 107.884766, t=0.5: mean=(0.082, 0.025), std=(1.535, 1.542)
+Epoch  1000, Loss: 599.134216, t=0.5: mean=(-0.056, -0.039), std=(1.600, 1.613)
+Epoch  2000, Loss: 298.110260, t=0.5: mean=(0.067, 0.088), std=(1.751, 1.752)
+Epoch  3000, Loss: 107.805046, t=0.5: mean=(-0.075, -0.067), std=(1.639, 1.626)
+Epoch  4000, Loss: 435.542114, t=0.5: mean=(-0.030, -0.040), std=(1.884, 1.816)
+Epoch  5000, Loss: 297.815826, t=0.5: mean=(-0.011, -0.002), std=(1.651, 1.689)
+Epoch  6000, Loss: 299.934143, t=0.5: mean=(-0.020, -0.006), std=(1.631, 1.662)
+Epoch  7000, Loss: 373.185852, t=0.5: mean=(0.058, 0.068), std=(1.590, 1.582)
+Epoch  8000, Loss: 364.246399, t=0.5: mean=(-0.007, -0.019), std=(1.658, 1.651)
+Epoch  9000, Loss: 628.699341, t=0.5: mean=(-0.012, -0.009), std=(1.643, 1.633)
+Epoch 10000, Loss: 800.819336, t=0.5: mean=(0.030, 0.018), std=(1.607, 1.613)
+Epoch 11000, Loss: 659.679810, t=0.5: mean=(-0.019, -0.062), std=(1.609, 1.625)
+Epoch 12000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 13000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 14000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 15000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 16000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 17000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 18000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 19000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 20000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 21000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 22000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 23000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 24000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 25000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 26000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 27000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 28000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 29000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 30000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 31000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 32000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 33000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 34000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 35000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 36000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 37000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 38000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 39000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 40000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 41000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 42000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 43000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 44000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 45000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 46000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 47000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 48000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 49000, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+Epoch 49999, Loss: nan, t=0.5: mean=(nan, nan), std=(nan, nan)
+
+Training completed!
+
+================================================================================
+Generating visualizations...
+================================================================================
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+
+================================================================================
+All done! Check the generated plots:
+  - double_peak_2d_time_loss.png
+  - double_peak_2d_time_distributions.png
+  - double_peak_2d_mean_evolution.png
+================================================================================

@@ -1,0 +1,449 @@
+Using device: cuda
+======================================================================
+Time-Dependent 1D Double Well Fokker-Planck
+======================================================================
+Parameters: σ=1.0, T=1.0
+Potential: V(x) = (x² - 1)²
+Drift: b(x) = -4x³ + 4x
+Initial condition: N(0.0, 1.0)
+Training: K=5000 test functions, M=5000 batch size, 200000 epochs
+======================================================================
+Saved: results_doublewell1d/potential_drift.png
+
+Initializing networks...
+Pushforward network parameters: 449
+Test functions parameters: 15,000
+
+Starting training...
+----------------------------------------------------------------------
+Epoch     0/200000, Loss: 0.724508, t=0.5: mean=-1.4206, std=1.2139, Time/epoch: 0.159s, ETA: 531.5min
+Epoch   500/200000, Loss: 0.770824, t=0.5: mean=-0.0264, std=1.0279, Time/epoch: 0.004s, ETA: 12.7min
+Epoch  1000/200000, Loss: 0.842475, t=0.5: mean=0.0389, std=1.0392, Time/epoch: 0.004s, ETA: 12.6min
+Epoch  1500/200000, Loss: 0.771001, t=0.5: mean=-0.0237, std=0.9776, Time/epoch: 0.004s, ETA: 12.9min
+Epoch  2000/200000, Loss: 0.944626, t=0.5: mean=-0.0181, std=1.0000, Time/epoch: 0.004s, ETA: 12.9min
+Epoch  2500/200000, Loss: 0.942060, t=0.5: mean=-0.0148, std=0.9982, Time/epoch: 0.004s, ETA: 12.6min
+Epoch  3000/200000, Loss: 0.892492, t=0.5: mean=-0.0216, std=1.0033, Time/epoch: 0.004s, ETA: 12.6min
+Epoch  3500/200000, Loss: 0.725892, t=0.5: mean=-0.0423, std=0.9670, Time/epoch: 0.004s, ETA: 12.7min
+Epoch  4000/200000, Loss: 1.106744, t=0.5: mean=0.0193, std=0.9719, Time/epoch: 0.004s, ETA: 13.1min
+Epoch  4500/200000, Loss: 0.981546, t=0.5: mean=0.1039, std=1.0304, Time/epoch: 0.004s, ETA: 13.2min
+Epoch  5000/200000, Loss: 0.984371, t=0.5: mean=0.0146, std=0.9810, Time/epoch: 0.004s, ETA: 13.0min
+Epoch  5500/200000, Loss: 1.050460, t=0.5: mean=-0.0668, std=1.0248, Time/epoch: 0.004s, ETA: 13.1min
+Epoch  6000/200000, Loss: 1.102236, t=0.5: mean=-0.0257, std=0.9908, Time/epoch: 0.004s, ETA: 13.0min
+Epoch  6500/200000, Loss: 1.365158, t=0.5: mean=0.0227, std=1.0022, Time/epoch: 0.004s, ETA: 12.8min
+Epoch  7000/200000, Loss: 1.084978, t=0.5: mean=0.0171, std=1.0055, Time/epoch: 0.004s, ETA: 12.8min
+Epoch  7500/200000, Loss: 1.315176, t=0.5: mean=-0.0623, std=0.9925, Time/epoch: 0.004s, ETA: 12.8min
+Epoch  8000/200000, Loss: 1.186392, t=0.5: mean=-0.0451, std=0.9608, Time/epoch: 0.004s, ETA: 12.8min
+Epoch  8500/200000, Loss: 1.547615, t=0.5: mean=0.0082, std=1.0259, Time/epoch: 0.004s, ETA: 12.8min
+Epoch  9000/200000, Loss: 1.116087, t=0.5: mean=-0.0112, std=0.9947, Time/epoch: 0.004s, ETA: 12.3min
+Epoch  9500/200000, Loss: 1.443064, t=0.5: mean=-0.0448, std=1.0489, Time/epoch: 0.004s, ETA: 12.7min
+Epoch 10000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 12.5min
+Epoch 10500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 11.9min
+Epoch 11000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 12.5min
+Epoch 11500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 12.6min
+Epoch 12000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 12.4min
+Epoch 12500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 14.0min
+Epoch 13000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.005s, ETA: 14.1min
+Epoch 13500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.005s, ETA: 14.1min
+Epoch 14000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 12.2min
+Epoch 14500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 12.4min
+Epoch 15000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 12.4min
+Epoch 15500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 12.2min
+Epoch 16000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 12.0min
+Epoch 16500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 12.2min
+Epoch 17000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 12.2min
+Epoch 17500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 12.2min
+Epoch 18000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 12.2min
+Epoch 18500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 12.1min
+Epoch 19000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 12.0min
+Epoch 19500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 12.0min
+Epoch 20000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 12.0min
+Epoch 20500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 12.0min
+Epoch 21000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 11.9min
+Epoch 21500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 11.9min
+Epoch 22000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 11.6min
+Epoch 22500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 11.7min
+Epoch 23000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 11.8min
+Epoch 23500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 11.7min
+Epoch 24000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 11.3min
+Epoch 24500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 11.5min
+Epoch 25000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 11.7min
+Epoch 25500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 11.5min
+Epoch 26000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 11.0min
+Epoch 26500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.7min
+Epoch 27000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.7min
+Epoch 27500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.7min
+Epoch 28000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.6min
+Epoch 28500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.6min
+Epoch 29000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.6min
+Epoch 29500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.6min
+Epoch 30000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.5min
+Epoch 30500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.5min
+Epoch 31000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.5min
+Epoch 31500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.5min
+Epoch 32000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.4min
+Epoch 32500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.4min
+Epoch 33000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.3min
+Epoch 33500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.3min
+Epoch 34000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.3min
+Epoch 34500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.3min
+Epoch 35000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.2min
+Epoch 35500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.2min
+Epoch 36000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.1min
+Epoch 36500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.1min
+Epoch 37000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.1min
+Epoch 37500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.1min
+Epoch 38000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.0min
+Epoch 38500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.0min
+Epoch 39000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 10.0min
+Epoch 39500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.9min
+Epoch 40000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.9min
+Epoch 40500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.9min
+Epoch 41000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.8min
+Epoch 41500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.8min
+Epoch 42000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.8min
+Epoch 42500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.7min
+Epoch 43000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.7min
+Epoch 43500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.7min
+Epoch 44000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.7min
+Epoch 44500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.6min
+Epoch 45000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.6min
+Epoch 45500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.5min
+Epoch 46000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.5min
+Epoch 46500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.5min
+Epoch 47000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.5min
+Epoch 47500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.4min
+Epoch 48000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.4min
+Epoch 48500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.4min
+Epoch 49000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.3min
+Epoch 49500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.3min
+Epoch 50000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.3min
+Epoch 50500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.2min
+Epoch 51000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.2min
+Epoch 51500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.2min
+Epoch 52000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.2min
+Epoch 52500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.1min
+Epoch 53000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.1min
+Epoch 53500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.1min
+Epoch 54000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.0min
+Epoch 54500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.0min
+Epoch 55000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.0min
+Epoch 55500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.3min
+Epoch 56000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.4min
+Epoch 56500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.4min
+Epoch 57000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.3min
+Epoch 57500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.3min
+Epoch 58000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.3min
+Epoch 58500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 9.3min
+Epoch 59000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.9min
+Epoch 59500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.7min
+Epoch 60000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.7min
+Epoch 60500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.6min
+Epoch 61000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.6min
+Epoch 61500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.6min
+Epoch 62000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.5min
+Epoch 62500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.5min
+Epoch 63000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.5min
+Epoch 63500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.4min
+Epoch 64000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.4min
+Epoch 64500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.4min
+Epoch 65000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.4min
+Epoch 65500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.3min
+Epoch 66000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.3min
+Epoch 66500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.3min
+Epoch 67000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.2min
+Epoch 67500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.2min
+Epoch 68000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.2min
+Epoch 68500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.1min
+Epoch 69000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.1min
+Epoch 69500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.1min
+Epoch 70000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.1min
+Epoch 70500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.0min
+Epoch 71000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.0min
+Epoch 71500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 8.0min
+Epoch 72000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.9min
+Epoch 72500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.9min
+Epoch 73000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.9min
+Epoch 73500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.8min
+Epoch 74000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.8min
+Epoch 74500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.8min
+Epoch 75000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.7min
+Epoch 75500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.7min
+Epoch 76000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.7min
+Epoch 76500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.6min
+Epoch 77000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.6min
+Epoch 77500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.6min
+Epoch 78000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.6min
+Epoch 78500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.5min
+Epoch 79000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.5min
+Epoch 79500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.5min
+Epoch 80000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.4min
+Epoch 80500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.4min
+Epoch 81000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.4min
+Epoch 81500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.3min
+Epoch 82000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.3min
+Epoch 82500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.3min
+Epoch 83000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.2min
+Epoch 83500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.2min
+Epoch 84000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.2min
+Epoch 84500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.1min
+Epoch 85000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.1min
+Epoch 85500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.1min
+Epoch 86000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.0min
+Epoch 86500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.0min
+Epoch 87000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 7.0min
+Epoch 87500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.9min
+Epoch 88000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.9min
+Epoch 88500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.9min
+Epoch 89000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.8min
+Epoch 89500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.8min
+Epoch 90000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.8min
+Epoch 90500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.8min
+Epoch 91000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.7min
+Epoch 91500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.7min
+Epoch 92000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.7min
+Epoch 92500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.6min
+Epoch 93000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.6min
+Epoch 93500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.6min
+Epoch 94000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.5min
+Epoch 94500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.5min
+Epoch 95000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.5min
+Epoch 95500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.5min
+Epoch 96000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.4min
+Epoch 96500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.4min
+Epoch 97000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.4min
+Epoch 97500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.3min
+Epoch 98000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.3min
+Epoch 98500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.3min
+Epoch 99000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.2min
+Epoch 99500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.2min
+Epoch 100000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.2min
+Epoch 100500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.2min
+Epoch 101000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.1min
+Epoch 101500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.1min
+Epoch 102000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.0min
+Epoch 102500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.0min
+Epoch 103000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.0min
+Epoch 103500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 6.0min
+Epoch 104000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.9min
+Epoch 104500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.9min
+Epoch 105000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.9min
+Epoch 105500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.8min
+Epoch 106000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.8min
+Epoch 106500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.8min
+Epoch 107000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.7min
+Epoch 107500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.7min
+Epoch 108000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.7min
+Epoch 108500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.7min
+Epoch 109000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.6min
+Epoch 109500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.6min
+Epoch 110000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.6min
+Epoch 110500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.5min
+Epoch 111000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.5min
+Epoch 111500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.5min
+Epoch 112000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.4min
+Epoch 112500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.4min
+Epoch 113000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.4min
+Epoch 113500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.3min
+Epoch 114000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.3min
+Epoch 114500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.3min
+Epoch 115000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.3min
+Epoch 115500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.2min
+Epoch 116000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.2min
+Epoch 116500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.2min
+Epoch 117000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.1min
+Epoch 117500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.1min
+Epoch 118000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.1min
+Epoch 118500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.0min
+Epoch 119000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.0min
+Epoch 119500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 5.0min
+Epoch 120000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.9min
+Epoch 120500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.9min
+Epoch 121000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.9min
+Epoch 121500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.9min
+Epoch 122000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.8min
+Epoch 122500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.8min
+Epoch 123000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.8min
+Epoch 123500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.7min
+Epoch 124000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.7min
+Epoch 124500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.7min
+Epoch 125000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.6min
+Epoch 125500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.6min
+Epoch 126000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.6min
+Epoch 126500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.5min
+Epoch 127000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.5min
+Epoch 127500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.5min
+Epoch 128000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.4min
+Epoch 128500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.4min
+Epoch 129000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.4min
+Epoch 129500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.4min
+Epoch 130000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.3min
+Epoch 130500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.3min
+Epoch 131000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.3min
+Epoch 131500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.2min
+Epoch 132000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.2min
+Epoch 132500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.2min
+Epoch 133000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.1min
+Epoch 133500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.1min
+Epoch 134000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.1min
+Epoch 134500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.0min
+Epoch 135000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.0min
+Epoch 135500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.0min
+Epoch 136000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 4.0min
+Epoch 136500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.9min
+Epoch 137000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.9min
+Epoch 137500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.9min
+Epoch 138000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.8min
+Epoch 138500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.8min
+Epoch 139000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.8min
+Epoch 139500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.7min
+Epoch 140000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.7min
+Epoch 140500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.7min
+Epoch 141000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.6min
+Epoch 141500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.6min
+Epoch 142000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.6min
+Epoch 142500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.6min
+Epoch 143000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.5min
+Epoch 143500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.5min
+Epoch 144000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.5min
+Epoch 144500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.5min
+Epoch 145000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.4min
+Epoch 145500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.4min
+Epoch 146000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.3min
+Epoch 146500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.3min
+Epoch 147000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.3min
+Epoch 147500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.2min
+Epoch 148000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.2min
+Epoch 148500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.2min
+Epoch 149000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.1min
+Epoch 149500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.1min
+Epoch 150000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.1min
+Epoch 150500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.1min
+Epoch 151000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.0min
+Epoch 151500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.0min
+Epoch 152000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 3.0min
+Epoch 152500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.9min
+Epoch 153000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.9min
+Epoch 153500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.9min
+Epoch 154000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.8min
+Epoch 154500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.8min
+Epoch 155000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.8min
+Epoch 155500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.8min
+Epoch 156000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.7min
+Epoch 156500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.7min
+Epoch 157000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.7min
+Epoch 157500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.6min
+Epoch 158000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.6min
+Epoch 158500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.6min
+Epoch 159000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.5min
+Epoch 159500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.5min
+Epoch 160000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.5min
+Epoch 160500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.4min
+Epoch 161000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.4min
+Epoch 161500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.4min
+Epoch 162000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.3min
+Epoch 162500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.3min
+Epoch 163000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.3min
+Epoch 163500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.3min
+Epoch 164000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.2min
+Epoch 164500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.2min
+Epoch 165000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.2min
+Epoch 165500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.1min
+Epoch 166000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.1min
+Epoch 166500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.1min
+Epoch 167000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.0min
+Epoch 167500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.0min
+Epoch 168000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 2.0min
+Epoch 168500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.9min
+Epoch 169000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.9min
+Epoch 169500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.9min
+Epoch 170000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.9min
+Epoch 170500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.8min
+Epoch 171000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.8min
+Epoch 171500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.8min
+Epoch 172000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.7min
+Epoch 172500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.7min
+Epoch 173000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.7min
+Epoch 173500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.6min
+Epoch 174000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.6min
+Epoch 174500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.6min
+Epoch 175000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.5min
+Epoch 175500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.5min
+Epoch 176000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.5min
+Epoch 176500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.5min
+Epoch 177000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.4min
+Epoch 177500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.4min
+Epoch 178000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.4min
+Epoch 178500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.3min
+Epoch 179000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.3min
+Epoch 179500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.3min
+Epoch 180000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.2min
+Epoch 180500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.2min
+Epoch 181000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.2min
+Epoch 181500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.1min
+Epoch 182000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.1min
+Epoch 182500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.1min
+Epoch 183000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.1min
+Epoch 183500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.0min
+Epoch 184000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.0min
+Epoch 184500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 1.0min
+Epoch 185000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.9min
+Epoch 185500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.9min
+Epoch 186000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.9min
+Epoch 186500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.8min
+Epoch 187000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.8min
+Epoch 187500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.8min
+Epoch 188000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.7min
+Epoch 188500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.7min
+Epoch 189000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.7min
+Epoch 189500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.7min
+Epoch 190000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.6min
+Epoch 190500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.6min
+Epoch 191000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.6min
+Epoch 191500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.5min
+Epoch 192000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.5min
+Epoch 192500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.5min
+Epoch 193000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.4min
+Epoch 193500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.4min
+Epoch 194000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.4min
+Epoch 194500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.3min
+Epoch 195000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.3min
+Epoch 195500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.3min
+Epoch 196000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.2min
+Epoch 196500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.2min
+Epoch 197000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.2min
+Epoch 197500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.2min
+Epoch 198000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.1min
+Epoch 198500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.1min
+Epoch 199000/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.1min
+Epoch 199500/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.0min
+Epoch 199999/200000, Loss: nan, t=0.5: mean=nan, std=nan, Time/epoch: 0.004s, ETA: 0.0min
+
+Training completed in 30.13 minutes!
+
+======================================================================
+Final Validation and Visualization
+======================================================================
+
+Saved: results_doublewell1d/loss.png
+/users/andrewho/.conda/envs/torch_gpu/lib/python3.10/site-packages/matplotlib/axes/_axes.py:7104: RuntimeWarning: All-NaN slice encountered
+  xmin = min(xmin, np.nanmin(xi))
+/users/andrewho/.conda/envs/torch_gpu/lib/python3.10/site-packages/matplotlib/axes/_axes.py:7105: RuntimeWarning: All-NaN slice encountered
+  xmax = max(xmax, np.nanmax(xi))
+Traceback (most recent call last):
+  File "/users/andrewho/WANPM_FP/Time_Dependent/double_well_1d.py", line 451, in <module>
+    plot_distributions_at_times(pushforward_net, times=[0.01, 0.5, 1.0, 2.0])
+  File "/users/andrewho/WANPM_FP/Time_Dependent/double_well_1d.py", line 212, in plot_distributions_at_times
+    axes[idx].hist(x_samples.flatten(), bins=60, density=True, alpha=0.7,
+  File "/users/andrewho/.conda/envs/torch_gpu/lib/python3.10/site-packages/matplotlib/_api/deprecation.py", line 453, in wrapper
+    return func(*args, **kwargs)
+  File "/users/andrewho/.conda/envs/torch_gpu/lib/python3.10/site-packages/matplotlib/__init__.py", line 1524, in inner
+    return func(
+  File "/users/andrewho/.conda/envs/torch_gpu/lib/python3.10/site-packages/matplotlib/axes/_axes.py", line 7132, in hist
+    m, bins = np.histogram(x[i], bins, weights=w[i], **hist_kwargs)
+  File "/users/andrewho/.conda/envs/torch_gpu/lib/python3.10/site-packages/numpy/lib/histograms.py", line 780, in histogram
+    bin_edges, uniform_bins = _get_bin_edges(a, bins, range, weights)
+  File "/users/andrewho/.conda/envs/torch_gpu/lib/python3.10/site-packages/numpy/lib/histograms.py", line 426, in _get_bin_edges
+    first_edge, last_edge = _get_outer_edges(a, range)
+  File "/users/andrewho/.conda/envs/torch_gpu/lib/python3.10/site-packages/numpy/lib/histograms.py", line 323, in _get_outer_edges
+    raise ValueError(
+ValueError: autodetected range of [nan, nan] is not finite
