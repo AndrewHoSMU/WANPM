@@ -1,0 +1,46 @@
+
+[1/11] Starting: fFP_1d_1well.py  14:57:51
+  Log: D:\PythonProjects\WANPM_FP\Fractional\fFP_1d_1well\run.log
+[1/11] DONE: fFP_1d_1well.py  14:59:40
+
+[2/11] Starting: fFP_1d_2well.py  14:59:40
+  Log: D:\PythonProjects\WANPM_FP\Fractional\fFP_1d_2well\run.log
+[2/11] DONE: fFP_1d_2well.py  15:31:53
+
+[3/11] Starting: fFP_1d_steady_doublepeak.py  15:31:53
+  Log: D:\PythonProjects\WANPM_FP\Fractional\fFP_1d_steady_doublepeak\run.log
+[3/11] DONE: fFP_1d_steady_doublepeak.py  15:33:30
+
+[4/11] Starting: fFP_1d_steady_ou.py  15:33:30
+  Log: D:\PythonProjects\WANPM_FP\Fractional\fFP_1d_steady_ou\run.log
+[4/11] DONE: fFP_1d_steady_ou.py  15:34:40
+
+[5/11] Starting: fFP_1d_triplewell.py  15:34:40
+  Log: D:\PythonProjects\WANPM_FP\Fractional\fFP_1d_triplewell\run.log
+[5/11] DONE: fFP_1d_triplewell.py  15:46:28
+
+[6/11] Starting: fFP_20d_doublewell.py  15:46:28
+  Log: D:\PythonProjects\WANPM_FP\Fractional\fFP_20d_doublewell\run.log
+[6/11] ERROR (exit 1): fFP_20d_doublewell.py -- check D:\PythonProjects\WANPM_FP\Fractional\fFP_20d_doublewell\run.log.err
+
+[7/11] Starting: fFP_2d_ring.py  16:05:10
+  Log: D:\PythonProjects\WANPM_FP\Fractional\fFP_2d_ring\run.log
+[7/11] ERROR (exit 1): fFP_2d_ring.py -- check D:\PythonProjects\WANPM_FP\Fractional\fFP_2d_ring\run.log.err
+
+[8/11] Starting: fFP_2d_steady_doublepeak.py  16:05:36
+  Log: D:\PythonProjects\WANPM_FP\Fractional\fFP_2d_steady_doublepeak\run.log
+[8/11] ERROR (exit 1): fFP_2d_steady_doublepeak.py -- check D:\PythonProjects\WANPM_FP\Fractional\fFP_2d_steady_doublepeak\run.log.err
+
+[9/11] Starting: fFP_2d_steady_ring.py  16:05:49
+  Log: D:\PythonProjects\WANPM_FP\Fractional\fFP_2d_steady_ring\run.log
+[9/11] ERROR (exit 1): fFP_2d_steady_ring.py -- check D:\PythonProjects\WANPM_FP\Fractional\fFP_2d_steady_ring\run.log.err
+
+[10/11] Starting: fFP_nd_ou.py  16:05:55
+  Log: D:\PythonProjects\WANPM_FP\Fractional\fFP_nd_ou\run.log
+[10/11] ERROR (exit 1): fFP_nd_ou.py -- check D:\PythonProjects\WANPM_FP\Fractional\fFP_nd_ou\run.log.err
+
+[11/11] Starting: FP_nd_1well.py  16:06:00
+  Log: D:\PythonProjects\WANPM_FP\Fractional\fFP_nd_1well\run.log
+[11/11] ERROR (exit 1): FP_nd_1well.py -- check D:\PythonProjects\WANPM_FP\Fractional\fFP_nd_1well\run.log.err
+
+All done! 2026-03-21 16:06:05

@@ -1,0 +1,24 @@
+======================================================================
+Particle verification  |  α=1.5  dim=20  T=1.0
+======================================================================
+  N_PARTICLES=20000, N_STEPS=500, h=0.0020
+/users/andrewho/WANPM_FP/Fractional/fFP_20d_doublewell/true_solution.py:38: RuntimeWarning: overflow encountered in multiply
+  b = -2.0 * V_ALPHA * (diff_p * norm_m2 + diff_m * norm_p2)
+/users/andrewho/WANPM_FP/Fractional/fFP_20d_doublewell/true_solution.py:89: RuntimeWarning: invalid value encountered in add
+  X     = X + h * b + noise
+/users/andrewho/WANPM_FP/Fractional/fFP_20d_doublewell/true_solution.py:36: RuntimeWarning: overflow encountered in square
+  norm_p2 = (diff_p ** 2).sum(axis=1, keepdims=True)   # (N, 1)
+/users/andrewho/WANPM_FP/Fractional/fFP_20d_doublewell/true_solution.py:37: RuntimeWarning: overflow encountered in square
+  norm_m2 = (diff_m ** 2).sum(axis=1, keepdims=True)   # (N, 1)
+  Snapshot saved: t=0.1
+  Snapshot saved: t=0.2
+  Step 100/500  t=0.200
+  Step 200/500  t=0.400
+  Snapshot saved: t=0.5
+  Step 300/500  t=0.600
+  Snapshot saved: t=0.8
+  Step 400/500  t=0.800
+  Snapshot saved: t=1.0
+  Step 500/500  t=1.000
+Plot saved → /users/andrewho/WANPM_FP/Fractional/fFP_20d_doublewell/outputs/20d_doublewell_projections_particle.png
+Done.
