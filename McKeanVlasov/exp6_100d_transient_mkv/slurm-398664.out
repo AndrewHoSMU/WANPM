@@ -1,0 +1,39 @@
+Device: cuda
+GPU: NVIDIA A100-SXM4-80GB
+Memory: 85.1 GB
+
+100D Transient MKV  |  T=1.0  |  lambda=2.0  |  eq_var=0.2500
+MU0[:5]=[ 0.993 -0.277  1.295  3.046 -0.468]
+K=5000, M=10000, M_W=20000, M_0=2000, M_T=2000, D_BASE=200
+N_EPOCHS=10000, ADV_FREQ=2
+PF params: 71,780
+  epoch     0  loss=5.9764e-01  t=0.2s  ETA=29.0min
+  epoch   500  loss=4.5865e-03  t=31.0s  ETA=9.8min
+  epoch  1000  loss=1.2631e-03  t=61.8s  ETA=9.3min
+  epoch  1500  loss=1.5119e-04  t=92.6s  ETA=8.7min
+  epoch  2000  loss=5.8278e-04  t=123.4s  ETA=8.2min
+  epoch  2500  loss=1.0501e-03  t=154.2s  ETA=7.7min
+  epoch  3000  loss=1.4500e-03  t=184.9s  ETA=7.2min
+  epoch  3500  loss=5.1094e-04  t=215.7s  ETA=6.7min
+  epoch  4000  loss=7.0301e-04  t=246.5s  ETA=6.2min
+  epoch  4500  loss=8.8345e-04  t=277.3s  ETA=5.6min
+  epoch  5000  loss=4.8641e-04  t=308.1s  ETA=5.1min
+  epoch  5500  loss=1.7654e-04  t=338.9s  ETA=4.6min
+  epoch  6000  loss=3.0770e-05  t=369.7s  ETA=4.1min
+  epoch  6500  loss=3.9027e-04  t=400.5s  ETA=3.6min
+  epoch  7000  loss=3.3796e-04  t=431.3s  ETA=3.1min
+  epoch  7500  loss=8.4163e-05  t=462.1s  ETA=2.6min
+  epoch  8000  loss=2.3099e-04  t=492.9s  ETA=2.1min
+  epoch  8500  loss=4.5277e-04  t=523.6s  ETA=1.5min
+  epoch  9000  loss=4.8961e-04  t=554.4s  ETA=1.0min
+  epoch  9500  loss=2.9443e-04  t=585.2s  ETA=0.5min
+  epoch  9999  loss=2.0628e-04  t=615.9s  ETA=0.0min
+
+    t   mean_err (avg)    var_err (avg)    mean_err (L2)     var_err (L2)
+-----------------------------------------------------------------
+  0.1         0.025888         0.004669         0.328971         0.067369
+  0.5         0.015588         0.004425         0.196190         0.064390
+  1.0         0.010303         0.003348         0.130282         0.041843
+
+Total time: 10.30 min  |  Final loss=2.0628e-04
+Model saved to results/exp6_model.pt
