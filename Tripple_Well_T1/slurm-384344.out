@@ -1,0 +1,158 @@
+Using device: cuda
+======================================================================
+Triple-Well Potential Training
+======================================================================
+
+1. Training neural network with curriculum learning...
+Training for 40000 epochs...
+Warmup: epochs 0-2000
+Annealing: epochs 2000-25000
+Fine-tuning: epochs 25000-40000
+Epoch     0 | Loss: 1.120043e+01 | σ: 5.0000 | lr_gen: 1.000000e-03
+Epoch   500 | Loss: 9.507102e+01 | σ: 5.0000 | lr_gen: 1.000000e-03
+Epoch  1000 | Loss: 8.091413e+01 | σ: 5.0000 | lr_gen: 1.000000e-03
+Epoch  1500 | Loss: 1.032171e+02 | σ: 5.0000 | lr_gen: 1.000000e-03
+Epoch  2000 | Loss: 1.080437e+02 | σ: 5.0000 | lr_gen: 1.000000e-03
+Epoch  2500 | Loss: 7.670676e+01 | σ: 4.9948 | lr_gen: 9.512270e-04
+Epoch  3000 | Loss: 9.476759e+01 | σ: 4.9790 | lr_gen: 9.048329e-04
+Epoch  3500 | Loss: 1.032755e+02 | σ: 4.9529 | lr_gen: 8.607015e-04
+Epoch  4000 | Loss: 9.444177e+01 | σ: 4.9166 | lr_gen: 8.187226e-04
+Epoch  4500 | Loss: 9.806673e+01 | σ: 4.8701 | lr_gen: 7.787910e-04
+Epoch  5000 | Loss: 1.026156e+02 | σ: 4.8137 | lr_gen: 7.408071e-04
+Epoch  5500 | Loss: 8.828451e+01 | σ: 4.7477 | lr_gen: 7.046758e-04
+Epoch  6000 | Loss: 9.888325e+01 | σ: 4.6724 | lr_gen: 6.703066e-04
+Epoch  6500 | Loss: 6.677579e+01 | σ: 4.5882 | lr_gen: 6.376138e-04
+Epoch  7000 | Loss: 7.286556e+01 | σ: 4.4954 | lr_gen: 6.065155e-04
+Epoch  7500 | Loss: 6.900449e+01 | σ: 4.3944 | lr_gen: 5.769339e-04
+Epoch  8000 | Loss: 6.739542e+01 | σ: 4.2857 | lr_gen: 5.487952e-04
+Epoch  8500 | Loss: 6.145540e+01 | σ: 4.1699 | lr_gen: 5.220288e-04
+Epoch  9000 | Loss: 4.956512e+01 | σ: 4.0475 | lr_gen: 4.965679e-04
+Epoch  9500 | Loss: 4.247664e+01 | σ: 3.9191 | lr_gen: 4.723488e-04
+Epoch 10000 | Loss: 3.717607e+01 | σ: 3.7851 | lr_gen: 4.493110e-04
+Epoch 10500 | Loss: 3.583470e+01 | σ: 3.6464 | lr_gen: 4.273968e-04
+Epoch 11000 | Loss: 3.374182e+01 | σ: 3.5035 | lr_gen: 4.065514e-04
+Epoch 11500 | Loss: 2.570558e+01 | σ: 3.3570 | lr_gen: 3.867227e-04
+Epoch 12000 | Loss: 2.577485e+01 | σ: 3.2078 | lr_gen: 3.678610e-04
+Epoch 12500 | Loss: 1.893072e+01 | σ: 3.0564 | lr_gen: 3.499194e-04
+Epoch 13000 | Loss: 1.465052e+01 | σ: 2.9035 | lr_gen: 3.328528e-04
+Epoch 13500 | Loss: 1.583270e+01 | σ: 2.7500 | lr_gen: 3.166186e-04
+Epoch 14000 | Loss: 1.043751e+01 | σ: 2.5965 | lr_gen: 3.011761e-04
+Epoch 14500 | Loss: 7.376925e+00 | σ: 2.4436 | lr_gen: 2.864869e-04
+Epoch 15000 | Loss: 6.635864e+00 | σ: 2.2922 | lr_gen: 2.725141e-04
+Epoch 15500 | Loss: 5.126472e+00 | σ: 2.1430 | lr_gen: 2.592228e-04
+Epoch 16000 | Loss: 2.536851e+00 | σ: 1.9965 | lr_gen: 2.465797e-04
+Epoch 16500 | Loss: 2.972468e+00 | σ: 1.8536 | lr_gen: 2.345533e-04
+Epoch 17000 | Loss: 1.805409e+00 | σ: 1.7149 | lr_gen: 2.231134e-04
+Epoch 17500 | Loss: 1.027401e+00 | σ: 1.5809 | lr_gen: 2.122315e-04
+Epoch 18000 | Loss: 1.204391e+00 | σ: 1.4525 | lr_gen: 2.018804e-04
+Epoch 18500 | Loss: 7.346705e-01 | σ: 1.3301 | lr_gen: 1.920341e-04
+Epoch 19000 | Loss: 4.136714e-01 | σ: 1.2143 | lr_gen: 1.826680e-04
+Epoch 19500 | Loss: 2.297783e-01 | σ: 1.1056 | lr_gen: 1.737587e-04
+Epoch 20000 | Loss: 2.045514e-01 | σ: 1.0046 | lr_gen: 1.652840e-04
+Epoch 20500 | Loss: 1.011222e-01 | σ: 0.9118 | lr_gen: 1.572226e-04
+Epoch 21000 | Loss: 9.854672e-02 | σ: 0.8276 | lr_gen: 1.495544e-04
+Epoch 21500 | Loss: 1.674613e-01 | σ: 0.7523 | lr_gen: 1.422602e-04
+Epoch 22000 | Loss: 1.032769e-01 | σ: 0.6863 | lr_gen: 1.353217e-04
+Epoch 22500 | Loss: 1.025753e-01 | σ: 0.6299 | lr_gen: 1.287217e-04
+Epoch 23000 | Loss: 6.559230e-02 | σ: 0.5834 | lr_gen: 1.224436e-04
+Epoch 23500 | Loss: 6.992956e-02 | σ: 0.5471 | lr_gen: 1.164716e-04
+Epoch 24000 | Loss: 6.284326e-02 | σ: 0.5210 | lr_gen: 1.107910e-04
+Epoch 24500 | Loss: 7.241046e-02 | σ: 0.5052 | lr_gen: 1.053874e-04
+Epoch 25000 | Loss: 7.932588e-02 | σ: 0.5000 | lr_gen: 1.002473e-04
+Epoch 25500 | Loss: 7.009198e-02 | σ: 0.5000 | lr_gen: 9.777214e-05
+Epoch 26000 | Loss: 6.225396e-02 | σ: 0.5000 | lr_gen: 9.535808e-05
+Epoch 26500 | Loss: 6.403322e-02 | σ: 0.5000 | lr_gen: 9.300362e-05
+Epoch 27000 | Loss: 6.515151e-02 | σ: 0.5000 | lr_gen: 9.070729e-05
+Epoch 27500 | Loss: 6.178151e-02 | σ: 0.5000 | lr_gen: 8.846767e-05
+Epoch 28000 | Loss: 6.478337e-02 | σ: 0.5000 | lr_gen: 8.628334e-05
+Epoch 28500 | Loss: 6.601404e-02 | σ: 0.5000 | lr_gen: 8.415294e-05
+Epoch 29000 | Loss: 1.095205e-01 | σ: 0.5000 | lr_gen: 8.207515e-05
+Epoch 29500 | Loss: 8.189533e-02 | σ: 0.5000 | lr_gen: 8.004866e-05
+Epoch 30000 | Loss: 5.145842e-02 | σ: 0.5000 | lr_gen: 7.807220e-05
+Epoch 30500 | Loss: 6.905296e-02 | σ: 0.5000 | lr_gen: 7.614454e-05
+Epoch 31000 | Loss: 6.704994e-02 | σ: 0.5000 | lr_gen: 7.426448e-05
+Epoch 31500 | Loss: 5.687330e-02 | σ: 0.5000 | lr_gen: 7.243084e-05
+Epoch 32000 | Loss: 8.684011e-02 | σ: 0.5000 | lr_gen: 7.064247e-05
+Epoch 32500 | Loss: 6.163076e-02 | σ: 0.5000 | lr_gen: 6.889826e-05
+Epoch 33000 | Loss: 7.407752e-02 | σ: 0.5000 | lr_gen: 6.719711e-05
+Epoch 33500 | Loss: 1.046667e-01 | σ: 0.5000 | lr_gen: 6.553797e-05
+Epoch 34000 | Loss: 6.705783e-02 | σ: 0.5000 | lr_gen: 6.391979e-05
+Epoch 34500 | Loss: 6.183896e-02 | σ: 0.5000 | lr_gen: 6.234157e-05
+Epoch 35000 | Loss: 6.813325e-02 | σ: 0.5000 | lr_gen: 6.080231e-05
+Epoch 35500 | Loss: 5.429367e-02 | σ: 0.5000 | lr_gen: 5.930106e-05
+Epoch 36000 | Loss: 7.167600e-02 | σ: 0.5000 | lr_gen: 5.783687e-05
+Epoch 36500 | Loss: 5.552528e-02 | σ: 0.5000 | lr_gen: 5.640884e-05
+Epoch 37000 | Loss: 4.667189e-02 | σ: 0.5000 | lr_gen: 5.501607e-05
+Epoch 37500 | Loss: 6.225750e-02 | σ: 0.5000 | lr_gen: 5.365768e-05
+Epoch 38000 | Loss: 8.743223e-02 | σ: 0.5000 | lr_gen: 5.233284e-05
+Epoch 38500 | Loss: 7.844327e-02 | σ: 0.5000 | lr_gen: 5.104070e-05
+Epoch 39000 | Loss: 6.103374e-02 | σ: 0.5000 | lr_gen: 4.978047e-05
+Epoch 39500 | Loss: 9.295777e-02 | σ: 0.5000 | lr_gen: 4.855136e-05
+
+2. Saving results...
+
+======================================================================
+TRAINING SUMMARY
+======================================================================
+
+Training:
+  Final loss: 7.271095e-02
+  Minimum loss: 3.270776e-02 at epoch 28840
+  Final σ: 0.500
+
+======================================================================
+✓ Training complete! Results saved to 'results_triple_well/'
+
+Saved files:
+  1. checkpoint.pth - Trained model and training logs
+
+Run plot_triple_well.py to visualize results and compare with FV solution
+======================================================================
+
+======================================================================
+Running plotting script...
+======================================================================
+======================================================================
+Triple-Well Potential Visualization
+======================================================================
+
+Using device: cuda
+Loading trained model...
+
+Running Scharfetter-Gummel finite volume solver...
+  CFL (diffusion): 0.7176
+  CFL (advection): 11.1639
+  Max |drift|: 465.9375
+Traceback (most recent call last):
+  File "/users/andrewho/WANPM_FP/Tripple_Well_T1/train_triple_well.py", line 345, in <module>
+    main()
+  File "/users/andrewho/WANPM_FP/Tripple_Well_T1/train_triple_well.py", line 338, in main
+    plot_triple_well.main()
+  File "/users/andrewho/WANPM_FP/Tripple_Well_T1/plot_triple_well.py", line 1054, in main
+    x_grid_fv, times_fv, rho_history_fv, means_fv, variances_fv = run_finite_volume()
+  File "/users/andrewho/WANPM_FP/Tripple_Well_T1/plot_triple_well.py", line 660, in run_finite_volume
+    rho = rho / np.trapezoid(rho, x_grid)  # Normalize
+  File "/users/andrewho/.conda/envs/torch_gpu/lib/python3.10/site-packages/numpy/__init__.py", line 333, in __getattr__
+    raise AttributeError("module {!r} has no attribute "
+AttributeError: module 'numpy' has no attribute 'trapezoid'
+======================================================================
+Triple-Well Potential Visualization
+======================================================================
+
+Using device: cuda
+Loading trained model...
+
+Running Scharfetter-Gummel finite volume solver...
+  CFL (diffusion): 0.7176
+  CFL (advection): 11.1639
+  Max |drift|: 465.9375
+Traceback (most recent call last):
+  File "/users/andrewho/WANPM_FP/Tripple_Well_T1/plot_triple_well.py", line 1092, in <module>
+    main()
+  File "/users/andrewho/WANPM_FP/Tripple_Well_T1/plot_triple_well.py", line 1054, in main
+    x_grid_fv, times_fv, rho_history_fv, means_fv, variances_fv = run_finite_volume()
+  File "/users/andrewho/WANPM_FP/Tripple_Well_T1/plot_triple_well.py", line 660, in run_finite_volume
+    rho = rho / np.trapezoid(rho, x_grid)  # Normalize
+  File "/users/andrewho/.conda/envs/torch_gpu/lib/python3.10/site-packages/numpy/__init__.py", line 333, in __getattr__
+    raise AttributeError("module {!r} has no attribute "
+AttributeError: module 'numpy' has no attribute 'trapezoid'
