@@ -1,0 +1,167 @@
+Using device: cuda
+======================================================================
+Time-Dependent Ring Potential - CORRECTED VERSION
+======================================================================
+
+Problem Setup:
+  Ring radius: r₀ = 2.0
+  Rotation: ω = 2.0
+  Time horizon: T = 0.5
+  Initial condition: Gaussian at (0.0, 1.2), σ_ic = 0.4
+  Noise level: σ = 1.0
+
+Key fixes applied:
+  1. Network now takes x_0 as input
+  2. EPSILON increased to 0.01
+  3. Deeper network (4 layers, 256 units)
+  4. Better test function initialization (κ ~ 2.0)
+  5. More interior samples (M = 10000)
+
+======================================================================
+Training Neural Network
+======================================================================
+
+Training for 30000 epochs...
+Fixed noise: σ = 1.0
+Network architecture: deeper (4 layers, 256 units each)
+Learning rates: LR_gen=0.0005, LR_test=0.005
+LR decay: factor=0.995, starts at epoch 10000
+Epoch     0 | Loss: 6.493869e-01 | IC error: 1.186374e-05 | LR: 5.000000e-04
+  At t=T: mean=(-0.070,1.336), r=1.401
+  Test κ range: [-4.53, 6.02]
+Epoch  1000 | Loss: 9.846952e-03 | IC error: 1.225920e-04 | LR: 5.000000e-04
+  At t=T: mean=(-1.390,1.110), r=1.970
+  Test κ range: [-7.50, 8.38]
+Epoch  2000 | Loss: 3.899146e-02 | IC error: 1.101295e-04 | LR: 5.000000e-04
+  At t=T: mean=(-1.438,1.064), r=1.971
+  Test κ range: [-8.62, 8.77]
+Epoch  3000 | Loss: 9.030358e-02 | IC error: 1.094400e-04 | LR: 5.000000e-04
+  At t=T: mean=(-1.402,1.055), r=1.989
+  Test κ range: [-9.81, 11.84]
+Epoch  4000 | Loss: 2.247065e-02 | IC error: 1.068478e-04 | LR: 5.000000e-04
+  At t=T: mean=(-1.409,1.131), r=2.002
+  Test κ range: [-10.57, 14.80]
+Epoch  5000 | Loss: 3.573192e-02 | IC error: 1.039196e-04 | LR: 5.000000e-04
+  At t=T: mean=(-1.345,1.198), r=2.020
+  Test κ range: [-11.96, 16.15]
+Epoch  6000 | Loss: 1.735425e-02 | IC error: 9.870567e-05 | LR: 5.000000e-04
+  At t=T: mean=(-1.368,1.105), r=1.997
+  Test κ range: [-13.62, 16.72]
+Epoch  7000 | Loss: 1.914336e-02 | IC error: 9.156422e-05 | LR: 5.000000e-04
+  At t=T: mean=(-1.342,1.067), r=1.979
+  Test κ range: [-16.06, 17.83]
+Epoch  8000 | Loss: 1.345587e-02 | IC error: 9.392847e-05 | LR: 5.000000e-04
+  At t=T: mean=(-1.374,1.106), r=2.014
+  Test κ range: [-20.07, 20.76]
+Epoch  9000 | Loss: 5.933687e-03 | IC error: 8.950588e-05 | LR: 5.000000e-04
+  At t=T: mean=(-1.359,1.069), r=1.993
+  Test κ range: [-22.49, 21.81]
+Epoch 10000 | Loss: 1.084294e-02 | IC error: 7.687687e-05 | LR: 5.000000e-04
+  At t=T: mean=(-1.356,1.099), r=1.982
+  Test κ range: [-24.29, 21.75]
+Epoch 11000 | Loss: 5.058887e-03 | IC error: 7.364552e-05 | LR: 3.326984e-06
+  At t=T: mean=(-1.409,1.052), r=1.982
+  Test κ range: [-24.69, 21.72]
+Epoch 12000 | Loss: 2.490582e-03 | IC error: 7.172290e-05 | LR: 2.213765e-08
+  At t=T: mean=(-1.391,1.063), r=1.986
+  Test κ range: [-24.69, 21.72]
+Epoch 13000 | Loss: 1.765275e-03 | IC error: 7.314940e-05 | LR: 1.473032e-10
+  At t=T: mean=(-1.394,1.022), r=1.980
+  Test κ range: [-24.69, 21.72]
+Epoch 14000 | Loss: 5.944856e-03 | IC error: 7.165909e-05 | LR: 9.801510e-13
+  At t=T: mean=(-1.380,1.051), r=1.984
+  Test κ range: [-24.69, 21.72]
+Epoch 15000 | Loss: 3.231720e-03 | IC error: 7.140999e-05 | LR: 6.521894e-15
+  At t=T: mean=(-1.404,1.040), r=1.989
+  Test κ range: [-24.69, 21.72]
+Epoch 16000 | Loss: 1.431377e-03 | IC error: 7.074477e-05 | LR: 4.339648e-17
+  At t=T: mean=(-1.415,1.028), r=1.988
+  Test κ range: [-24.69, 21.72]
+Epoch 17000 | Loss: 2.415753e-03 | IC error: 7.351839e-05 | LR: 2.887588e-19
+  At t=T: mean=(-1.402,1.055), r=1.993
+  Test κ range: [-24.69, 21.72]
+Epoch 18000 | Loss: 2.572054e-03 | IC error: 7.161412e-05 | LR: 1.921392e-21
+  At t=T: mean=(-1.433,0.995), r=1.994
+  Test κ range: [-24.69, 21.72]
+Epoch 19000 | Loss: 3.917721e-03 | IC error: 7.254515e-05 | LR: 1.278488e-23
+  At t=T: mean=(-1.389,1.078), r=1.991
+  Test κ range: [-24.69, 21.72]
+Epoch 20000 | Loss: 1.985634e-03 | IC error: 7.264459e-05 | LR: 8.507020e-26
+  At t=T: mean=(-1.402,1.036), r=1.989
+  Test κ range: [-24.69, 21.72]
+Epoch 21000 | Loss: 5.654757e-03 | IC error: 7.374901e-05 | LR: 5.660544e-28
+  At t=T: mean=(-1.369,1.078), r=1.990
+  Test κ range: [-24.69, 21.72]
+Epoch 22000 | Loss: 1.646986e-03 | IC error: 7.249707e-05 | LR: 3.766509e-30
+  At t=T: mean=(-1.385,1.041), r=1.981
+  Test κ range: [-24.69, 21.72]
+Epoch 23000 | Loss: 2.216458e-03 | IC error: 7.213197e-05 | LR: 2.506223e-32
+  At t=T: mean=(-1.391,1.053), r=1.993
+  Test κ range: [-24.69, 21.72]
+Epoch 24000 | Loss: 2.630188e-03 | IC error: 7.319365e-05 | LR: 1.667633e-34
+  At t=T: mean=(-1.414,1.042), r=1.994
+  Test κ range: [-24.69, 21.72]
+Epoch 25000 | Loss: 5.472288e-03 | IC error: 7.126440e-05 | LR: 1.109638e-36
+  At t=T: mean=(-1.414,1.019), r=1.992
+  Test κ range: [-24.69, 21.72]
+Epoch 26000 | Loss: 3.329171e-03 | IC error: 7.029850e-05 | LR: 7.383494e-39
+  At t=T: mean=(-1.367,1.065), r=1.978
+  Test κ range: [-24.69, 21.72]
+Epoch 27000 | Loss: 3.857318e-03 | IC error: 7.207676e-05 | LR: 4.912954e-41
+  At t=T: mean=(-1.392,1.026), r=1.986
+  Test κ range: [-24.69, 21.72]
+Epoch 28000 | Loss: 2.025528e-03 | IC error: 7.352878e-05 | LR: 3.269064e-43
+  At t=T: mean=(-1.377,1.075), r=1.991
+  Test κ range: [-24.69, 21.72]
+Epoch 29000 | Loss: 2.819021e-03 | IC error: 7.310770e-05 | LR: 2.175225e-45
+  At t=T: mean=(-1.400,1.066), r=1.986
+  Test κ range: [-24.69, 21.72]
+Epoch 29999 | Loss: 5.598242e-03 | IC error: 7.265693e-05 | LR: 1.454661e-47
+  At t=T: mean=(-1.382,1.065), r=1.987
+  Test κ range: [-24.69, 21.72]
+
+======================================================================
+Generating Samples at Time Points
+======================================================================
+
+======================================================================
+Plotting Time Evolution
+======================================================================
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed y limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed y limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed y limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed y limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed y limits to fulfill fixed data aspect with adjustable data limits.
+Ignoring fixed y limits to fulfill fixed data aspect with adjustable data limits.
+Saved: results_ring2d_time_fixed/time_evolution_scatter.png
+
+======================================================================
+Plotting Training Diagnostics
+======================================================================
+Saved: results_ring2d_time_fixed/training_diagnostics.png
+
+======================================================================
+Saving Results
+======================================================================
+
+======================================================================
+SUMMARY
+======================================================================
+Final loss: 5.598242e-03
+Minimum loss: 7.874534e-04 at epoch 25780
+Final IC error: 7.265693e-05
+
+At t=0.5:
+  Mean position: (-1.378, 1.049)
+  Mean radius: 1.983 ± 0.187
+  Target radius: 2.0
+
+======================================================================
+✓ Complete! Results saved to 'results_ring2d_time_fixed/'
+======================================================================
